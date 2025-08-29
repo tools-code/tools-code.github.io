@@ -298,6 +298,12 @@ body {
     background: #dcfce7;
     border: 1px solid #86efac;
     color: #15803d;
+}
+
+/* 文章卡片操作区样式 */
+.actions {
+    margin-top: 16px;
+}
     display: none;
     transition: all 0.3s ease;
 }
