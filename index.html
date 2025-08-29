@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JSON解析器在线 - 免费JSON格式化与验证工具</title>
+    <meta name="description" content="无需安装，在线JSON格式化、验证、解析工具，支持语法高亮、错误提示、复制、清空等功能。">
+    <meta name="keywords" content="JSON解析器,JSON格式化,JSON验证,在线JSON工具">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/jsoneditor@9.9.2/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/jsoneditor@9.9.2/dist/jsoneditor.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3530207113372131"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- 顶部菜单栏 -->
+    <div class="topbar">
+        <a href="index.html" class="active">首页</a>
+        <a href="docs.html">文章页</a>
+    </div>
+
+    <div class="shell">
+        <h1 class="page-title">JSON解析器在线</h1>
+        <div class="subtitle">免费、高效的JSON格式化与验证工具</div>
+        
+        <div class="nav">
+            <div class="brand">
+                <span class="dot"></span>
+                <span>JSON 解析器</span>
+            </div>
+            <div class="controls">
+                <button class="btn secondary" onclick="loadSample()">示例</button>
+                <button class="btn secondary" onclick="formatJSON()">格式化</button>
+                <button class="btn secondary" onclick="minifyJSON()">压缩</button>
+                <button class="btn secondary" onclick="validateJSON()">验证</button>
+                <button class="btn secondary" onclick="clearText()">清空</button>
+                <button class="btn" onclick="copyJSON()">复制</button>
+            </div>
+        </div>
+
+        <div id="alert" class="alert"></div>
+
+        <div class="card json-editor-card">
+            <div class="editor-header">
+                <div class="editor-tabs">
+                    <span class="tab active" onclick="switchMode('tree')">树视图</span>
+                    <span class="tab" onclick="switchMode('code')">代码视图</span>
+                    <span class="tab" onclick="switchMode('text')">文本视图</span>
+                    <span class="tab" onclick="switchMode('preview')">预览</span>
+                </div>
+                <div class="editor-stats" id="jsonStats">字符数: 0 | 行数: 0</div>
+            </div>
+            
+            <div id="jsonEditor" style="width: 100%; height: 500px;"></div>
+        </div>
+
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <div class="feature-title">语法高亮</div>
+                <div class="feature-desc">智能识别JSON语法，提供清晰的代码高亮显示，提升阅读体验</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <div class="feature-title">格式化与压缩</div>
+                <div class="feature-desc">一键格式化JSON，使其易于阅读；或压缩JSON，减少数据体积</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <div class="feature-title">实时验证</div>
+                <div class="feature-desc">实时检测JSON语法错误，提供准确的错误提示和位置信息</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <div class="feature-title">视图切换</div>
+                <div class="feature-desc">支持编辑器和查看器两种模式，满足不同的使用需求</div>
+            </div>
+        </div>
+
+        <div class="remark">
+            <h3>什么是JSON？</h3>
+            <p>
+                <strong>JSON（JavaScript Object Notation）</strong> 是一种轻量级的数据交换格式，易于人阅读和编写，同时也易于机器解析和生成。它基于 JavaScript 编程语言的一个子集，但采用完全独立于语言的文本格式。
+            </p>
+
+            <h3>为什么使用JSON？</h3>
+            <p>
+                JSON已成为Web应用程序中最常用的数据交换格式，被广泛应用于API交互、配置文件、数据存储等场景。它比XML更简洁，解析速度更快，并且被几乎所有主流编程语言支持。
+            </p>
+        </div>
+
+        <div class="wise_saying">
+            <b>工欲善其事，必先利其器。——《论语·卫灵公》</b>
+        </div>
+
+        <div class="footer">
+            <!-- 友链直接硬编码在这里 -->
+            <div class="friend-links">
+                <h3>友情链接</h3>
+                <div class="links-container">
+                    <a href="./website/sitemap.xml" target="_blank" rel="noopener">站点地图</a>
+                    <a href="https://m3u8play502.github.io" target="_blank" rel="noopener">M3U8在线播放</a>
+                    <a href="https://www.csdn.net/" target="_blank" rel="noopener">CSDN</a>
+                    <a href="https://www.cnblogs.com/" target="_blank" rel="noopener">博客园</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化示例JSON数据
+        const initialSample = {
+            "name": "JSON解析器",
+            "version": "1.0.0",
+            "description": "在线JSON格式化与验证工具",
+            "features": [
+                "语法高亮",
+                "错误提示",
+                "JSON格式化",
+                "JSON压缩",
+                "一键复制"
+            ],
+            "author": {
+                "name": "开发者",
+                "email": "example@example.com"
+            },
+            "isActive": true,
+            "count": 0
+        };
+
+        // 页面元素
+        const alert = document.getElementById('alert');
+        const jsonStats = document.getElementById('jsonStats');
+        let jsonEditor = null;
+
+        // 显示提示信息
+        function showAlert(text, isError = false) {
+            alert.textContent = text;
+            alert.style.display = text ? 'block' : 'none';
+            alert.style.color = isError ? '#ef4444' : '#0f766e';
+            
+            // 添加动画效果
+            alert.style.animation = 'none';
+            alert.offsetHeight; // 触发重排
+            alert.style.animation = isError ? 'shake 0.5s' : 'fadeIn 0.5s';
+        }
+
+        // 初始化JSON编辑器
+        function initJsonEditor() {
+            const container = document.getElementById('jsonEditor');
+            const options = {
+                mode: 'tree',
+                modes: ['tree', 'code', 'text', 'preview'],
+                search: true,
+                history: true,
+                mainMenuBar: false,
+                navigationBar: false,
+                statusBar: false,
+                onValidate: function (json) {
+                    try {
+                        JSON.parse(JSON.stringify(json));
+                        return { valid: true };
+                    } catch (error) {
+                        return { valid: false, errors: [error] };
+                    }
+                },
+                onError: function (error) {
+                    showAlert(`编辑器错误: ${error}`, true);
+                }
+            };
+
+            // 创建编辑器
+            jsonEditor = new JSONEditor(container, options);
+            
+            // 设置初始数据
+            jsonEditor.set(initialSample);
+            
+            // 监听变化更新统计
+            jsonEditor.on('change', updateStats);
+            
+            // 初始更新统计
+            updateStats();
+        }
+
+        // 切换编辑模式
+        function switchMode(mode) {
+            try {
+                const tabs = document.querySelectorAll('.tab');
+                tabs.forEach(tab => tab.classList.remove('active'));
+                
+                const tabIndex = {
+                    'tree': 0,
+                    'code': 1,
+                    'text': 2,
+                    'preview': 3
+                }[mode];
+                
+                if (tabIndex !== undefined) {
+                    tabs[tabIndex].classList.add('active');
+                    jsonEditor.setMode(mode);
+                    showAlert(`已切换到${{
+                        'tree': '树视图',
+                        'code': '代码视图',
+                        'text': '文本视图',
+                        'preview': '预览模式'
+                    }[mode]}`);
+                }
+            } catch (error) {
+                showAlert(`切换模式失败: ${error.message}`, true);
+            }
+        }
+
+        // 加载示例数据
+        function loadSample() {
+            try {
+                jsonEditor.set(initialSample);
+                updateStats();
+                showAlert('已加载示例JSON数据');
+            } catch (error) {
+                showAlert(`加载示例失败: ${error.message}`, true);
+            }
+        }
+
+        // 格式化JSON
+        function formatJSON() {
+            try {
+                const currentMode = jsonEditor.getMode();
+                const json = jsonEditor.get();
+                
+                // 转换为格式化的JSON字符串
+                const formattedJson = JSON.stringify(json, null, 2);
+                
+                // 设置回编辑器
+                jsonEditor.setText(formattedJson);
+                
+                // 如果不是代码或文本模式，切换到代码模式查看效果
+                if (currentMode !== 'code' && currentMode !== 'text') {
+                    switchMode('code');
+                }
+                
+                showAlert('JSON格式化成功');
+            } catch (error) {
+                showAlert(`格式化失败: ${error.message}`, true);
+            }
+        }
+
+        // 压缩JSON
+        function minifyJSON() {
+            try {
+                const json = jsonEditor.get();
+                const minifiedJson = JSON.stringify(json);
+                jsonEditor.setText(minifiedJson);
+                showAlert('JSON压缩成功');
+            } catch (error) {
+                showAlert(`压缩失败: ${error.message}`, true);
+            }
+        }
+
+        // 验证JSON
+        function validateJSON() {
+            try {
+                const json = jsonEditor.get();
+                // 使用JSON.stringify和JSON.parse来验证
+                const jsonStr = JSON.stringify(json);
+                JSON.parse(jsonStr);
+                showAlert('JSON格式有效');
+            } catch (error) {
+                showAlert(`JSON格式无效: ${error.message}`, true);
+            }
+        }
+
+        // 清空文本
+        function clearText() {
+            try {
+                jsonEditor.set({});
+                updateStats();
+                showAlert('');
+            } catch (error) {
+                showAlert(`清空失败: ${error.message}`, true);
+            }
+        }
+
+        // 复制JSON
+        function copyJSON() {
+            try {
+                const json = jsonEditor.get();
+                const jsonStr = JSON.stringify(json, null, 2);
+                
+                navigator.clipboard.writeText(jsonStr).then(function() {
+                    showAlert('已复制到剪贴板');
+                }).catch(function(err) {
+                    showAlert(`复制失败: ${err.message}`, true);
+                });
+            } catch (error) {
+                showAlert(`复制失败: ${error.message}`, true);
+            }
+        }
+
+        // 更新统计信息
+        function updateStats() {
+            try {
+                const json = jsonEditor.get();
+                const jsonStr = JSON.stringify(json);
+                const charCount = jsonStr.length;
+                const lineCount = jsonStr.split('\n').length;
+                jsonStats.textContent = `字符数: ${charCount} | 行数: ${lineCount}`;
+            } catch (error) {
+                // 出错时不更新统计
+            }
+        }
+
+        // 页面加载时初始化
+        window.addEventListener('DOMContentLoaded', function () {
+            initJsonEditor();
+        });
+    </script>
+</body>
+
+</html>
