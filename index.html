@@ -31,29 +31,32 @@
                 <span>JSON 解析器</span>
             </div>
             <div class="controls">
-                <button class="btn secondary" onclick="loadSample()">示例</button>
-                <button class="btn secondary" onclick="formatJSON()">格式化</button>
-                <button class="btn secondary" onclick="minifyJSON()">压缩</button>
-                <button class="btn secondary" onclick="validateJSON()">验证</button>
-                <button class="btn secondary" onclick="clearText()">清空</button>
-                <button class="btn" onclick="copyJSON()">复制</button>
-            </div>
+                    <button class="btn info" onclick="loadSample()">示例</button>
+                    <button class="btn success" onclick="formatJSON()">格式化</button>
+                    <button class="btn warning" onclick="minifyJSON()">压缩</button>
+                    <button class="btn secondary" onclick="validateJSON()">验证</button>
+                    <button class="btn danger" onclick="clearText()">清空</button>
+                </div>
         </div>
 
         <div id="alert" class="alert"></div>
 
         <div class="card json-editor-card">
             <div class="editor-header">
-                <div class="editor-tabs">
-                    <span class="tab active" onclick="switchMode('tree')">树视图</span>
-                    <span class="tab" onclick="switchMode('code')">代码视图</span>
-                    <span class="tab" onclick="switchMode('text')">文本视图</span>
-                    <span class="tab" onclick="switchMode('preview')">预览</span>
-                </div>
                 <div class="editor-stats" id="jsonStats">字符数: 0 | 行数: 0</div>
             </div>
             
-            <div id="jsonEditor" style="width: 100%; height: 500px;"></div>
+            <div class="editor-container">
+                <div class="editor-panel left-panel">
+                    <div class="panel-title">代码视图</div>
+                    <div id="codeEditor" style="width: 100%; height: 450px;"></div>
+                </div>
+                <div class="editor-divider"></div>
+                <div class="editor-panel right-panel">
+                    <div class="panel-title">树视图</div>
+                    <div id="treeEditor" style="width: 100%; height: 450px;"></div>
+                </div>
+            </div>
         </div>
 
         <div class="features-container">
@@ -74,8 +77,8 @@
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🔄</div>
-                <div class="feature-title">视图切换</div>
-                <div class="feature-desc">支持编辑器和查看器两种模式，满足不同的使用需求</div>
+                <div class="feature-title">视图转换</div>
+                <div class="feature-desc">代码视图接收输入，格式化结果在树视图显示，压缩功能优化代码视图</div>
             </div>
         </div>
 
@@ -133,7 +136,8 @@
         // 页面元素
         const alert = document.getElementById('alert');
         const jsonStats = document.getElementById('jsonStats');
-        let jsonEditor = null;
+        let codeEditor = null;
+        let treeEditor = null;
 
         // 显示提示信息
         function showAlert(text, isError = false) {
@@ -147,75 +151,144 @@
             alert.style.animation = isError ? 'shake 0.5s' : 'fadeIn 0.5s';
         }
 
-        // 初始化JSON编辑器
-        function initJsonEditor() {
-            const container = document.getElementById('jsonEditor');
-            const options = {
-                mode: 'tree',
-                modes: ['tree', 'code', 'text', 'preview'],
-                search: true,
-                history: true,
-                mainMenuBar: false,
-                navigationBar: false,
-                statusBar: false,
-                onValidate: function (json) {
-                    try {
-                        JSON.parse(JSON.stringify(json));
-                        return { valid: true };
-                    } catch (error) {
-                        return { valid: false, errors: [error] };
-                    }
-                },
-                onError: function (error) {
-                    showAlert(`编辑器错误: ${error}`, true);
-                }
-            };
-
-            // 创建编辑器
-            jsonEditor = new JSONEditor(container, options);
-            
-            // 设置初始数据
-            jsonEditor.set(initialSample);
-            
-            // 监听变化更新统计
-            jsonEditor.on('change', updateStats);
-            
-            // 初始更新统计
-            updateStats();
-        }
-
-        // 切换编辑模式
-        function switchMode(mode) {
+        // 初始化代码编辑器
+        function initCodeEditor() {
             try {
-                const tabs = document.querySelectorAll('.tab');
-                tabs.forEach(tab => tab.classList.remove('active'));
+                const container = document.getElementById('codeEditor');
+                if (!container) {
+                    showAlert('代码编辑器容器未找到', true);
+                    return;
+                }
                 
-                const tabIndex = {
-                    'tree': 0,
-                    'code': 1,
-                    'text': 2,
-                    'preview': 3
-                }[mode];
+                const options = {
+                    mode: 'code',
+                    modes: ['code'],
+                    search: true,
+                    history: true,
+                    mainMenuBar: false,
+                    navigationBar: false,
+                    statusBar: false,
+                    onValidate: function (json) {
+                        try {
+                            JSON.parse(JSON.stringify(json));
+                            return { valid: true };
+                        } catch (error) {
+                            return { valid: false, errors: [error] };
+                        }
+                    },
+                    onError: function (error) {
+                        showAlert(`代码编辑器错误: ${error}`, true);
+                    }
+                };
+
+                // 创建编辑器
+                codeEditor = new JSONEditor(container, options);
                 
-                if (tabIndex !== undefined) {
-                    tabs[tabIndex].classList.add('active');
-                    jsonEditor.setMode(mode);
-                    showAlert(`已切换到${{
-                        'tree': '树视图',
-                        'code': '代码视图',
-                        'text': '文本视图',
-                        'preview': '预览模式'
-                    }[mode]}`);
+                // 设置初始数据
+                codeEditor.set(initialSample);
+                
+                // 监听变化更新统计 - 方法1: 事件监听
+                try {
+                    // 尝试使用on方法
+                    if (typeof codeEditor.on === 'function') {
+                        codeEditor.on('change', function() {
+                            try {
+                                updateStats();
+                            } catch (error) {
+                                // 更新失败时不显示错误
+                            }
+                        });
+                    } 
+                    // 尝试使用其他可能的事件监听方法（根据不同版本的API）
+                    else if (typeof codeEditor.addEventListener === 'function') {
+                        codeEditor.addEventListener('change', function() {
+                            try {
+                                updateStats();
+                            } catch (error) {
+                                // 更新失败时不显示错误
+                            }
+                        });
+                    } else {
+                        console.warn('未找到适合的事件监听方法');
+                    }
+                } catch (error) {
+                    console.error('设置事件监听失败:', error);
+                }
+                
+                // 方法2: 添加定时器定期更新（确保实时更新）
+                try {
+                    // 每500毫秒更新一次统计信息
+                    setInterval(function() {
+                        try {
+                            if (codeEditor) {
+                                updateStats();
+                            }
+                        } catch (error) {
+                            // 更新失败时不显示错误
+                        }
+                    }, 500);
+                } catch (error) {
+                    console.error('设置定期更新失败:', error);
                 }
             } catch (error) {
-                showAlert(`切换模式失败: ${error.message}`, true);
+                showAlert(`代码编辑器初始化失败: ${error.message}`, true);
+                console.error('代码编辑器初始化错误:', error);
             }
         }
 
-        // 加载示例数据
+        // 初始化树编辑器（只读模式）
+        function initTreeEditor() {
+            try {
+                const container = document.getElementById('treeEditor');
+                if (!container) {
+                    showAlert('树编辑器容器未找到', true);
+                    return;
+                }
+                
+                const options = {
+                    mode: 'tree',
+                    modes: ['tree'],
+                    search: true,
+                    history: false, // 禁用历史记录
+                    mainMenuBar: false,
+                    navigationBar: false,
+                    statusBar: false,
+                    onValidate: function (json) {
+                        try {
+                            JSON.parse(JSON.stringify(json));
+                            return { valid: true };
+                        } catch (error) {
+                            return { valid: false, errors: [error] };
+                        }
+                    },
+                    onError: function (error) {
+                        showAlert(`树编辑器错误: ${error}`, true);
+                    }
+                };
+
+                // 创建编辑器
+                treeEditor = new JSONEditor(container, options);
+                
+                // 设置初始数据
+                treeEditor.set(initialSample);
+                
+                // 树视图不监听变化，仅用于显示
+            } catch (error) {
+                showAlert(`树编辑器初始化失败: ${error.message}`, true);
+                console.error('树编辑器初始化错误:', error);
+            }
+        }
+
+        // 加载示例数据（只设置代码视图）
         function loadSample() {
             try {
-                jsonEditor.set(initialSample);
+                // 检查编辑器是否初始化
+                if (!codeEditor) {
+                    showAlert('代码编辑器未初始化', true);
+                    return;
+                }
+                
+                codeEditor.set(initialSample);
                 updateStats();
                 showAlert('已加载示例JSON数据');
             } catch (error) {
@@ -223,45 +296,91 @@
             }
         }
 
-        // 格式化JSON
+        // 格式化JSON（将代码视图的JSON数据格式化后在树视图显示，同时美化代码视图）
         function formatJSON() {
             try {
-                const currentMode = jsonEditor.getMode();
-                const json = jsonEditor.get();
-                
-                // 转换为格式化的JSON字符串
-                const formattedJson = JSON.stringify(json, null, 2);
-                
-                // 设置回编辑器
-                jsonEditor.setText(formattedJson);
-                
-                // 如果不是代码或文本模式，切换到代码模式查看效果
-                if (currentMode !== 'code' && currentMode !== 'text') {
-                    switchMode('code');
+                // 检查编辑器是否初始化
+                if (!codeEditor) {
+                    showAlert('代码编辑器未初始化', true);
+                    return;
+                }
+                if (!treeEditor) {
+                    showAlert('树编辑器未初始化', true);
+                    return;
                 }
                 
-                showAlert('JSON格式化成功');
+                // 从代码编辑器获取原始JSON数据
+                const json = codeEditor.get();
+                // 将代码视图的数据在树视图中格式化显示
+                treeEditor.set(json);
+                // 同时美化代码视图
+                beautifyCodeView();
             } catch (error) {
                 showAlert(`格式化失败: ${error.message}`, true);
+                // 格式化失败时清空树视图
+                if (treeEditor) {
+                    try {
+                        treeEditor.set({});
+                    } catch (clearError) {
+                        console.error('清空树视图失败:', clearError);
+                    }
+                }
             }
         }
 
-        // 压缩JSON
+        // 压缩JSON（应用于代码视图）
         function minifyJSON() {
             try {
-                const json = jsonEditor.get();
+                // 检查编辑器是否初始化
+                if (!codeEditor) {
+                    showAlert('代码编辑器未初始化', true);
+                    return;
+                }
+                
+                // 从代码编辑器获取数据
+                const json = codeEditor.get();
+                // 转换为压缩的JSON字符串并应用于代码视图
                 const minifiedJson = JSON.stringify(json);
-                jsonEditor.setText(minifiedJson);
-                showAlert('JSON压缩成功');
+                codeEditor.setText(minifiedJson);
+                updateStats(); // 更新统计信息
+                showAlert('代码视图已压缩');
             } catch (error) {
                 showAlert(`压缩失败: ${error.message}`, true);
             }
         }
 
+        // 美化代码视图
+        function beautifyCodeView() {
+            try {
+                // 检查编辑器是否初始化
+                if (!codeEditor) {
+                    showAlert('代码编辑器未初始化', true);
+                    return;
+                }
+                
+                // 从代码编辑器获取数据
+                const json = codeEditor.get();
+                // 转换为格式化的JSON字符串并应用于代码视图
+                const beautifiedJson = JSON.stringify(json, null, 2);
+                codeEditor.setText(beautifiedJson);
+                updateStats(); // 更新统计信息
+                showAlert('代码视图已美化');
+            } catch (error) {
+                showAlert(`美化失败: ${error.message}`, true);
+            }
+        }
+        
         // 验证JSON
         function validateJSON() {
             try {
-                const json = jsonEditor.get();
+                // 检查编辑器是否初始化
+                if (!codeEditor) {
+                    showAlert('代码编辑器未初始化', true);
+                    return;
+                }
+                
+                // 从代码编辑器获取数据
+                const json = codeEditor.get();
                 // 使用JSON.stringify和JSON.parse来验证
                 const jsonStr = JSON.stringify(json);
                 JSON.parse(jsonStr);
@@ -271,11 +390,27 @@
             }
         }
 
-        // 清空文本
+        // 清空文本（同时清空代码视图和树视图）
         function clearText() {
             try {
-                jsonEditor.set({});
+                // 检查编辑器是否初始化
+                if (!codeEditor) {
+                    showAlert('代码编辑器未初始化', true);
+                    return;
+                }
+                
+                codeEditor.set({});
                 updateStats();
+                
+                // 同时清空树视图
+                if (treeEditor) {
+                    try {
+                        treeEditor.set({});
+                    } catch (treeClearError) {
+                        console.error('清空树视图失败:', treeClearError);
+                    }
+                }
+                
                 showAlert('');
             } catch (error) {
                 showAlert(`清空失败: ${error.message}`, true);
@@ -285,7 +420,14 @@
         // 复制JSON
         function copyJSON() {
             try {
-                const json = jsonEditor.get();
+                // 检查编辑器是否初始化
+                if (!codeEditor) {
+                    showAlert('代码编辑器未初始化', true);
+                    return;
+                }
+                
+                // 从代码编辑器获取数据
+                const json = codeEditor.get();
                 const jsonStr = JSON.stringify(json, null, 2);
                 
                 navigator.clipboard.writeText(jsonStr).then(function() {
@@ -301,7 +443,13 @@
         // 更新统计信息
         function updateStats() {
             try {
-                const json = jsonEditor.get();
+                // 检查编辑器是否初始化
+                if (!codeEditor) {
+                    return;
+                }
+                
+                // 从代码编辑器获取数据
+                const json = codeEditor.get();
                 const jsonStr = JSON.stringify(json);
                 const charCount = jsonStr.length;
                 const lineCount = jsonStr.split('\n').length;
@@ -313,7 +461,9 @@
 
         // 页面加载时初始化
         window.addEventListener('DOMContentLoaded', function () {
-            initJsonEditor();
+            initCodeEditor();
+            initTreeEditor();
+            updateStats();
         });
     </script>
 </body>
