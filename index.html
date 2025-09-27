@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Code - 在线工具集</title>
+    <meta name="description" content="提供多种在线工具，包括JSON格式化、M3U8在线播放、编程学习资源等，简单易用，无需下载。">
+    <meta name="keywords" content="在线工具,JSON格式化,M3U8播放器,开发工具,编程资源">
+    
+    <!-- 引入外部资源 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- 首页专用样式 -->
+    <style>
+        /* 搜索框样式 */
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .search-input {
+            position: relative;
+            display: flex;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .search-input input {
+            width: 100%;
+            padding: 16px 60px 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: 30px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input input:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+        }
+        
+        .search-input button {
+            position: absolute;
+            right: 10px;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        
+        /* 热门工具样式 */
+        .hot-tools {
+            margin: 40px 0;
+        }
+        
+        .hot-tools h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .tool-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .tool-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border-color: var(--brand);
+        }
+        
+        .tool-item i {
+            font-size: 32px;
+            color: var(--brand);
+            margin-bottom: 12px;
+        }
+        
+        .tool-item span {
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+        }
+        
+        /* 资源区域样式 */
+        .resources-section {
+            margin: 60px 0;
+        }
+        
+        .resources-section h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        
+        .resources-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .resource-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .resource-card h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .resource-card h3 i {
+            color: var(--brand);
+        }
+        
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            background: white;
+            border-color: var(--brand);
+            color: var(--brand);
+            transform: translateY(-1px);
+        }
+        
+        .resource-link i {
+            font-size: 16px;
+        }
+        
+        /* 时间显示样式 */
+        .time-display {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--muted);
+            font-size: 50px;
+        }
+        
+        /* 快速搜索样式 */
+        .quick-search {
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+        
+        .hot-keyword {
+            display: inline-block;
+            margin: 0 8px;
+            color: var(--text);
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .hot-keyword:hover {
+            color: var(--brand);
+            text-decoration: underline;
+        }
+
+        .fa-json:before {
+            content: "JSON";
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .search-container {
+                padding: 20px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 12px;
+            }
+            
+            .tool-item {
+                padding: 16px;
+            }
+            
+            .tool-item i {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部菜单栏 - 参照jyshare.com样式 -->
+    <div class="topbar">
+        <div class="nav">
+            <div class="navbar-brand">
+                <a href="/">
+                    <i class="fas fa-code"></i>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/docs.html">文章页</a>
+                <a href="/html/jsonformat.html">JSON格式化</a>
+                <a href="/html/m3u8player.html" target="_blank" rel="noopener">M3U8在线播放</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="shell">
+        
+        <!-- 搜索区域 -->
+        <div class="search-container">
+            <div class="time-display" id="currentTime"></div>
+            
+            <div class="search-input" style="display: none;">
+                <input type="text" placeholder="搜索工具、资源或教程..." id="searchInput">
+                <button class="btn primary" onclick="performSearch()">搜索</button>
+            </div>
+            
+            <div class="quick-search" style="display: none;">
+                <span>热门搜索：</span>
+                <a href="javascript:search('JSON格式化')" class="hot-keyword">JSON格式化</a>
+                <a href="javascript:search('M3U8播放')" class="hot-keyword">M3U8播放</a>
+                <a href="javascript:search('正则表达式')" class="hot-keyword">正则表达式</a>
+                <a href="javascript:search('时间戳转换')" class="hot-keyword">时间戳转换</a>
+            </div>
+        </div>
+        
+        <!-- 热门工具区域 -->
+        <div class="hot-tools">
+            <h2>热门工具</h2>
+            <div class="tools-grid">
+                <a href="/html/jsonformat.html" class="tool-item">
+                    <i class="fas fa-json"></i>
+                    <span>JSON格式化</span>
+                </a>
+                <a href="/html/m3u8player.html" class="tool-item">
+                    <i class="fas fa-play-circle"></i>
+                    <span>M3U8播放</span>
+                </a>
+                <div class="tool-item">
+                    <i class="fas fa-search"></i>
+                    <span>正则表达式</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-clock"></i>
+                    <span>时间戳转换</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-random"></i>
+                    <span>随机数生成</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>颜色转换</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-calculator"></i>
+                    <span>进制转换</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-file-code"></i>
+                    <span>代码压缩</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 搜索资源区域 -->
+        <div class="resources-section">
+            <h2>搜索资源</h2>
+            <div class="resources-container">
+                <div class="resource-card">
+                    <h3><i class="fas fa-search"></i> 搜索引擎</h3>
+                    <div class="resource-links">
+                        <a href="https://www.google.com" target="_blank" rel="noopener" class="resource-link">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </a>
+                        <a href="https://www.baidu.com" target="_blank" rel="noopener" class="resource-link">
+                            <i class="fas fa-search"></i>
+                            <span>Baidu</span>
+                        </a>
+                        <a href="https://www.bing.com" target="_blank" rel="noopener" class="resource-link">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Bing</span>
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener" class="resource-link">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://stackoverflow.com" target="_blank" rel="noopener" class="resource-link">
+                            <i class="fab fa-stack-overflow"></i>
+                            <span>Stack Overflow</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- AI应用区域 -->
+                <div class="resource-card">
+                    <h3><i class="fas fa-robot"></i> AI 应用</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <i class="fas fa-robot"></i>
+                            <span>豆包</span>
+                        </div>
+                        <div class="resource-link">
+                            <i class="fas fa-robot"></i>
+                            <span>通义千问</span>
+                        </div>
+                        <div class="resource-link">
+                            <i class="fas fa-robot"></i>
+                            <span>文心一言</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 开发工具区域 -->
+                <div class="resource-card">
+                    <h3><i class="fas fa-laptop-code"></i> 开发工具</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="resource-link">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="resource-link">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="resource-link">
+                            <i class="fab fa-cuttlefish"></i>
+                            <span>C/C++</span>
+                        </div>
+                        <div class="resource-link">
+                            <i class="fas fa-database"></i>
+                            <span>数据库</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <h3>Tools Code</h3>
+                        <p>提供多种在线工具，帮助开发者和用户更高效地完成工作。所有工具免费使用，无需下载安装。</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>快速链接</h4>
+                        <a href="/docs.html" style="display:block; margin-bottom:8px;">文章页</a>
+                        <a href="/html/jsonformat.html" style="display:block; margin-bottom:8px;">JSON格式化</a>
+                        <a href="/html/m3u8player.html" style="display:block; margin-bottom:8px;">M3U8在线播放</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>友情链接</h4>
+                        <a href="/website/sitemap.xml" target="_blank" rel="noopener" style="display:block; margin-bottom:8px;">站点地图</a>
+                        <a href="https://www.csdn.net/" target="_blank" rel="noopener" style="display:block; margin-bottom:8px;">CSDN</a>
+                        <a href="https://www.cnblogs.com/" target="_blank" rel="noopener" style="display:block; margin-bottom:8px;">博客园</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 显示当前时间
+        function updateTime() {
+            const now = new Date();
+            const days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const date = now.getDate().toString().padStart(2, '0');
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const day = days[now.getDay()];
+            
+            document.getElementById('currentTime').textContent = `${year}-${month}-${date} ${hours}:${minutes}:${seconds} ${day}`;
+        }
+        
+        // 初始更新时间并设置定时器
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        // 搜索功能
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.trim();
+            if (searchTerm) {
+                // 实际应用中可以根据搜索词跳转到相应的工具或页面
+                alert(`搜索: ${searchTerm}`);
+            }
+        }
+        
+        // 热门搜索词点击
+        function search(keyword) {
+            document.getElementById('searchInput').value = keyword;
+            performSearch();
+        }
+        
+        // 回车键搜索
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+    </script>
+</body>
+
+</html>
