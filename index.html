@@ -248,6 +248,8 @@
                     mainMenuBar: false,
                     navigationBar: false,
                     statusBar: false,
+                    // 设置树视图默认展开所有节点
+                    expandAll: true,
                     onValidate: function (json) {
                         try {
                             JSON.parse(JSON.stringify(json));
@@ -266,6 +268,9 @@
                 
                 // 设置初始数据
                 treeEditor.set(initialSample);
+                
+                // 展开树视图所有节点
+                expandTreeView();
                 
                 // 树视图不监听变化，仅用于显示
             } catch (error) {
@@ -291,6 +296,40 @@
             }
         }
 
+        // 展开树视图的所有节点
+        function expandTreeView() {
+            try {
+                if (!treeEditor) {
+                    return;
+                }
+                
+                // 尝试不同的API来展开所有节点
+                if (treeEditor.expandAll) {
+                    treeEditor.expandAll();
+                } else if (treeEditor.expand) {
+                    // 尝试另一种可能的API
+                    treeEditor.expand({ path: [], recursive: true });
+                } else if (treeEditor.getMode() === 'tree') {
+                    // 对于某些版本，可能需要通过DOM操作来展开
+                    try {
+                        const container = treeEditor.getContainer();
+                        const toggleButtons = container.querySelectorAll('.jsoneditor-tree button.jsoneditor-toggle');
+                        toggleButtons.forEach(button => {
+                            if (button.getAttribute('title') === '折叠' || button.getAttribute('title') === 'Collapse') {
+                                // 已经是展开状态，不需要点击
+                            } else {
+                                button.click(); // 点击展开按钮
+                            }
+                        });
+                    } catch (domError) {
+                        console.warn('DOM方式展开节点失败:', domError);
+                    }
+                }
+            } catch (expandError) {
+                console.warn('展开树视图节点失败:', expandError);
+            }
+        }
+
         // 格式化JSON（将代码视图的JSON数据格式化后在树视图显示，同时美化代码视图）
         function formatJSON() {
             try {
@@ -310,6 +349,8 @@
                 treeEditor.set(json);
                 // 同时美化代码视图
                 beautifyCodeView();
+                // 展开树视图所有节点
+                expandTreeView();
             } catch (error) {
                 showAlert(`格式化失败: ${error.message}`, true);
                 // 格式化失败时清空树视图
