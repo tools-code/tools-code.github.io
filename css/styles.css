@@ -180,18 +180,10 @@ body {
     box-shadow: 0 0 0 6px rgba(0, 184, 148, .12)
 }
 
-/* 表单控件样式 */
-.controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
 /* 编辑器头部的按钮样式 */
 .editor-header .controls {
     width: auto;
     justify-content: flex-end;
-    margin: 0;
 }
 
 .input {
@@ -554,7 +546,7 @@ body {
 /* 编辑器头部样式 */
 .editor-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 10px 16px;
     background: #f8f9fa;
@@ -569,6 +561,7 @@ body {
 .controls {
     display: flex;
     gap: 8px;
+    margin-left: 10px;
 }
 
 /* 编辑器标签样式 */
