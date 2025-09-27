@@ -1871,19 +1871,6 @@ main {
     }
 }
 
-.fa-code {
-    color: #00b894;
-    font-size: 20px;
-}
-
 .fa-code:before {
     content: "TOOLS";
-}
-
-.fa-classic, .fa-regular, .fa-solid, .far, .fas {
-    font-family: "Font Awesome 6 Free";
-}
-
-.fa-solid, .fas {
-    font-weight: 900;
 }
