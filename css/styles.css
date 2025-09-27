@@ -99,10 +99,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    width: 100%;
-    justify-content: center;
-    max-width: 900px;
-    margin: 0 auto;
+}
+
+/* 编辑器头部的按钮样式 */
+.editor-header .controls {
+    width: auto;
+    justify-content: flex-end;
+    margin: 0;
 }
 
 .input {
@@ -298,12 +301,12 @@ body {
     background: #dcfce7;
     border: 1px solid #86efac;
     color: #15803d;
+    opacity: 0;
 }
 
 /* 文章卡片操作区样式 */
 .actions {
     margin-top: 16px;
-}
     display: none;
     transition: all 0.3s ease;
 }

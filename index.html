@@ -23,26 +23,18 @@
     <div class="shell">
         <h1 class="page-title">JSON解析器在线</h1>
         <div class="subtitle">免费、高效的JSON格式化与验证工具</div>
-        
-        <div class="nav">
-            <div class="brand">
-                <span class="dot"></span>
-                <span>JSON 解析器</span>
-            </div>
-            <div class="controls">
+        <div id="alert" class="alert"></div>
+
+        <div class="card json-editor-card">
+            <div class="editor-header">
+                <div class="editor-stats" id="jsonStats">字符数: 0 | 行数: 0</div>
+                <div class="controls">
                     <button class="btn info" onclick="loadSample()">示例</button>
                     <button class="btn success" onclick="formatJSON()">格式化</button>
                     <button class="btn warning" onclick="minifyJSON()">压缩</button>
                     <button class="btn secondary" onclick="validateJSON()">验证</button>
                     <button class="btn danger" onclick="clearText()">清空</button>
                 </div>
-        </div>
-
-        <div id="alert" class="alert"></div>
-
-        <div class="card json-editor-card">
-            <div class="editor-header">
-                <div class="editor-stats" id="jsonStats">字符数: 0 | 行数: 0</div>
             </div>
             
             <div class="editor-container">
@@ -141,6 +133,7 @@
             alert.style.color = isError ? '#ef4444' : '#0f766e';
             
             // 添加动画效果
+            alert.style.opacity = 1;
             alert.style.animation = 'none';
             alert.offsetHeight; // 触发重排
             alert.style.animation = isError ? 'shake 0.5s' : 'fadeIn 0.5s';
