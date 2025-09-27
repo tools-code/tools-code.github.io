@@ -28,21 +28,75 @@ body {
     flex-direction: column;
 }
 
-/* 布局容器 */
+/* 内容容器样式 */
 .shell {
+    width: 100%;
+    overflow: visible;
     flex: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 16px 0px;
+    min-height: 0;
+    padding: 52px 0 0;
+    margin: 0;
 }
 
-/* 顶部导航菜单 */
+/* 导航栏样式 - 参照jyshare.com样式 */
 .topbar {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: none;
+}
+
+.nav {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 12px 16px;
-    gap: 18px
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+    height: 52px;
+}
+
+.nav .brand {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav .nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 16px 12px;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.nav .nav-links a:hover {
+    color: #000;
+    background-color: #f5f5f5;
+}
+
+.nav .nav-links a.active {
+    color: #000;
+    font-weight: 600;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #333;
 }
 
 .topbar a {
@@ -127,124 +181,124 @@ body {
     color: var(--text)
 }
 
-/* 美化按钮样式 */
-:root {
-    --btn-primary: #00b894;
-    --btn-secondary: #0ea5e9;
-    --btn-success: #22c55e;
-    --btn-warning: #f59e0b;
-    --btn-danger: #ef4444;
-    --btn-info: #8b5cf6;
-}
-
+/* 美化按钮样式 - 参照jyshare.com样式 */
 .btn {
-    padding: 10px 20px;
-    border: 2px solid var(--btn-primary);
-    background: var(--btn-primary);
-    color: #fff;
-    border-radius: 12px;
+    padding: 8px 16px;
+    border: 1px solid #d0d0d0;
+    color: #333;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
     text-decoration: none;
     display: inline-block;
     text-align: center;
     font-weight: 500;
     font-size: 14px;
-    position: relative;
-    overflow: hidden;
     margin: 0;
+    outline: none;
 }
 
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: all 0.5s ease;
+.btn:hover {
+    border-color: #4285f4;
+    color: #4285f4;
+    background: #f8f9fa;
 }
 
-.btn:hover::before {
-    left: 100%;
+.btn:active {
+    transform: translateY(1px);
 }
 
 /* 主要按钮样式 */
 .btn.primary {
-    background: var(--btn-primary);
-    border-color: var(--btn-primary);
+    background: #4285f4;
+    border-color: #4285f4;
     color: #fff;
 }
 
 .btn.primary:hover {
-    background: #0d9488;
-    border-color: #0d9488;
-    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+    background: #3367d6;
+    border-color: #3367d6;
+}
+
+.btn.primary:active {
+    background: #2557d6;
 }
 
 /* 次要按钮样式 */
 .btn.secondary {
-    background: transparent;
-    color: var(--btn-secondary);
-    border-color: var(--btn-secondary);
+    background: #f5f5f5;
+    border-color: #d0d0d0;
+    color: #333;
 }
 
 .btn.secondary:hover {
-    background: rgba(14, 165, 233, 0.1);
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
-}
-
-/* 成功按钮样式 */
-.btn.success {
-    background: var(--btn-success);
-    border-color: var(--btn-success);
-    color: #fff;
-}
-
-.btn.success:hover {
-    background: #16a34a;
-    border-color: #16a34a;
-    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
-}
-
-/* 警告按钮样式 */
-.btn.warning {
-    background: var(--btn-warning);
-    border-color: var(--btn-warning);
-    color: #fff;
-}
-
-.btn.warning:hover {
-    background: #d97706;
-    border-color: #d97706;
-    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+    background: #e8e8e8;
+    border-color: #c0c0c0;
+    color: #000;
 }
 
 /* 危险按钮样式 */
 .btn.danger {
-    background: var(--btn-danger);
-    border-color: var(--btn-danger);
+    background: #ea4335;
+    border-color: #ea4335;
     color: #fff;
 }
 
 .btn.danger:hover {
-    background: #dc2626;
-    border-color: #dc2626;
-    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+    background: #d33115;
+    border-color: #d33115;
+}
+
+.btn.danger:active {
+    background: #c5221f;
 }
 
 /* 信息按钮样式 */
 .btn.info {
-    background: var(--btn-info);
-    border-color: var(--btn-info);
+    background: #6c63ff;
+    border-color: #6c63ff;
     color: #fff;
 }
 
 .btn.info:hover {
-    background: #7c3aed;
-    border-color: #7c3aed;
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    background: #5a52e8;
+    border-color: #5a52e8;
+}
+
+.btn.info:active {
+    background: #334155;
+}
+
+/* 成功按钮样式 */
+.btn.success {
+    background: #34d399;
+    border-color: #34d399;
+    color: #fff;
+}
+
+.btn.success:hover {
+    background: #2dd4bf;
+    border-color: #2dd4bf;
+}
+
+.btn.success:active {
+    background: #15803d;
+}
+
+/* 警告按钮样式 */
+.btn.warning {
+    background: #fbbf24;
+    border-color: #fbbf24;
+    color: #fff;
+}
+
+.btn.warning:hover {
+    background: #f59e0b;
+    border-color: #f59e0b;
+}
+
+.btn.warning:active {
+    background: #b45309;
 }
 
 .btn:active {
@@ -297,7 +351,7 @@ body {
 .alert {
     padding: 12px 16px;
     border-radius: 8px;
-    margin: 12px 0;
+    margin: 12px 16px;
     background: #dcfce7;
     border: 1px solid #86efac;
     color: #15803d;
@@ -363,22 +417,25 @@ body {
 /* JSON编辑器卡片样式 */
 .json-editor-card {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 184, 148, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    height: calc(100vh - 52px);
+    margin: 0;
 }
 
 /* 编辑器容器样式 */
 .editor-container {
     display: flex;
-    height: 500px;
+    flex: 1;
     width: 100%;
+    background: #fff;
+    min-height: 0;
 }
 
 /* 编辑器面板样式 */
@@ -387,6 +444,16 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
+}
+
+/* 编辑器组件样式 */
+#codeEditor,
+#treeEditor {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 /* 左侧面板样式 */
@@ -433,9 +500,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 20px;
-    background: linear-gradient(145deg, #f8fafc, #ffffff);
-    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.editor-stats {
+    font-size: 13px;
+    color: #666;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
 }
 
 /* 编辑器标签样式 */

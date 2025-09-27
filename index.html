@@ -13,18 +13,22 @@
 </head>
 
 <body>
-    <!-- 顶部菜单栏 -->
+    <!-- 顶部菜单栏 - 参照jyshare.com样式 -->
     <div class="topbar">
-        <a href="index.html" class="active">首页</a>
-        <a href="docs.html">文章页</a>
+        <div class="nav">
+            <div class="brand">
+                <a href="index.html" class="active">JSON解析器</a>
+            </div>
+            <div class="nav-links">
+                <a href="docs.html">文章页</a>
+                <a href="https://m3u8play502.github.io" target="_blank" rel="noopener">M3U8在线播放</a>
+            </div>
+        </div>
     </div>
 
     <div class="shell">
-        <h1 class="page-title">JSON解析器在线</h1>
-        <div class="subtitle">免费、高效的JSON格式化与验证工具</div>
         <div id="alert" class="alert"></div>
 
-        <div class="card json-editor-card">
             <div class="editor-header">
                 <div class="editor-stats" id="jsonStats">字符数: 0 | 行数: 0</div>
                 <div class="controls">
@@ -35,21 +39,23 @@
                     <button class="btn danger" onclick="clearText()">清空</button>
                 </div>
             </div>
+        <div class="card json-editor-card">
             
             <div class="editor-container">
                 <div class="editor-panel left-panel">
                     <div class="panel-title">代码视图</div>
-                    <div id="codeEditor" style="width: 100%; height: 450px;"></div>
+                    <div id="codeEditor" style="width: 100%; height: 100%;"></div>
                 </div>
                 <div class="editor-divider"></div>
                 <div class="editor-panel right-panel">
                     <div class="panel-title">树视图</div>
-                    <div id="treeEditor" style="width: 100%; height: 450px;"></div>
+                    <div id="treeEditor" style="width: 100%; height: 100%;"></div>
                 </div>
             </div>
         </div>
 
-        <div class="features-container">
+        <div style="margin: 0px 16px;">
+            <div class="features-container">
             <div class="feature-card">
                 <div class="feature-icon">✨</div>
                 <div class="feature-title">语法高亮</div>
@@ -99,6 +105,7 @@
                     <a href="https://www.cnblogs.com/" target="_blank" rel="noopener">博客园</a>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
