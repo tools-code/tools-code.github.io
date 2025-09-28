@@ -492,11 +492,10 @@
                     return;
                 }
                 
-                // 从代码编辑器获取数据
-                const json = codeEditor.get();
-                const jsonStr = JSON.stringify(json);
-                const charCount = jsonStr.length;
-                const lineCount = jsonStr.split('\n').length;
+                // 直接获取编辑器中显示的文本内容（更准确地反映实际显示的字符数和行数）
+                const text = codeEditor.getText() || '';
+                const charCount = text.length;
+                const lineCount = text.split('\n').length;
                 jsonStats.textContent = `字符数: ${charCount} | 行数: ${lineCount}`;
             } catch (error) {
                 // 出错时不更新统计
