@@ -1,3 +1,2 @@
 User-agent: *
-Allow: /
-Sitemap: https://m3u8play502.github.io/website/sitemap.xml
+Sitemap: https://tools-code.github.io/website/sitemap.xml
