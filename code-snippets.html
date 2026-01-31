@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippets - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/core.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="index.html#resources" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About Us
+                        </a>
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="index.html#resources" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">Code Snippets</h1>
+                <p class="text-xl text-blue-100 mb-8">A collection of useful code snippets for various programming languages</p>
+            </div>
+        </section>
+
+        <!-- Code Snippets Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- HTML -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        HTML
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Snippet 1 -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Responsive Navbar</h3>
+                            <p class="text-gray-600 mb-4">A responsive navbar with mobile menu toggle</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+&lt;nav class="bg-white shadow-sm"&gt;
+  &lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+    &lt;div class="flex justify-between h-16"&gt;
+      &lt;div class="flex items-center"&gt;
+        &lt;a href="#" class="text-xl font-bold text-gray-900"&gt;Logo&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="hidden md:flex items-center space-x-8"&gt;
+        &lt;a href="#" class="text-gray-500 hover:text-gray-900"&gt;Home&lt;/a&gt;
+        &lt;a href="#" class="text-gray-500 hover:text-gray-900"&gt;About&lt;/a&gt;
+        &lt;a href="#" class="text-gray-500 hover:text-gray-900"&gt;Contact&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+                        </div>
+                        <!-- Snippet 2 -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Card Component</h3>
+                            <p class="text-gray-600 mb-4">A responsive card component with image and content</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+&lt;div class="bg-white rounded-lg shadow-sm overflow-hidden"&gt;
+  &lt;img src="image.jpg" alt="Card image" class="w-full h-48 object-cover"&gt;
+  &lt;div class="p-6"&gt;
+    &lt;h3 class="text-xl font-semibold text-gray-900 mb-2"&gt;Card Title&lt;/h3&gt;
+    &lt;p class="text-gray-600 mb-4"&gt;Card description goes here&lt;/p&gt;
+    &lt;a href="#" class="text-indigo-600 font-medium"&gt;Learn more&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSS -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        CSS
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Snippet 1 -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Flexbox Center</h3>
+                            <p class="text-gray-600 mb-4">Center elements horizontally and vertically using flexbox</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}</pre>
+                        </div>
+                        <!-- Snippet 2 -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Responsive Grid</h3>
+                            <p class="text-gray-600 mb-4">A responsive grid layout using CSS Grid</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        JavaScript
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Snippet 1 -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Fetch API</h3>
+                            <p class="text-gray-600 mb-4">Make HTTP requests using the Fetch API</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</pre>
+                        </div>
+                        <!-- Snippet 2 -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Debounce Function</h3>
+                            <p class="text-gray-600 mb-4">A debounce function to limit the rate at which a function can fire</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        Python
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Snippet 1 -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Flask App</h3>
+                            <p class="text-gray-600 mb-4">A simple Flask web application</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(debug=True)</pre>
+                        </div>
+                        <!-- Snippet 2 -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Read JSON File</h3>
+                            <p class="text-gray-600 mb-4">Read and parse a JSON file in Python</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm">
+import json
+
+with open('data.json', 'r') as f:
+    data = json.load(f)
+    print(data)</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">About This Page</h2>
+                <div class="max-w-3xl mx-auto text-center">
+                    <p class="text-gray-600 mb-6">This page collects useful code snippets for various programming languages, making it easy for developers to quickly find and use code snippets for common tasks.</p>
+                    <p class="text-gray-600 mb-8">All code snippets are tested and ready to use in your projects.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

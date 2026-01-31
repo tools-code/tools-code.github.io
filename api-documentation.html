@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation List - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/core.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="index.html#resources" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About Us
+                        </a>
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="index.html#resources" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">API Documentation List</h1>
+                <p class="text-xl text-blue-100 mb-8">Collection of official API documentation links for developers to quickly find documentation for various technologies</p>
+            </div>
+        </section>
+
+        <!-- API Documentation List Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Frontend Technologies -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        Frontend Technologies
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- HTML -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">HTML</h3>
+                            <p class="text-gray-600 mb-4">HyperText Markup Language official documentation</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- CSS -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">CSS</h3>
+                            <p class="text-gray-600 mb-4">Cascading Style Sheets official documentation</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- JavaScript -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">JavaScript</h3>
+                            <p class="text-gray-600 mb-4">JavaScript official documentation</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- React -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">React</h3>
+                            <p class="text-gray-600 mb-4">React official documentation</p>
+                            <a href="https://react.dev/docs/getting-started" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Vue -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Vue.js</h3>
+                            <p class="text-gray-600 mb-4">Vue.js official documentation</p>
+                            <a href="https://vuejs.org/guide/introduction.html" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Angular -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Angular</h3>
+                            <p class="text-gray-600 mb-4">Angular official documentation</p>
+                            <a href="https://angular.io/docs" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Technologies -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                        </svg>
+                        Backend Technologies
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Node.js -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Node.js</h3>
+                            <p class="text-gray-600 mb-4">Node.js official documentation</p>
+                            <a href="https://nodejs.org/en/docs/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Express -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Express.js</h3>
+                            <p class="text-gray-600 mb-4">Express.js official documentation</p>
+                            <a href="https://expressjs.com/en/4x/api.html" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Python -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Python</h3>
+                            <p class="text-gray-600 mb-4">Python official documentation</p>
+                            <a href="https://docs.python.org/3/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Django -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Django</h3>
+                            <p class="text-gray-600 mb-4">Django official documentation</p>
+                            <a href="https://docs.djangoproject.com/en/stable/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Flask -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Flask</h3>
+                            <p class="text-gray-600 mb-4">Flask official documentation</p>
+                            <a href="https://flask.palletsprojects.com/en/latest/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- PHP -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">PHP</h3>
+                            <p class="text-gray-600 mb-4">PHP official documentation</p>
+                            <a href="https://www.php.net/docs.php" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Laravel -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Laravel</h3>
+                            <p class="text-gray-600 mb-4">Laravel official documentation</p>
+                            <a href="https://laravel.com/docs" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Java -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Java</h3>
+                            <p class="text-gray-600 mb-4">Java official documentation</p>
+                            <a href="https://docs.oracle.com/en/java/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Spring Boot -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Spring Boot</h3>
+                            <p class="text-gray-600 mb-4">Spring Boot official documentation</p>
+                            <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                        Databases
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- MySQL -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">MySQL</h3>
+                            <p class="text-gray-600 mb-4">MySQL official documentation</p>
+                            <a href="https://dev.mysql.com/doc/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- PostgreSQL -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">PostgreSQL</h3>
+                            <p class="text-gray-600 mb-4">PostgreSQL official documentation</p>
+                            <a href="https://www.postgresql.org/docs/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- MongoDB -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">MongoDB</h3>
+                            <p class="text-gray-600 mb-4">MongoDB official documentation</p>
+                            <a href="https://docs.mongodb.com/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Redis -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Redis</h3>
+                            <p class="text-gray-600 mb-4">Redis official documentation</p>
+                            <a href="https://redis.io/docs/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Services -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                        </svg>
+                        Cloud Services
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- AWS -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">AWS</h3>
+                            <p class="text-gray-600 mb-4">Amazon Web Services official documentation</p>
+                            <a href="https://docs.aws.amazon.com/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Azure -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Microsoft Azure</h3>
+                            <p class="text-gray-600 mb-4">Microsoft Azure official documentation</p>
+                            <a href="https://learn.microsoft.com/en-us/azure/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Google Cloud -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Google Cloud</h3>
+                            <p class="text-gray-600 mb-4">Google Cloud Platform official documentation</p>
+                            <a href="https://cloud.google.com/docs" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools and Frameworks -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Tools and Frameworks
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Git -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Git</h3>
+                            <p class="text-gray-600 mb-4">Git official documentation</p>
+                            <a href="https://git-scm.com/doc" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Docker -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Docker</h3>
+                            <p class="text-gray-600 mb-4">Docker official documentation</p>
+                            <a href="https://docs.docker.com/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Kubernetes -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Kubernetes</h3>
+                            <p class="text-gray-600 mb-4">Kubernetes official documentation</p>
+                            <a href="https://kubernetes.io/docs/home/" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                                View Documentation →
+                                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">About This Page</h2>
+                <div class="max-w-3xl mx-auto text-center">
+                    <p class="text-gray-600 mb-6">This page collects official API documentation links for various technologies, making it easy for developers to quickly find the official documentation for the technologies they need.</p>
+                    <p class="text-gray-600 mb-8">All links point to official documentation websites, ensuring developers have access to the latest and most accurate API information.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

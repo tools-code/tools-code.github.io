@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/core.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About Us
+                        </a>
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </nav>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">API Documentation</h1>
+                <p class="text-xl text-blue-100 mb-8">A curated list of official API documentation for various technologies</p>
+            </div>
+        </section>
+
+        <!-- API Docs Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Programming Languages -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Programming Languages</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">JavaScript</h3>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MDN Web Docs</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Python</h3>
+                            <a href="https://docs.python.org/3/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Python Official Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Java</h3>
+                            <a href="https://docs.oracle.com/en/java/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Oracle Java Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">C#</h3>
+                            <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Microsoft C# Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">PHP</h3>
+                            <a href="https://www.php.net/docs.php" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">PHP Official Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Ruby</h3>
+                            <a href="https://ruby-doc.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Ruby Documentation</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web APIs -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Web APIs</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">HTML5 APIs</h3>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MDN Web APIs</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Fetch API</h3>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MDN Fetch API</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Web Storage API</h3>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MDN Web Storage API</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Canvas API</h3>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MDN Canvas API</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Geolocation API</h3>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MDN Geolocation API</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">WebSockets API</h3>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MDN WebSockets API</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Services -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Cloud Services</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">AWS API Reference</h3>
+                            <a href="https://docs.aws.amazon.com/index.html" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">AWS Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Google Cloud API</h3>
+                            <a href="https://cloud.google.com/docs" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Google Cloud Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Microsoft Azure API</h3>
+                            <a href="https://learn.microsoft.com/en-us/azure/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Azure Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Firebase API</h3>
+                            <a href="https://firebase.google.com/docs" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Firebase Documentation</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media APIs -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Social Media APIs</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Twitter API</h3>
+                            <a href="https://developer.twitter.com/en/docs" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Twitter Developer Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Facebook API</h3>
+                            <a href="https://developers.facebook.com/docs/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Facebook Developers</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Instagram API</h3>
+                            <a href="https://developers.facebook.com/docs/instagram/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Instagram Platform</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">LinkedIn API</h3>
+                            <a href="https://docs.microsoft.com/en-us/linkedin/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">LinkedIn Developer</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database APIs -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Database APIs</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">MongoDB API</h3>
+                            <a href="https://docs.mongodb.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MongoDB Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">PostgreSQL Documentation</h3>
+                            <a href="https://www.postgresql.org/docs/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">PostgreSQL Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">MySQL Reference Manual</h3>
+                            <a href="https://dev.mysql.com/doc/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">MySQL Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Redis Commands</h3>
+                            <a href="https://redis.io/commands/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Redis Documentation</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Framework APIs -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Framework APIs</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">React API</h3>
+                            <a href="https://reactjs.org/docs/react-api.html" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">React Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Vue.js API</h3>
+                            <a href="https://vuejs.org/api/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Vue.js Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Angular API</h3>
+                            <a href="https://angular.io/api" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Angular Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Node.js API</h3>
+                            <a href="https://nodejs.org/api/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Node.js Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Express.js API</h3>
+                            <a href="https://expressjs.com/en/api.html" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Express.js Documentation</a>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-200">
+                            <h3 class="font-medium text-gray-900 mb-2">Django API</h3>
+                            <a href="https://docs.djangoproject.com/en/stable/" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm">Django Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="api-docs.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

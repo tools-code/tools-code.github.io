@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Libraries - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/core.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="index.html#resources" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About Us
+                        </a>
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="index.html#resources" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">Useful Libraries</h1>
+                <p class="text-xl text-blue-100 mb-8">Curated list of useful libraries and frameworks for developers</p>
+            </div>
+        </section>
+
+        <!-- Libraries Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Frontend Libraries -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        Frontend Libraries
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- React Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">React Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://reactrouter.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">React Router</a> - Declarative routing for React</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://redux.js.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Redux</a> - Predictable state container for JavaScript apps</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://axios-http.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Axios</a> - Promise based HTTP client for the browser and node.js</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Vue Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Vue Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://vue-router.vuejs.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Vue Router</a> - Official router for Vue.js</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://pinia.vuejs.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Pinia</a> - Modern state management for Vue</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://vueuse.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">VueUse</a> - Collection of Vue Composition Utilities</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- General Frontend -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">General Frontend</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://lodash.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Lodash</a> - JavaScript utility library</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://momentjs.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Moment.js</a> - Date library for parsing, validating, manipulating, and formatting dates</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://chartjs.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Chart.js</a> - Simple yet flexible JavaScript charting library</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Libraries -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                        </svg>
+                        Backend Libraries
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Node.js Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Node.js Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://expressjs.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Express</a> - Fast, unopinionated, minimalist web framework</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://mongoosejs.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Mongoose</a> - MongoDB object modeling for Node.js</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://passportjs.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Passport</a> - Authentication middleware for Node.js</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Python Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Python Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://flask.palletsprojects.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Flask</a> - Micro web framework for Python</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://pandas.pydata.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Pandas</a> - Data analysis and manipulation library</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://requests.readthedocs.io/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Requests</a> - HTTP library for Python</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Java Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Java Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://spring.io/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Spring Framework</a> - Comprehensive framework for Java</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://www.slf4j.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">SLF4J</a> - Simple Logging Facade for Java</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://github.com/FasterXML/jackson" target="_blank" class="text-indigo-600 hover:text-indigo-800">Jackson</a> - JSON library for Java</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Libraries -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                        Database Libraries
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- SQL Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">SQL Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://www.sqlalchemy.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">SQLAlchemy</a> - SQL toolkit and ORM for Python</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://hibernate.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Hibernate</a> - ORM framework for Java</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://sequelize.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Sequelize</a> - Promise-based ORM for Node.js</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- NoSQL Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">NoSQL Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://mongoosejs.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Mongoose</a> - MongoDB object modeling for Node.js</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://redis.io/clients/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Redis Clients</a> - Official clients for Redis</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://docs.couchdb.org/en/stable/api/client-libraries.html" target="_blank" class="text-indigo-600 hover:text-indigo-800">CouchDB Clients</a> - Client libraries for CouchDB</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Tools -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <svg class="h-6 w-6 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        DevOps & Tools
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- DevOps Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">DevOps Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://www.ansible.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Ansible</a> - Automation platform</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://www.terraform.io/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Terraform</a> - Infrastructure as code tool</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://prometheus.io/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Prometheus</a> - Monitoring system</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Testing Libraries -->
+                        <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Testing Libraries</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://jestjs.io/" target="_blank" class="text-indigo-600 hover:text-indigo-800">Jest</a> - JavaScript testing framework</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://pytest.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">pytest</a> - Testing framework for Python</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span><a href="https://junit.org/junit5/" target="_blank" class="text-indigo-600 hover:text-indigo-800">JUnit 5</a> - Testing framework for Java</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">About This Page</h2>
+                <div class="max-w-3xl mx-auto text-center">
+                    <p class="text-gray-600 mb-6">This page provides a curated list of useful libraries and frameworks across different technologies and domains.</p>
+                    <p class="text-gray-600 mb-8">All links point to official library websites or documentation, ensuring developers have access to the latest information.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
