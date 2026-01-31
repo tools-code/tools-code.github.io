@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern JavaScript: ES6+ Features You Should Know - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/core.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        .article-content {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .article-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+        
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-content pre {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+        
+        .article-content .keyword {
+            font-weight: 700;
+            color: #3b82f6;
+            background-color: #eff6ff;
+            padding: 0 0.25rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="../index.html#resources" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="../about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About Us
+                        </a>
+                        <a href="../contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </nav>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="../index.html#resources" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="../about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="../contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Article Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">Modern JavaScript: ES6+ Features You Should Know</h1>
+                <div class="flex items-center justify-center text-blue-100 mb-8">
+                    <span>January 10, 2025</span>
+                    <span class="mx-2">•</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="article-content">
+                    <img src="https://picsum.photos/id/20/800/400" alt="JavaScript Guide" class="w-full h-auto rounded-lg mb-8">
+                    
+                    <p class="text-xl text-gray-600 mb-8">JavaScript has evolved significantly over the years, with ES6 (ECMAScript 2015) introducing many new features that have transformed how we write code. In this article, we'll explore the most important ES6+ features that every JavaScript developer should know.</p>
+                    
+                    <h2>Let and Const Declarations</h2>
+                    <p>ES6 introduced two new ways to declare variables: <code>let</code> and <code>const</code>.</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Before ES6
+var name = 'John';
+var age = 30;
+
+// ES6+
+let name = 'John'; // Block-scoped
+const age = 30; // Block-scoped and immutable</code></pre>
+                    
+                    <p>The key differences:</p>
+                    <ul>
+                        <li><code>var</code> is function-scoped, while <code>let</code> and <code>const</code> are block-scoped.</li>
+                        <li><code>const</code> declarations cannot be reassigned, but objects and arrays declared with <code>const</code> can still be modified.</li>
+                    </ul>
+                    
+                    <h2>Arrow Functions</h2>
+                    <p>Arrow functions provide a more concise syntax for writing function expressions.</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Traditional function
+function add(a, b) {
+    return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+
+// Arrow function with multiple statements
+const add = (a, b) => {
+    const sum = a + b;
+    return sum;
+};
+
+// Arrow function with a single parameter
+const square = x => x * x;</code></pre>
+                    
+                    <p>Arrow functions also have lexical <code>this</code> binding, meaning they inherit <code>this</code> from the enclosing scope.</p>
+                    
+                    <h2>Template Literals</h2>
+                    <p>Template literals allow for easier string interpolation and multi-line strings.</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Before ES6
+const name = 'John';
+const message = 'Hello, ' + name + '!';
+
+// ES6+
+const name = 'John';
+const message = `Hello, ${name}!`;
+
+// Multi-line strings
+const multiLine = `
+    This is a
+    multi-line string
+`;</code></pre>
+                    
+                    <h2>Destructuring Assignment</h2>
+                    <p>Destructuring allows you to extract values from objects and arrays into variables.</p>
+                    
+                    <h3>Object Destructuring</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">const person = {
+    name: 'John',
+    age: 30,
+    address: {
+        city: 'New York',
+        country: 'USA'
+    }
+};
+
+// ES6+
+const { name, age } = person;
+console.log(name); // 'John'
+console.log(age); // 30
+
+// With default values
+const { name, age, occupation = 'Developer' } = person;
+
+// Nested destructuring
+const { address: { city } } = person;
+console.log(city); // 'New York'</code></pre>
+                    
+                    <h3>Array Destructuring</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+
+// ES6+
+const [first, second] = numbers;
+console.log(first); // 1
+console.log(second); // 2
+
+// With rest operator
+const [first, ...rest] = numbers;
+console.log(rest); // [2, 3, 4, 5]
+
+// With default values
+const [first, second, third = 3] = [1, 2];</code></pre>
+                    
+                    <h2>Spread Operator</h2>
+                    <p>The spread operator (<code>...</code>) allows you to expand arrays and objects.</p>
+                    
+                    <h3>Arrays</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">const numbers1 = [1, 2, 3];
+const numbers2 = [4, 5, 6];
+
+// Concatenating arrays
+const combined = [...numbers1, ...numbers2]; // [1, 2, 3, 4, 5, 6]
+
+// Creating a copy
+const copy = [...numbers1];
+
+// Passing arguments
+const max = Math.max(...numbers1); // 3</code></pre>
+                    
+                    <h3>Objects</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">const person = {
+    name: 'John',
+    age: 30
+};
+
+// Creating a copy
+const copy = { ...person };
+
+// Merging objects
+const updated = {
+    ...person,
+    age: 31,
+    occupation: 'Developer'
+};</code></pre>
+                    
+                    <h2>Rest Parameters</h2>
+                    <p>Rest parameters allow functions to accept an indefinite number of arguments as an array.</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3)); // 6
+console.log(sum(1, 2, 3, 4, 5)); // 15</code></pre>
+                    
+                    <h2>Default Parameters</h2>
+                    <p>Default parameters allow you to specify default values for function parameters.</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">function greet(name, greeting = 'Hello') {
+    return `${greeting}, ${name}!`;
+}
+
+console.log(greet('John')); // 'Hello, John!'
+console.log(greet('John', 'Hi')); // 'Hi, John!'</code></pre>
+                    
+                    <h2>Modules</h2>
+                    <p>ES6 introduced a standard module system for JavaScript.</p>
+                    
+                    <h3>Exporting</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Exporting individual items
+export const PI = 3.14;
+export function add(a, b) {
+    return a + b;
+}
+
+// Exporting a default
+export default function multiply(a, b) {
+    return a * b;
+}</code></pre>
+                    
+                    <h3>Importing</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Importing individual items
+import { PI, add } from './math.js';
+
+// Importing a default
+import multiply from './math.js';
+
+// Importing everything
+import * as math from './math.js';
+console.log(math.PI);
+console.log(math.add(1, 2));</code></pre>
+                    
+                    <h2>Classes</h2>
+                    <p>ES6 introduced class syntax, which is syntactical sugar over JavaScript's prototypal inheritance.</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    greet() {
+        return `Hello, my name is ${this.name}`;
+    }
+    
+    static create(name, age) {
+        return new Person(name, age);
+    }
+}
+
+class Employee extends Person {
+    constructor(name, age, jobTitle) {
+        super(name, age);
+        this.jobTitle = jobTitle;
+    }
+    
+    greet() {
+        return `${super.greet()} and I'm a ${this.jobTitle}`;
+    }
+}
+
+const person = new Person('John', 30);
+const employee = new Employee('Jane', 25, 'Developer');</code></pre>
+                    
+                    <h2>Promises</h2>
+                    <p>Promises provide a way to handle asynchronous operations.</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Creating a promise
+const fetchData = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const data = { name: 'John', age: 30 };
+            resolve(data);
+            // or reject(new Error('Failed to fetch data'));
+        }, 1000);
+    });
+};
+
+// Using a promise
+fetchData()
+    .then(data => {
+        console.log(data);
+        return data.age;
+    })
+    .then(age => {
+        console.log(`Age: ${age}`);
+    })
+    .catch(error => {
+        console.error(error);
+    })
+    .finally(() => {
+        console.log('Operation completed');
+    });</code></pre>
+                    
+                    <h2>Async/Await</h2>
+                    <p>Async/await is syntactical sugar over promises, making asynchronous code look more synchronous.</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">async function getData() {
+    try {
+        const data = await fetchData();
+        console.log(data);
+        const age = data.age;
+        console.log(`Age: ${age}`);
+        return data;
+    } catch (error) {
+        console.error(error);
+    } finally {
+        console.log('Operation completed');
+    }
+}
+
+getData();</code></pre>
+                    
+                    <h2>ES7+ Features</h2>
+                    
+                    <h3>Array Includes</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+console.log(numbers.includes(3)); // true
+console.log(numbers.includes(6)); // false</code></pre>
+                    
+                    <h3>Exponentiation Operator</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">console.log(2 ** 3); // 8
+console.log(3 ** 2); // 9</code></pre>
+                    
+                    <h3>Object Entries and Values</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">const person = {
+    name: 'John',
+    age: 30
+};
+
+console.log(Object.keys(person)); // ['name', 'age']
+console.log(Object.values(person)); // ['John', 30]
+console.log(Object.entries(person)); // [['name', 'John'], ['age', 30]]</code></pre>
+                    
+                    <h3>Nullish Coalescing Operator</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Returns the right-hand side if the left-hand side is null or undefined
+const name = null ?? 'Default';
+console.log(name); // 'Default'
+
+// Unlike ||, it doesn't consider falsy values like 0, '', or false
+const count = 0 ?? 10;
+console.log(count); // 0</code></pre>
+                    
+                    <h3>Optional Chaining</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">const person = {
+    name: 'John',
+    address: {
+        city: 'New York'
+    }
+};
+
+// Safely access nested properties
+console.log(person?.address?.city); // 'New York'
+console.log(person?.contact?.phone); // undefined
+
+// With function calls
+console.log(person?.greet?.()); // undefined</code></pre>
+                    
+                    <h2>Conclusion</h2>
+                    <p>ES6+ has brought many powerful features to JavaScript that have made the language more expressive, concise, and maintainable. By mastering these features, you'll be able to write cleaner, more efficient code and take advantage of the latest JavaScript capabilities.</p>
+                    <p>Remember that while these features are widely supported in modern browsers and Node.js environments, you may need to use a transpiler like Babel for older environments.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
+                        <li><a href="../json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="../color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="../regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                        <li><a href="../timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
+                        <li><a href="../base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="../api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="../articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="../useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="../contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

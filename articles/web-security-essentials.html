@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Security Essentials: Protecting Your Applications - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/core.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        .article-content {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .article-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+        
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-content pre {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+        
+        .article-content .keyword {
+            font-weight: 700;
+            color: #3b82f6;
+            background-color: #eff6ff;
+            padding: 0 0.25rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="../index.html#resources" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="../about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About Us
+                        </a>
+                        <a href="../contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </nav>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="../index.html#resources" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="../about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="../contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Article Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">Web Security Essentials: Protecting Your Applications</h1>
+                <div class="flex items-center justify-center text-blue-100 mb-8">
+                    <span>December 10, 2025</span>
+                    <span class="mx-2">•</span>
+                    <span>Security</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="article-content">
+                    <img src="https://picsum.photos/id/342/800/400" alt="Web Security Guide" class="w-full h-auto rounded-lg mb-8">
+                    
+                    <p class="text-xl text-gray-600 mb-8">Web security is a critical aspect of modern application development. With the increasing number of cyber threats, it's essential for developers to understand how to protect their applications from common security vulnerabilities. In this guide, we'll explore the essential web security practices every developer should know.</p>
+                    
+                    <h2>1. HTTPS</h2>
+                    <p>HTTPS (Hypertext Transfer Protocol Secure) encrypts data transmitted between the client and server, preventing attackers from intercepting sensitive information.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Always use HTTPS for your entire application</li>
+                        <li>Obtain an SSL/TLS certificate from a trusted certificate authority</li>
+                        <li>Configure your server to redirect HTTP requests to HTTPS</li>
+                        <li>Use HTTP Strict Transport Security (HSTS) to prevent downgrade attacks</li>
+                    </ul>
+                    
+                    <h2>2. Authentication</h2>
+                    <p>Authentication verifies the identity of users accessing your application.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Use strong password policies (minimum length, complexity requirements)</li>
+                        <li>Implement multi-factor authentication (MFA) for sensitive accounts</li>
+                        <li>Use secure authentication protocols like OAuth 2.0 or OpenID Connect</li>
+                        <li>Store passwords using secure hashing algorithms like bcrypt or Argon2</li>
+                        <li>Implement account lockout policies to prevent brute force attacks</li>
+                    </ul>
+                    
+                    <h2>3. Authorization</h2>
+                    <p>Authorization determines what resources users can access after authentication.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Implement role-based access control (RBAC)</li>
+                        <li>Use the principle of least privilege (grant only necessary permissions)</li>
+                        <li>Validate user permissions for every resource access</li>
+                        <li>Implement proper session management</li>
+                    </ul>
+                    
+                    <h2>4. Input Validation</h2>
+                    <p>Input validation ensures that user input is safe and meets expected formats.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Validate all user input on both client and server sides</li>
+                        <li>Use whitelisting (allow only specific characters) instead of blacklisting</li>
+                        <li>Sanitize input to remove harmful characters</li>
+                        <li>Use parameterized queries for database operations</li>
+                        <li>Implement content security policies (CSP) to prevent XSS attacks</li>
+                    </ul>
+                    
+                    <h2>5. Cross-Site Scripting (XSS)</h2>
+                    <p>XSS attacks inject malicious scripts into web pages viewed by other users.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Encode user-generated content before displaying it</li>
+                        <li>Use CSP headers to restrict script execution</li>
+                        <li>Implement proper output escaping</li>
+                        <li>Use HTTP-only cookies to prevent JavaScript access</li>
+                    </ul>
+                    
+                    <h2>6. Cross-Site Request Forgery (CSRF)</h2>
+                    <p>CSRF attacks trick users into performing unintended actions on authenticated websites.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Implement CSRF tokens for all state-changing operations</li>
+                        <li>Validate CSRF tokens on the server side</li>
+                        <li>Use SameSite cookies to prevent cross-site requests</li>
+                        <li>Verify the Origin and Referer headers</li>
+                    </ul>
+                    
+                    <h2>7. SQL Injection</h2>
+                    <p>SQL injection attacks insert malicious SQL code into database queries.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Use parameterized queries or prepared statements</li>
+                        <li>Use ORMs (Object-Relational Mapping) frameworks</li>
+                        <li>Implement input validation for all database inputs</li>
+                        <li>Limit database user privileges</li>
+                    </ul>
+                    
+                    <h2>8. Secure Headers</h2>
+                    <p>HTTP security headers provide additional security layers for your application.</p>
+                    
+                    <h3>Important Security Headers:</h3>
+                    <ul>
+                        <li><code>Content-Security-Policy</code>: Restricts resources the browser can load</li>
+                        <li><code>X-Content-Type-Options</code>: Prevents MIME type sniffing</li>
+                        <li><code>X-Frame-Options</code>: Prevents clickjacking attacks</li>
+                        <li><code>Strict-Transport-Security</code>: Enforces HTTPS</li>
+                        <li><code>X-XSS-Protection</code>: Enables browser XSS filtering</li>
+                        <li><code>Referrer-Policy</code>: Controls referrer information</li>
+                    </ul>
+                    
+                    <h2>9. Dependency Management</h2>
+                    <p>Third-party dependencies can introduce security vulnerabilities.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Regularly update dependencies to the latest secure versions</li>
+                        <li>Use dependency scanning tools to identify vulnerabilities</li>
+                        <li>Only include necessary dependencies</li>
+                        <li>Review the security of third-party libraries before using them</li>
+                    </ul>
+                    
+                    <h2>10. Rate Limiting</h2>
+                    <p>Rate limiting prevents abuse by restricting the number of requests a user can make.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Implement rate limiting for API endpoints</li>
+                        <li>Rate limit based on IP address, user ID, or API key</li>
+                        <li>Use exponential backoff for repeated failed attempts</li>
+                        <li>Provide clear error messages when rate limits are exceeded</li>
+                    </ul>
+                    
+                    <h2>11. Security Testing</h2>
+                    <p>Regular security testing helps identify and fix vulnerabilities.</p>
+                    
+                    <h3>Types of Security Testing:</h3>
+                    <ul>
+                        <li><strong>Static Application Security Testing (SAST)</strong>: Analyzes source code for vulnerabilities</li>
+                        <li><strong>Dynamic Application Security Testing (DAST)</strong>: Tests running applications for vulnerabilities</li>
+                        <li><strong>Penetration Testing</strong>: Simulates real-world attacks to identify weaknesses</li>
+                        <li><strong>Security Code Reviews</strong>: Manual review of code for security issues</li>
+                    </ul>
+                    
+                    <h2>12. Error Handling</h2>
+                    <p>Proper error handling prevents sensitive information from being exposed to attackers.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Use generic error messages for users</li>
+                        <li>Log detailed error information server-side</li>
+                        <li>Do not expose stack traces or internal error details to users</li>
+                        <li>Implement proper exception handling</li>
+                    </ul>
+                    
+                    <h2>13. Secure File Uploads</h2>
+                    <p>File uploads can introduce security risks if not properly handled.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Validate file types using both extension and MIME type</li>
+                        <li>Restrict file size limits</li>
+                        <li>Store uploaded files outside the web root</li>
+                        <li>Generate random filenames to prevent path traversal attacks</li>
+                        <li>Scan uploaded files for malware</li>
+                    </ul>
+                    
+                    <h2>14. CORS (Cross-Origin Resource Sharing)</h2>
+                    <p>CORS controls which domains can access your API resources.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Configure CORS policies to allow only trusted domains</li>
+                        <li>Use specific origins instead of wildcard (*) when possible</li>
+                        <li>Restrict allowed HTTP methods and headers</li>
+                        <li>Implement proper CORS preflight request handling</li>
+                    </ul>
+                    
+                    <h2>15. Security Monitoring and Logging</h2>
+                    <p>Security monitoring helps detect and respond to security incidents.</p>
+                    
+                    <h3>Best Practices:</h3>
+                    <ul>
+                        <li>Implement comprehensive logging for security events</li>
+                        <li>Use a centralized logging system</li>
+                        <li>Monitor logs for suspicious activities</li>
+                        <li>Set up alerts for potential security breaches</li>
+                        <li>Regularly review security logs</li>
+                    </ul>
+                    
+                    <h2>Practical Implementation</h2>
+                    <p>Let's look at some practical examples of implementing security measures in different languages:</p>
+                    
+                    <h3>Node.js/Express Example:</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code>const express = require('express');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const cors = require('cors');
+const bcrypt = require('bcrypt');
+const app = express();
+
+// Security headers
+app.use(helmet());
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later'
+});
+app.use('/api', limiter);
+
+// CORS
+app.use(cors({
+  origin: ['https://example.com', 'https://www.example.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Input validation (using express-validator)
+const { body, validationResult } = require('express-validator');
+
+app.post('/register',
+  // Validate input
+  body('email').isEmail().normalizeEmail(),
+  body('password').isLength({ min: 8 }),
+  (req, res) => {
+    // Check validation errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // Hash password
+    bcrypt.hash(req.body.password, 10, (err, hash) => {
+      if (err) {
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+      // Store user with hashed password
+      // ...
+      res.status(201).json({ message: 'User registered successfully' });
+    });
+  }
+);
+
+// Start server
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});</code></pre>
+                    
+                    <h3>Python/Flask Example:</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code>from flask import Flask, request, jsonify
+from flask_cors import CORS
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_wtf.csrf import CSRFProtect
+import re
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your-secret-key'
+
+# CORS
+CORS(app, origins=['https://example.com'])
+
+# Rate limiting
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["200 per day", "50 per hour"]
+)
+
+# CSRF protection
+csrf = CSRFProtect(app)
+
+# Input validation
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    
+    # Validate email
+    email = data.get('email')
+    if not email or not re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', email):
+        return jsonify({'error': 'Invalid email address'}), 400
+    
+    # Validate password
+    password = data.get('password')
+    if not password or len(password) < 8:
+        return jsonify({'error': 'Password must be at least 8 characters'}), 400
+    
+    # Hash password
+    hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+    
+    # Store user with hashed password
+    # ...
+    
+    return jsonify({'message': 'User registered successfully'}), 201
+
+if __name__ == '__main__':
+    app.run(debug=False)</code></pre>
+                    
+                    <h2>Conclusion</h2>
+                    <p>Web security is a continuous process that requires vigilance and regular updates. By implementing the essential security practices outlined in this guide, you'll significantly reduce the risk of security breaches and protect your users' data.</p>
+                    <p>Remember that security is not a one-time task but an ongoing responsibility. Stay informed about the latest security threats and best practices, and regularly audit your application for vulnerabilities.</p>
+                    <p>By prioritizing security throughout the development lifecycle, you'll build more secure, reliable, and trustworthy applications that users can depend on.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
+                        <li><a href="../json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="../color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="../regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                        <li><a href="../timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
+                        <li><a href="../base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="../api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="../articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="../useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="../contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Mastery: Advanced Techniques for Developers - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/core.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        .article-content {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .article-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+        
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-content pre {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+        
+        .article-content .keyword {
+            font-weight: 700;
+            color: #3b82f6;
+            background-color: #eff6ff;
+            padding: 0 0.25rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="../index.html#resources" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="../about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About Us
+                        </a>
+                        <a href="../contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </nav>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="../index.html#resources" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="../about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="../contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Article Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">Git Mastery: Advanced Techniques for Developers</h1>
+                <div class="flex items-center justify-center text-blue-100 mb-8">
+                    <span>December 15, 2025</span>
+                    <span class="mx-2">•</span>
+                    <span>Git</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="article-content">
+                    <img src="https://picsum.photos/id/64/800/400" alt="Git Mastery" class="w-full h-auto rounded-lg mb-8">
+                    
+                    <p class="text-xl text-gray-600 mb-8">Git is a <span class="keyword">powerful version control system</span> that allows developers to track changes, collaborate effectively, and manage codebase history. In this advanced guide, we'll explore <span class="keyword">advanced Git techniques</span> and workflows to help you take your Git skills to the next level.</p>
+                    
+                    <h2>Git Branching Strategies</h2>
+                    <p>Effective branching strategies are essential for managing complex projects and collaborating with teams. Let's explore some popular branching models:</p>
+                    
+                    <h3>Git Flow</h3>
+                    <p>Git Flow is a popular branching model that defines a strict branching structure:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Main branches
+master      # Production-ready code
+develop     # Integration branch for features
+
+# Supporting branches
+feature/*   # Feature development
+hotfix/*    # Emergency fixes for production
+release/*   # Release preparation
+</code></pre>
+                    
+                    <h3>GitHub Flow</h3>
+                    <p>GitHub Flow is a simpler branching model that works well for continuous deployment:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Main branch
+main        # Production-ready code
+
+# Feature branches
+feature/*   # Feature development
+fix/*       # Bug fixes
+</code></pre>
+                    
+                    <h2>Advanced Git Commands</h2>
+                    
+                    <h3>Interactive Rebase</h3>
+                    <p>Interactive rebase allows you to rewrite history, squash commits, and reorder changes:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Start interactive rebase for the last 5 commits
+git rebase -i HEAD~5
+
+# Common rebase commands:
+# p, pick   = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit   = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup  = like "squash", but discard this commit's log message
+# x, exec   = run command (the rest of the line) using shell
+# d, drop   = remove commit
+</code></pre>
+                    
+                    <h3>Stashing Changes</h3>
+                    <p>Stashing allows you to save changes temporarily without committing them:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Stash current changes
+git stash
+
+# Stash with a message
+git stash push -m "Work in progress"
+
+# List all stashes
+git stash list
+
+# Apply the most recent stash
+git stash apply
+
+# Apply a specific stash
+git stash apply stash@{2}
+
+# Apply and remove the stash
+git stash pop
+
+# Create a branch from a stash
+git stash branch new-feature
+</code></pre>
+                    
+                    <h3>Reflog and Recovering Lost Commits</h3>
+                    <p>The reflog tracks all Git operations, allowing you to recover lost commits:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># View the reflog
+git reflog
+
+# Recover a lost commit
+git checkout HEAD@{1}
+
+# Create a branch from a specific reflog entry
+git branch recovered-feature HEAD@{2}
+</code></pre>
+                    
+                    <h2>Git Hooks</h2>
+                    <p>Git hooks are scripts that run automatically at specific points in the Git workflow:</p>
+                    
+                    <h3>Common Git Hooks</h3>
+                    <ul>
+                        <li><code>pre-commit</code> - Runs before a commit is created</li>
+                        <li><code>commit-msg</code> - Validates commit messages</li>
+                        <li><code>pre-push</code> - Runs before pushing to a remote</li>
+                        <li><code>post-merge</code> - Runs after a merge operation</li>
+                    </ul>
+                    
+                    <h3>Example Pre-Commit Hook</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash">#!/bin/sh
+
+# Run linter
+if ! npm run lint; then
+    echo "Lint failed, commit aborted"
+    exit 1
+fi
+
+# Run tests
+if ! npm test; then
+    echo "Tests failed, commit aborted"
+    exit 1
+fi
+
+exit 0
+</code></pre>
+                    
+                    <h2>Git Submodules and Subtrees</h2>
+                    
+                    <h3>Git Submodules</h3>
+                    <p>Submodules allow you to include other Git repositories as subdirectories:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Add a submodule
+git submodule add https://github.com/example/library.git lib/library
+
+# Initialize and update submodules
+git submodule init
+git submodule update
+
+# Clone a repository with submodules
+git clone --recursive https://github.com/example/project.git
+</code></pre>
+                    
+                    <h3>Git Subtrees</h3>
+                    <p>Subtrees are an alternative to submodules that integrate external repositories as part of your main repository:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Add a subtree
+git subtree add --prefix=lib/library https://github.com/example/library.git main --squash
+
+# Pull updates from the subtree repository
+git subtree pull --prefix=lib/library https://github.com/example/library.git main --squash
+
+# Push changes to the subtree repository
+git subtree push --prefix=lib/library https://github.com/example/library.git feature-branch
+</code></pre>
+                    
+                    <h2>Git Bisect for Debugging</h2>
+                    <p>Git bisect helps you find the commit that introduced a bug:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Start bisect
+git bisect start
+
+# Mark the current commit as bad
+git bisect bad
+
+# Mark a known good commit
+git bisect good v1.0.0
+
+# Git will now checkout a commit in the middle
+# Test the code and mark it as good or bad
+git bisect good
+# or
+git bisect bad
+
+# When done, Git will show the first bad commit
+git bisect reset
+</code></pre>
+                    
+                    <h2>Git Worktrees</h2>
+                    <p>Git worktrees allow you to have multiple working directories for the same repository:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Create a new worktree
+git worktree add ../feature-branch feature-branch
+
+# List all worktrees
+git worktree list
+
+# Remove a worktree
+git worktree remove ../feature-branch
+</code></pre>
+                    
+                    <h2>Advanced Merge Strategies</h2>
+                    
+                    <h3>Resolve Merge Conflicts</h3>
+                    <p>When merge conflicts occur, you can resolve them using these techniques:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># View merge conflicts
+git status
+
+# Resolve conflicts manually in files
+# Then mark them as resolved
+git add resolved-file.txt
+
+# Continue the merge
+git merge --continue
+
+# Abort a merge
+git merge --abort
+</code></pre>
+                    
+                    <h3>Ours and Theirs Strategies</h3>
+                    <p>For complex merges, you can use ours or theirs strategies:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Merge using ours strategy (keep our changes)
+git merge -X ours feature-branch
+
+# Merge using theirs strategy (use their changes)
+git merge -X theirs feature-branch
+
+# For specific files
+git checkout --ours path/to/file.txt
+git checkout --theirs path/to/file.txt
+</code></pre>
+                    
+                    <h2>Git Aliases</h2>
+                    <p>Create aliases for common Git commands to save time:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Set up aliases
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.logg "log --oneline --graph --decorate"
+git config --global alias.lg "log --oneline --graph --all --decorate"
+git config --global alias.unstage "reset HEAD --"
+git config --global alias.last "log -1 HEAD"
+
+# Use aliases
+git co main
+git br
+git ci -m "Commit message"
+git st
+git logg
+git lg
+git unstage file.txt
+git last
+</code></pre>
+                    
+                    <h2>Git Best Practices</h2>
+                    
+                    <ol>
+                        <li><strong>Write clear commit messages:</strong> Use the imperative mood and keep messages concise but descriptive.</li>
+                        <li><strong>Keep commits small:</strong> Each commit should address a single concern.</li>
+                        <li><strong>Use branching effectively:</strong> Create feature branches for new functionality.</li>
+                        <li><strong>Regularly pull changes:</strong> Keep your local repository up to date.</li>
+                        <li><strong>Use .gitignore:</strong> Exclude unnecessary files from version control.</li>
+                        <li><strong>Review code before merging:</strong> Use pull requests for code review.</li>
+                        <li><strong>Document your workflow:</strong> Establish and document team Git workflows.</li>
+                        <li><strong>Backup your repository:</strong> Use remote repositories and consider additional backups.</li>
+                    </ol>
+                    
+                    <h2>Git Performance Optimization</h2>
+                    
+                    <h3>Reduce Repository Size</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Remove large files from history
+git filter-branch --force --index-filter \
+  'git rm --cached --ignore-unmatch path/to/large/file' \
+  --prune-empty --tag-name-filter cat -- --all
+
+# Clean up and optimize
+git gc --aggressive --prune=now
+</code></pre>
+                    
+                    <h3>Speed Up Git Operations</h3>
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-bash"># Enable parallel fetching
+git config --global fetch.parallel 10
+
+# Enable fsmonitor for faster status
+git config --global core.fsmonitor true
+
+# Use shallow clones for temporary work
+git clone --depth 1 https://github.com/example/project.git
+</code></pre>
+                    
+                    <h2>Conclusion</h2>
+                    <p>Mastering Git is essential for modern software development. By leveraging these advanced techniques, you can:</p>
+                    <ul>
+                        <li>Maintain a clean and organized codebase</li>
+                        <li>Collaborate more effectively with team members</li>
+                        <li>Debug issues more efficiently</li>
+                        <li>Optimize your workflow for better productivity</li>
+                    </ul>
+                    <p>Remember that Git is a powerful tool, and with great power comes great responsibility. Always be cautious when rewriting history, especially in shared repositories.</p>
+                    <p>Continue practicing these techniques, and you'll soon become a Git master, capable of handling even the most complex version control scenarios with confidence.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
+                        <li><a href="../json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="../color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="../regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                        <li><a href="../timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
+                        <li><a href="../base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="../api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="../articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="../useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="../contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

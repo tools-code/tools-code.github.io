@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building RESTful APIs: Best Practices - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/core.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        .article-content {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .article-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+        
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-content pre {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+        
+        .article-content .keyword {
+            font-weight: 700;
+            color: #3b82f6;
+            background-color: #eff6ff;
+            padding: 0 0.25rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="../index.html#resources" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="../about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About Us
+                        </a>
+                        <a href="../contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </nav>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="../index.html#resources" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="../about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="../contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Article Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">Building RESTful APIs: Best Practices</h1>
+                <div class="flex items-center justify-center text-blue-100 mb-8">
+                    <span>December 20, 2025</span>
+                    <span class="mx-2">•</span>
+                    <span>API</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="article-content">
+                    <img src="https://picsum.photos/id/96/800/400" alt="API Guide" class="w-full h-auto rounded-lg mb-8">
+                    
+                    <p class="text-xl text-gray-600 mb-8">RESTful APIs have become the standard for building web services that are scalable, maintainable, and easy to integrate with. In this guide, we'll explore the best practices for designing and implementing RESTful APIs that meet these requirements.</p>
+                    
+                    <h2>What is a RESTful API?</h2>
+                    <p>REST (Representational State Transfer) is an architectural style for building web services that uses HTTP requests to access and manipulate data. A RESTful API is an API that follows the principles of REST.</p>
+                    
+                    <h2>Core Principles of REST</h2>
+                    
+                    <ul>
+                        <li><strong>Client-server architecture:</strong> The client and server are separate entities that communicate over HTTP.</li>
+                        <li><strong>Statelessness:</strong> The server doesn't store any state about the client session.</li>
+                        <li><strong>Cacheability:</strong> Responses should be cacheable to improve performance.</li>
+                        <li><strong>Layered system:</strong> The system should be composed of multiple layers.</li>
+                        <li><strong>Uniform interface:</strong> The API should have a consistent interface.</li>
+                        <li><strong>Code on demand (optional):</strong> The server can send executable code to the client.</li>
+                    </ul>
+                    
+                    <h2>Best Practices for RESTful API Design</h2>
+                    
+                    <h3>1. Use HTTP Methods Correctly</h3>
+                    <p>Use the appropriate HTTP method for each operation:</p>
+                    
+                    <ul>
+                        <li><code>GET</code>: Retrieve a resource</li>
+                        <li><code>POST</code>: Create a new resource</li>
+                        <li><code>PUT</code>: Update an existing resource</li>
+                        <li><code>PATCH</code>: Partially update an existing resource</li>
+                        <li><code>DELETE</code>: Delete a resource</li>
+                    </ul>
+                    
+                    <h3>2. Use Nouns for Resource Names</h3>
+                    <p>Use nouns instead of verbs in your API endpoints:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Good
+GET /users
+POST /users
+PUT /users/{id}
+DELETE /users/{id}
+
+// Bad
+GET /getUsers
+POST /createUser
+PUT /updateUser/{id}
+DELETE /deleteUser/{id}</code></pre>
+                    
+                    <h3>3. Use Plural Nouns for Collections</h3>
+                    <p>Use plural nouns for collections of resources:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Good
+GET /users
+GET /users/{id}/posts
+
+// Bad
+GET /user
+GET /user/{id}/post</code></pre>
+                    
+                    <h3>4. Use Consistent Naming Conventions</h3>
+                    <p>Use consistent naming conventions throughout your API:</p>
+                    
+                    <ul>
+                        <li>Use lowercase letters</li>
+                        <li>Use hyphens (-) to separate words</li>
+                        <li>Avoid underscores (_) and camelCase</li>
+                    </ul>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Good
+GET /users/{id}/posts/{postId}/comments
+
+// Bad
+GET /Users/{ID}/Posts/{post_id}/Comments</code></pre>
+                    
+                    <h3>5. Use Status Codes Correctly</h3>
+                    <p>Use the appropriate HTTP status code for each response:</p>
+                    
+                    <ul>
+                        <li><code>200 OK</code>: Successful GET request</li>
+                        <li><code>201 Created</code>: Successful POST request</li>
+                        <li><code>204 No Content</code>: Successful PUT, PATCH, or DELETE request</li>
+                        <li><code>400 Bad Request</code>: Invalid request</li>
+                        <li><code>401 Unauthorized</code>: Unauthenticated request</li>
+                        <li><code>403 Forbidden</code>: Unauthorized request</li>
+                        <li><code>404 Not Found</code>: Resource not found</li>
+                        <li><code>405 Method Not Allowed</code>: HTTP method not supported</li>
+                        <li><code>500 Internal Server Error</code>: Server error</li>
+                    </ul>
+                    
+                    <h3>6. Use Pagination for Large Collections</h3>
+                    <p>Implement pagination for endpoints that return large collections of resources:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Example with page and limit parameters
+GET /users?page=1&limit=10
+
+// Example response
+{
+    "data": [...],
+    "pagination": {
+        "page": 1,
+        "limit": 10,
+        "total": 100,
+        "pages": 10
+    }
+}</code></pre>
+                    
+                    <h3>7. Use Sorting and Filtering</h3>
+                    <p>Allow clients to sort and filter collections:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Example with sorting
+GET /users?sort=name&order=asc
+
+// Example with filtering
+GET /users?age_gte=18&age_lte=30
+
+// Example with both
+GET /users?sort=name&order=asc&age_gte=18&age_lte=30</code></pre>
+                    
+                    <h3>8. Use Versioning</h3>
+                    <p>Version your API to ensure backward compatibility:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Version in the URL
+GET /v1/users
+
+// Version in the header
+GET /users
+Accept: application/vnd.api.v1+json</code></pre>
+                    
+                    <h3>9. Use Consistent Response Format</h3>
+                    <p>Use a consistent response format for all API endpoints:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Success response
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com"
+    }
+}
+
+// Error response
+{
+    "status": "error",
+    "message": "Resource not found",
+    "code": 404
+}</code></pre>
+                    
+                    <h3>10. Implement HATEOAS</h3>
+                    <p>HATEOAS (Hypermedia as the Engine of Application State) is a principle of REST that allows clients to discover available actions from the API response:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "_links": {
+            "self": {
+                "href": "/api/users/1"
+            },
+            "posts": {
+                "href": "/api/users/1/posts"
+            },
+            "comments": {
+                "href": "/api/users/1/comments"
+            }
+        }
+    }
+}</code></pre>
+                    
+                    <h2>Security Best Practices</h2>
+                    
+                    <h3>1. Use HTTPS</h3>
+                    <p>Always use HTTPS to encrypt data in transit.</p>
+                    
+                    <h3>2. Implement Authentication</h3>
+                    <p>Use a secure authentication mechanism like JWT or OAuth 2.0.</p>
+                    
+                    <h3>3. Implement Authorization</h3>
+                    <p>Ensure that users can only access resources they're authorized to access.</p>
+                    
+                    <h3>4. Validate Input</h3>
+                    <p>Validate all input to prevent injection attacks.</p>
+                    
+                    <h3>5. Rate Limiting</h3>
+                    <p>Implement rate limiting to prevent abuse.</p>
+                    
+                    <h3>6. Use CORS</h3>
+                    <p>Implement CORS (Cross-Origin Resource Sharing) to control which domains can access your API.</p>
+                    
+                    <h2>Implementation Best Practices</h2>
+                    
+                    <h3>1. Use a Framework</h3>
+                    <p>Use a framework like Express, Django REST framework, or Laravel to implement your API.</p>
+                    
+                    <h3>2. Use Middleware</h3>
+                    <p>Use middleware for cross-cutting concerns like authentication, logging, and error handling.</p>
+                    
+                    <h3>3. Implement Error Handling</h3>
+                    <p>Implement consistent error handling throughout your API.</p>
+                    
+                    <h3>4. Use Logging</h3>
+                    <p>Implement logging to track API usage and errors.</p>
+                    
+                    <h3>5. Write Tests</h3>
+                    <p>Write comprehensive tests for your API endpoints.</p>
+                    
+                    <h3>6. Use Documentation</h3>
+                    <p>Document your API using tools like Swagger or Postman.</p>
+                    
+                    <h2>Practical Example</h2>
+                    <p>Let's create a simple RESTful API for a blog application:</p>
+                    
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-javascript">// Express.js example
+const express = require('express');
+const app = express();
+
+// Middleware
+app.use(express.json());
+
+// Mock data
+const posts = [
+    { id: 1, title: 'First Post', content: 'This is the first post', author: 'John Doe' },
+    { id: 2, title: 'Second Post', content: 'This is the second post', author: 'Jane Smith' }
+];
+
+// GET all posts
+app.get('/api/posts', (req, res) => {
+    res.status(200).json({
+        status: 'success',
+        data: posts
+    });
+});
+
+// GET a single post
+app.get('/api/posts/:id', (req, res) => {
+    const post = posts.find(p => p.id === parseInt(req.params.id));
+    if (!post) {
+        return res.status(404).json({
+            status: 'error',
+            message: 'Post not found',
+            code: 404
+        });
+    }
+    res.status(200).json({
+        status: 'success',
+        data: post
+    });
+});
+
+// POST a new post
+app.post('/api/posts', (req, res) => {
+    const newPost = {
+        id: posts.length + 1,
+        title: req.body.title,
+        content: req.body.content,
+        author: req.body.author
+    };
+
+// Add the new post to the array
+posts.push(newPost);
+
+// Return the new post
+res.status(201).json({
+    status: 'success',
+    data: newPost
+});
+});
+
+// PUT update a post
+app.put('/api/posts/:id', (req, res) => {
+    const post = posts.find(p => p.id === parseInt(req.params.id));
+    if (!post) {
+        return res.status(404).json({
+            status: 'error',
+            message: 'Post not found',
+            code: 404
+        });
+    }
+
+// Update the post
+post.title = req.body.title;
+post.content = req.body.content;
+post.author = req.body.author;
+
+// Return the updated post
+res.status(200).json({
+    status: 'success',
+    data: post
+});
+});
+
+// DELETE a post
+app.delete('/api/posts/:id', (req, res) => {
+    const post = posts.find(p => p.id === parseInt(req.params.id));
+    if (!post) {
+        return res.status(404).json({
+            status: 'error',
+            message: 'Post not found',
+            code: 404
+        });
+    }
+
+// Remove the post from the array
+const index = posts.indexOf(post);
+posts.splice(index, 1);
+
+// Return a success message
+res.status(200).json({
+    status: 'success',
+    message: 'Post deleted successfully'
+});
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});</code></pre>
+                    
+                    <h2>Conclusion</h2>
+                    <p>Building a RESTful API that is scalable, maintainable, and easy to integrate with requires careful planning and implementation. By following the best practices outlined in this guide, you'll be able to create APIs that meet these requirements and provide a great experience for your users.</p>
+                    <p>Remember that REST is an architectural style, not a strict set of rules. While it's important to follow the core principles of REST, you should also adapt your API design to meet the specific needs of your application.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
+                        <li><a href="../json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="../color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="../regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                        <li><a href="../timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
+                        <li><a href="../base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="../api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="../articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="../useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="../contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
