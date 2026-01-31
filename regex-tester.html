@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Tester - Tools Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/core.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                    </a>
+                    <nav class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tools
+                        </a>
+                        <a href="index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Resources
+                        </a>
+                        <a href="index.html#about" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About
+                        </a>
+                    </nav>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <button type="button" class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <span class="sr-only">View notifications</span>
+                        <!-- Bell icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </button>
+                    <div class="relative">
+                        <button type="button" class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="h-8 w-8 rounded-full" src="https://picsum.photos/id/64/200/200" alt="User avatar">
+                        </button>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                </a>
+                <a href="#" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Tools
+                </a>
+                <a href="index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Resources
+                </a>
+                <a href="index.html#about" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About
+                </a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-200">
+                <div class="flex items-center px-5">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://picsum.photos/id/64/200/200" alt="User avatar">
+                    </div>
+                    <div class="ml-3">
+                        <div class="text-base font-medium leading-none text-gray-800">User Name</div>
+                        <div class="text-sm font-medium leading-none text-gray-500">user@example.com</div>
+                    </div>
+                    <button type="button" class="ml-auto bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <span class="sr-only">View notifications</span>
+                        <!-- Bell icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-3 px-2 space-y-1">
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">
+                        Your Profile
+                    </a>
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">
+                        Settings
+                    </a>
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">
+                        Sign out
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-4">Regex Tester</h1>
+                <p class="text-xl text-blue-100 mb-8">Test and debug your regular expressions in real-time</p>
+            </div>
+        </section>
+
+        <!-- Regex Tester Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gray-50 rounded-lg shadow-sm p-6">
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Test Regular Expressions</h2>
+                        <p class="text-gray-600 mb-6">Enter your regular expression and test string below to see the matches in real-time. You can also select various regex flags to modify the behavior.</p>
+                        
+                        <div class="space-y-6">
+                            <!-- Regex Input -->
+                            <div>
+                                <label for="regex-input" class="block text-sm font-medium text-gray-700 mb-2">Regular Expression</label>
+                                <div class="flex">
+                                    <span class="bg-gray-200 px-4 py-2 border border-gray-300 rounded-l-md">/</span>
+                                    <input type="text" id="regex-input" placeholder="Enter regex pattern" class="flex-1 p-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                                    <span class="bg-gray-200 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md">/</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Regex Flags -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Flags</label>
+                                <div class="flex flex-wrap gap-4">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="flag-g" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                        <label for="flag-g" class="ml-2 block text-sm text-gray-700">Global (g) - Find all matches</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="flag-i" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                        <label for="flag-i" class="ml-2 block text-sm text-gray-700">Case-insensitive (i) - Ignore case</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="flag-m" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                        <label for="flag-m" class="ml-2 block text-sm text-gray-700">Multiline (m) - ^ and $ match start/end of line</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="flag-s" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                        <label for="flag-s" class="ml-2 block text-sm text-gray-700">Dotall (s) - . matches newlines</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="flag-u" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                        <label for="flag-u" class="ml-2 block text-sm text-gray-700">Unicode (u) - Enable Unicode support</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="flag-y" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                        <label for="flag-y" class="ml-2 block text-sm text-gray-700">Sticky (y) - Match from last index</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Test String -->
+                            <div>
+                                <label for="test-string" class="block text-sm font-medium text-gray-700 mb-2">Test String</label>
+                                <textarea id="test-string" rows="5" placeholder="Enter text to test your regex against" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                            </div>
+                            
+                            <!-- Test Button -->
+                            <div>
+                                <button id="test-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
+                                    Test Regex
+                                </button>
+                            </div>
+                            
+                            <!-- Results -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Results</h3>
+                                <div id="results" class="bg-white p-4 border border-gray-300 rounded-md min-h-[200px]">
+                                    <p class="text-gray-500">Enter a regex pattern and test string, then click "Test Regex" to see results.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Regex Examples -->
+                        <div class="mt-12">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Common Regex Patterns</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                    <h4 class="font-medium text-gray-900 mb-2">Email</h4>
+                                    <p class="text-gray-600 mb-2">/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/</p>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$">Use Pattern</button>
+                                </div>
+                                <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                    <h4 class="font-medium text-gray-900 mb-2">URL</h4>
+                                    <p class="text-gray-600 mb-2">/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/</p>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$">Use Pattern</button>
+                                </div>
+                                <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                    <h4 class="font-medium text-gray-900 mb-2">Phone Number (US)</h4>
+                                    <p class="text-gray-600 mb-2">/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/</p>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$">Use Pattern</button>
+                                </div>
+                                <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                    <h4 class="font-medium text-gray-900 mb-2">Date (MM/DD/YYYY)</h4>
+                                    <p class="text-gray-600 mb-2">/^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$/</p>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$">Use Pattern</button>
+                                </div>
+                                <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                    <h4 class="font-medium text-gray-900 mb-2">IP Address</h4>
+                                    <p class="text-gray-600 mb-2">/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/</p>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$">Use Pattern</button>
+                                </div>
+                                <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                    <h4 class="font-medium text-gray-900 mb-2">Password (Strong)</h4>
+                                    <p class="text-gray-600 mb-2">/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/</p>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">Use Pattern</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
+                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Code Formatter</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Code Snippets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.001 10.001 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // Regex Tester functionality
+        const regexInput = document.getElementById('regex-input');
+        const testString = document.getElementById('test-string');
+        const testBtn = document.getElementById('test-btn');
+        const results = document.getElementById('results');
+        const flagG = document.getElementById('flag-g');
+        const flagI = document.getElementById('flag-i');
+        const flagM = document.getElementById('flag-m');
+        const flagS = document.getElementById('flag-s');
+        const flagU = document.getElementById('flag-u');
+        const flagY = document.getElementById('flag-y');
+        const exampleBtns = document.querySelectorAll('.example-btn');
+        
+        // Test regex function
+        function testRegex() {
+            const pattern = regexInput.value;
+            const text = testString.value;
+            
+            if (!pattern) {
+                results.innerHTML = '<p class="text-red-500">Please enter a regex pattern.</p>';
+                return;
+            }
+            
+            // Build flags string
+            let flags = '';
+            if (flagG.checked) flags += 'g';
+            if (flagI.checked) flags += 'i';
+            if (flagM.checked) flags += 'm';
+            if (flagS.checked) flags += 's';
+            if (flagU.checked) flags += 'u';
+            if (flagY.checked) flags += 'y';
+            
+            try {
+                const regex = new RegExp(pattern, flags);
+                const matches = [];
+                let match;
+                
+                // Find all matches
+                if (flagG.checked) {
+                    while ((match = regex.exec(text)) !== null) {
+                        matches.push({
+                            value: match[0],
+                            index: match.index,
+                            groups: match.groups
+                        });
+                        
+                        // Prevent infinite loops for zero-length matches
+                        if (match.index === regex.lastIndex) {
+                            regex.lastIndex++;
+                        }
+                    }
+                } else {
+                    match = regex.exec(text);
+                    if (match) {
+                        matches.push({
+                            value: match[0],
+                            index: match.index,
+                            groups: match.groups
+                        });
+                    }
+                }
+                
+                // Display results
+                let html = '';
+                if (matches.length === 0) {
+                    results.innerHTML = '<p class="text-gray-500">No matches found.</p>';
+                } else {
+                    html = `<p class="text-green-600 mb-4">Found ${matches.length} match${matches.length !== 1 ? 'es' : ''}:</p>`;
+                    html += '<ul class="space-y-2">';
+                    
+                    matches.forEach((match, i) => {
+                        html += `<li class="p-2 bg-gray-50 rounded-md">`;
+                        html += `<div class="font-medium">Match ${i + 1}: <code>${match.value}</code></div>`;
+                        html += `<div class="text-sm text-gray-600">Index: ${match.index}</div>`;
+                        if (match.groups) {
+                            html += `<div class="text-sm text-gray-600">Groups: ${JSON.stringify(match.groups)}</div>`;
+                        }
+                        html += `</li>`;
+                    });
+                    
+                    html += '</ul>';
+                    results.innerHTML = html;
+                }
+                
+                // Highlight matches in test string
+                if (matches.length > 0) {
+                    let highlightedText = text;
+                    let offset = 0;
+                    
+                    // Sort matches by index to avoid position issues
+                    const sortedMatches = [...matches].sort((a, b) => a.index - b.index);
+                    
+                    sortedMatches.forEach(match => {
+                        const start = match.index + offset;
+                        const end = start + match.value.length;
+                        const before = highlightedText.substring(0, start);
+                        const matched = highlightedText.substring(start, end);
+                        const after = highlightedText.substring(end);
+                        
+                        highlightedText = before + `<span class="bg-yellow-200">${matched}</span>` + after;
+                        offset += '<span class="bg-yellow-200"></span>'.length;
+                    });
+                    
+                    html += `<div class="mt-4">
+                        <h4 class="font-medium text-gray-900 mb-2">Highlighted Matches:</h4>
+                        <div class="bg-gray-50 p-3 rounded-md whitespace-pre-wrap">${highlightedText}</div>
+                    </div>`;
+                    results.innerHTML = html;
+                }
+                
+            } catch (error) {
+                results.innerHTML = `<p class="text-red-500">Error: ${error.message}</p>`;
+            }
+        }
+        
+        // Use example pattern
+        exampleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const pattern = btn.dataset.pattern;
+                regexInput.value = pattern;
+            });
+        });
+        
+        // Event listeners
+        testBtn.addEventListener('click', testRegex);
+        
+        // Real-time testing
+        regexInput.addEventListener('input', testRegex);
+        testString.addEventListener('input', testRegex);
+        flagG.addEventListener('change', testRegex);
+        flagI.addEventListener('change', testRegex);
+        flagM.addEventListener('change', testRegex);
+        flagS.addEventListener('change', testRegex);
+        flagU.addEventListener('change', testRegex);
+        flagY.addEventListener('change', testRegex);
+    </script>
+</body>
+</html>
