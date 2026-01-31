@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Validator - Tools Code</title>
+    <title>Base64 Encoder/Decoder - Tools Code</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="src/core.css">
     <script>
@@ -131,48 +131,70 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">JSON Validator</h1>
-                <p class="text-xl text-blue-100 mb-8">Validate, beautify, and manipulate your JSON data with ease</p>
+                <h1 class="text-4xl font-bold text-white mb-4">Base64 Encoder/Decoder</h1>
+                <p class="text-xl text-blue-100 mb-8">Encode and decode Base64 strings quickly and easily</p>
             </div>
         </section>
 
-        <!-- JSON Validator Section -->
+        <!-- Base64 Encoder/Decoder Section -->
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gray-50 rounded-lg shadow-sm p-6">
                     <div class="mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Validate JSON</h2>
-                        <p class="text-gray-600 mb-6">Enter your JSON data below and click "Validate" to check if it's valid. You can also beautify, compress, or unescape your JSON.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Encode and Decode Base64</h2>
+                        <p class="text-gray-600 mb-6">Enter text to encode or Base64 string to decode below.</p>
                         
-                        <div class="mb-4">
-                            <label for="json-input" class="block text-sm font-medium text-gray-700 mb-2">JSON Input</label>
-                            <textarea id="json-input" rows="10" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                        <div class="space-y-8">
+                            <!-- Text to Base64 -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Text to Base64</h3>
+                                <div class="flex flex-col gap-4">
+                                    <div>
+                                        <label for="text-input" class="block text-sm font-medium text-gray-700 mb-2">Text</label>
+                                        <textarea id="text-input" placeholder="Enter text to encode" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 h-32"></textarea>
+                                    </div>
+                                    <div>
+                                        <button id="encode-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
+                                            Encode
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Result</label>
+                                        <div class="flex">
+                                            <input type="text" id="encode-result" readonly class="flex-1 p-4 border border-gray-300 rounded-l-md bg-gray-50">
+                                            <button id="copy-encode-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
+                                                Copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Base64 to Text -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Base64 to Text</h3>
+                                <div class="flex flex-col gap-4">
+                                    <div>
+                                        <label for="base64-input" class="block text-sm font-medium text-gray-700 mb-2">Base64</label>
+                                        <textarea id="base64-input" placeholder="Enter Base64 to decode" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 h-32"></textarea>
+                                    </div>
+                                    <div>
+                                        <button id="decode-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
+                                            Decode
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Result</label>
+                                        <div class="flex">
+                                            <input type="text" id="decode-result" readonly class="flex-1 p-4 border border-gray-300 rounded-l-md bg-gray-50">
+                                            <button id="copy-decode-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
+                                                Copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="flex flex-wrap gap-4 mb-6">
-                            <button id="validate-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                Validate
-                            </button>
-                            <button id="beautify-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                Beautify
-                            </button>
-                            <button id="compress-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                Compress
-                            </button>
-                            <button id="unescape-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                Unescape
-                            </button>
-                            <button id="copy-btn" class="bg-gray-200 text-gray-800 px-6 py-2 rounded-md font-medium hover:bg-gray-300 transition duration-200">
-                                Copy Result
-                            </button>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <label for="json-output" class="block text-sm font-medium text-gray-700 mb-2">Result</label>
-                            <div id="json-output" class="w-full p-4 border border-gray-300 rounded-md bg-white min-h-[200px] font-mono text-sm"></div>
-                        </div>
-                        
-                        <div id="validation-result" class="hidden p-4 rounded-md mb-4"></div>
                     </div>
                 </div>
             </div>
@@ -245,142 +267,64 @@
             });
         }
         
-        // JSON Validator functionality
-        const jsonInput = document.getElementById('json-input');
-        const jsonOutput = document.getElementById('json-output');
-        const validationResult = document.getElementById('validation-result');
-        const validateBtn = document.getElementById('validate-btn');
-        const beautifyBtn = document.getElementById('beautify-btn');
-        const compressBtn = document.getElementById('compress-btn');
-        const unescapeBtn = document.getElementById('unescape-btn');
-        const copyBtn = document.getElementById('copy-btn');
+        // Base64 Encoder/Decoder functionality
+        const textInput = document.getElementById('text-input');
+        const base64Input = document.getElementById('base64-input');
+        const encodeResult = document.getElementById('encode-result');
+        const decodeResult = document.getElementById('decode-result');
+        const encodeBtn = document.getElementById('encode-btn');
+        const decodeBtn = document.getElementById('decode-btn');
+        const copyEncodeResult = document.getElementById('copy-encode-result');
+        const copyDecodeResult = document.getElementById('copy-decode-result');
         
-        // Function to display validation result
-        function displayResult(message, isError = false) {
-            validationResult.textContent = message;
-            validationResult.className = `p-4 rounded-md mb-4 ${isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`;
-            validationResult.classList.remove('hidden');
+        // Encode text to Base64
+        function encodeToBase64() {
+            const text = textInput.value;
+            if (!text) {
+                encodeResult.value = 'Please enter text to encode';
+                return;
+            }
+            
+            try {
+                const encoded = btoa(unescape(encodeURIComponent(text)));
+                encodeResult.value = encoded;
+            } catch (error) {
+                encodeResult.value = 'Error encoding text';
+            }
         }
         
-        // Validate JSON
-        validateBtn.addEventListener('click', () => {
-            const input = jsonInput.value.trim();
-            
-            if (!input) {
-                displayResult('Please enter JSON data', true);
+        // Decode Base64 to text
+        function decodeFromBase64() {
+            const base64 = base64Input.value;
+            if (!base64) {
+                decodeResult.value = 'Please enter Base64 to decode';
                 return;
             }
             
             try {
-                const parsed = JSON.parse(input);
-                displayResult('JSON is valid!');
-                jsonOutput.textContent = JSON.stringify(parsed, null, 2);
+                const decoded = decodeURIComponent(escape(atob(base64)));
+                decodeResult.value = decoded;
             } catch (error) {
-                displayResult(`Error: ${error.message}`, true);
-                jsonOutput.textContent = '';
+                decodeResult.value = 'Error decoding Base64';
             }
-        });
+        }
         
-        // Beautify JSON
-        beautifyBtn.addEventListener('click', () => {
-            const input = jsonInput.value.trim();
-            
-            if (!input) {
-                displayResult('Please enter JSON data', true);
-                return;
-            }
-            
-            try {
-                const parsed = JSON.parse(input);
-                const beautified = JSON.stringify(parsed, null, 2);
-                jsonInput.value = beautified;
-                jsonOutput.textContent = beautified;
-                displayResult('JSON beautified successfully!');
-            } catch (error) {
-                displayResult(`Error: ${error.message}`, true);
-            }
-        });
-        
-        // Compress JSON
-        compressBtn.addEventListener('click', () => {
-            const input = jsonInput.value.trim();
-            
-            if (!input) {
-                displayResult('Please enter JSON data', true);
-                return;
-            }
-            
-            try {
-                const parsed = JSON.parse(input);
-                const compressed = JSON.stringify(parsed);
-                jsonInput.value = compressed;
-                jsonOutput.textContent = compressed;
-                displayResult('JSON compressed successfully!');
-            } catch (error) {
-                displayResult(`Error: ${error.message}`, true);
-            }
-        });
-        
-        // Unescape JSON
-        unescapeBtn.addEventListener('click', () => {
-            const input = jsonInput.value.trim();
-            
-            if (!input) {
-                displayResult('Please enter JSON data', true);
-                return;
-            }
-            
-            try {
-                // First try to parse as is
-                let parsed;
-                try {
-                    parsed = JSON.parse(input);
-                } catch {
-                    // If that fails, try to unescape
-                    const unescaped = input.replace(/\\(["\\/bfnrt]|u[0-9a-fA-F]{4})/g, (match) => {
-                        switch (match.charAt(1)) {
-                            case '"': return '"';
-                            case '\\': return '\\';
-                            case '/': return '/';
-                            case 'b': return '\b';
-                            case 'f': return '\f';
-                            case 'n': return '\n';
-                            case 'r': return '\r';
-                            case 't': return '\t';
-                            case 'u':
-                                return String.fromCharCode(parseInt(match.slice(2), 16));
-                            default: return match;
-                        }
-                    });
-                    parsed = JSON.parse(unescaped);
-                }
-                
-                const beautified = JSON.stringify(parsed, null, 2);
-                jsonInput.value = beautified;
-                jsonOutput.textContent = beautified;
-                displayResult('JSON unescaped successfully!');
-            } catch (error) {
-                displayResult(`Error: ${error.message}`, true);
-            }
-        });
-        
-        // Copy result
-        copyBtn.addEventListener('click', () => {
-            const output = jsonOutput.textContent;
-            
-            if (!output) {
-                displayResult('No result to copy', true);
-                return;
-            }
-            
-            navigator.clipboard.writeText(output)
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
                 .then(() => {
-                    displayResult('Result copied to clipboard!');
+                    console.log('Copied to clipboard');
                 })
-                .catch(() => {
-                    displayResult('Failed to copy result', true);
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
                 });
-        });
+        }
+        
+        // Event listeners
+        encodeBtn.addEventListener('click', encodeToBase64);
+        decodeBtn.addEventListener('click', decodeFromBase64);
+        copyEncodeResult.addEventListener('click', () => copyToClipboard(encodeResult.value));
+        copyDecodeResult.addEventListener('click', () => copyToClipboard(decodeResult.value));
     </script>
 </body>
 </html>

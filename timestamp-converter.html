@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Validator - Tools Code</title>
+    <title>Timestamp Converter - Tools Code</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="src/core.css">
     <script>
@@ -131,48 +131,62 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">JSON Validator</h1>
-                <p class="text-xl text-blue-100 mb-8">Validate, beautify, and manipulate your JSON data with ease</p>
+                <h1 class="text-4xl font-bold text-white mb-4">Timestamp Converter</h1>
+                <p class="text-xl text-blue-100 mb-8">Convert timestamps to human-readable dates and vice versa</p>
             </div>
         </section>
 
-        <!-- JSON Validator Section -->
+        <!-- Timestamp Converter Section -->
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gray-50 rounded-lg shadow-sm p-6">
                     <div class="mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Validate JSON</h2>
-                        <p class="text-gray-600 mb-6">Enter your JSON data below and click "Validate" to check if it's valid. You can also beautify, compress, or unescape your JSON.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Convert Timestamps</h2>
+                        <p class="text-gray-600 mb-6">Enter a timestamp or date below to convert between Unix timestamps and human-readable dates.</p>
                         
-                        <div class="mb-4">
-                            <label for="json-input" class="block text-sm font-medium text-gray-700 mb-2">JSON Input</label>
-                            <textarea id="json-input" rows="10" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                        <div class="space-y-8">
+                            <!-- Timestamp to Date -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Timestamp to Date</h3>
+                                <div class="flex flex-col md:flex-row gap-4">
+                                    <div class="flex-1">
+                                        <label for="timestamp-input" class="block text-sm font-medium text-gray-700 mb-2">Timestamp</label>
+                                        <input type="text" id="timestamp-input" placeholder="Enter timestamp (e.g. 1609459200)" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                    <div class="flex items-end">
+                                        <button id="timestamp-to-date-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
+                                            Convert to Date
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Result</label>
+                                    <div class="flex">
+                                        <input type="text" id="timestamp-result" readonly class="flex-1 p-4 border border-gray-300 rounded-l-md bg-gray-50">
+                                        <button id="copy-timestamp-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
+                                            Copy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            
+                            <!-- Current Timestamp -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Current Timestamp</h3>
+                                <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <p class="text-gray-500">Current Unix Timestamp</p>
+                                            <p id="current-timestamp" class="text-xl font-medium">1609459200</p>
+                                        </div>
+                                        <button id="copy-current-timestamp" class="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 transition duration-200">
+                                            Copy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="flex flex-wrap gap-4 mb-6">
-                            <button id="validate-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                Validate
-                            </button>
-                            <button id="beautify-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                Beautify
-                            </button>
-                            <button id="compress-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                Compress
-                            </button>
-                            <button id="unescape-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                Unescape
-                            </button>
-                            <button id="copy-btn" class="bg-gray-200 text-gray-800 px-6 py-2 rounded-md font-medium hover:bg-gray-300 transition duration-200">
-                                Copy Result
-                            </button>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <label for="json-output" class="block text-sm font-medium text-gray-700 mb-2">Result</label>
-                            <div id="json-output" class="w-full p-4 border border-gray-300 rounded-md bg-white min-h-[200px] font-mono text-sm"></div>
-                        </div>
-                        
-                        <div id="validation-result" class="hidden p-4 rounded-md mb-4"></div>
                     </div>
                 </div>
             </div>
@@ -245,142 +259,79 @@
             });
         }
         
-        // JSON Validator functionality
-        const jsonInput = document.getElementById('json-input');
-        const jsonOutput = document.getElementById('json-output');
-        const validationResult = document.getElementById('validation-result');
-        const validateBtn = document.getElementById('validate-btn');
-        const beautifyBtn = document.getElementById('beautify-btn');
-        const compressBtn = document.getElementById('compress-btn');
-        const unescapeBtn = document.getElementById('unescape-btn');
-        const copyBtn = document.getElementById('copy-btn');
+        // Timestamp Converter functionality
+        const timestampInput = document.getElementById('timestamp-input');
+        const dateInput = document.getElementById('date-input');
+        const timestampResult = document.getElementById('timestamp-result');
+        const dateResult = document.getElementById('date-result');
+        const currentTimestamp = document.getElementById('current-timestamp');
+        const timestampToDateBtn = document.getElementById('timestamp-to-date-btn');
+        const dateToTimestampBtn = document.getElementById('date-to-timestamp-btn');
+        const copyTimestampResult = document.getElementById('copy-timestamp-result');
+        const copyDateResult = document.getElementById('copy-date-result');
+        const copyCurrentTimestamp = document.getElementById('copy-current-timestamp');
         
-        // Function to display validation result
-        function displayResult(message, isError = false) {
-            validationResult.textContent = message;
-            validationResult.className = `p-4 rounded-md mb-4 ${isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`;
-            validationResult.classList.remove('hidden');
+        // Update current timestamp
+        function updateCurrentTimestamp() {
+            const now = Math.floor(Date.now() / 1000);
+            currentTimestamp.textContent = now;
         }
         
-        // Validate JSON
-        validateBtn.addEventListener('click', () => {
-            const input = jsonInput.value.trim();
+        // Convert timestamp to date
+        function timestampToDate() {
+            const timestamp = timestampInput.value.trim();
             
-            if (!input) {
-                displayResult('Please enter JSON data', true);
+            if (!timestamp) {
+                timestampResult.value = 'Please enter a timestamp';
                 return;
             }
             
             try {
-                const parsed = JSON.parse(input);
-                displayResult('JSON is valid!');
-                jsonOutput.textContent = JSON.stringify(parsed, null, 2);
+                const date = new Date(parseInt(timestamp) * 1000);
+                timestampResult.value = date.toISOString();
             } catch (error) {
-                displayResult(`Error: ${error.message}`, true);
-                jsonOutput.textContent = '';
+                timestampResult.value = 'Invalid timestamp';
             }
-        });
+        }
         
-        // Beautify JSON
-        beautifyBtn.addEventListener('click', () => {
-            const input = jsonInput.value.trim();
+        // Convert date to timestamp
+        function dateToTimestamp() {
+            const dateStr = dateInput.value;
             
-            if (!input) {
-                displayResult('Please enter JSON data', true);
+            if (!dateStr) {
+                dateResult.value = 'Please select a date';
                 return;
             }
             
             try {
-                const parsed = JSON.parse(input);
-                const beautified = JSON.stringify(parsed, null, 2);
-                jsonInput.value = beautified;
-                jsonOutput.textContent = beautified;
-                displayResult('JSON beautified successfully!');
+                const date = new Date(dateStr);
+                const timestamp = Math.floor(date.getTime() / 1000);
+                dateResult.value = timestamp;
             } catch (error) {
-                displayResult(`Error: ${error.message}`, true);
+                dateResult.value = 'Invalid date';
             }
-        });
+        }
         
-        // Compress JSON
-        compressBtn.addEventListener('click', () => {
-            const input = jsonInput.value.trim();
-            
-            if (!input) {
-                displayResult('Please enter JSON data', true);
-                return;
-            }
-            
-            try {
-                const parsed = JSON.parse(input);
-                const compressed = JSON.stringify(parsed);
-                jsonInput.value = compressed;
-                jsonOutput.textContent = compressed;
-                displayResult('JSON compressed successfully!');
-            } catch (error) {
-                displayResult(`Error: ${error.message}`, true);
-            }
-        });
-        
-        // Unescape JSON
-        unescapeBtn.addEventListener('click', () => {
-            const input = jsonInput.value.trim();
-            
-            if (!input) {
-                displayResult('Please enter JSON data', true);
-                return;
-            }
-            
-            try {
-                // First try to parse as is
-                let parsed;
-                try {
-                    parsed = JSON.parse(input);
-                } catch {
-                    // If that fails, try to unescape
-                    const unescaped = input.replace(/\\(["\\/bfnrt]|u[0-9a-fA-F]{4})/g, (match) => {
-                        switch (match.charAt(1)) {
-                            case '"': return '"';
-                            case '\\': return '\\';
-                            case '/': return '/';
-                            case 'b': return '\b';
-                            case 'f': return '\f';
-                            case 'n': return '\n';
-                            case 'r': return '\r';
-                            case 't': return '\t';
-                            case 'u':
-                                return String.fromCharCode(parseInt(match.slice(2), 16));
-                            default: return match;
-                        }
-                    });
-                    parsed = JSON.parse(unescaped);
-                }
-                
-                const beautified = JSON.stringify(parsed, null, 2);
-                jsonInput.value = beautified;
-                jsonOutput.textContent = beautified;
-                displayResult('JSON unescaped successfully!');
-            } catch (error) {
-                displayResult(`Error: ${error.message}`, true);
-            }
-        });
-        
-        // Copy result
-        copyBtn.addEventListener('click', () => {
-            const output = jsonOutput.textContent;
-            
-            if (!output) {
-                displayResult('No result to copy', true);
-                return;
-            }
-            
-            navigator.clipboard.writeText(output)
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
                 .then(() => {
-                    displayResult('Result copied to clipboard!');
+                    // Optional: Show success message
+                    console.log('Copied to clipboard');
                 })
-                .catch(() => {
-                    displayResult('Failed to copy result', true);
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
                 });
-        });
+        }
+        
+        // Event listeners
+        timestampToDateBtn.addEventListener('click', timestampToDate);
+        copyTimestampResult.addEventListener('click', () => copyToClipboard(timestampResult.value));
+        copyCurrentTimestamp.addEventListener('click', () => copyToClipboard(currentTimestamp.textContent));
+        
+        // Update current timestamp initially and every second
+        updateCurrentTimestamp();
+        setInterval(updateCurrentTimestamp, 1000);
     </script>
 </body>
 </html>
