@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base64 Encoder/Decoder - Tools Code</title>
+    <title>About Us - Tools Code</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="src/core.css">
     <script>
@@ -42,13 +42,13 @@
                         <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Home
                         </a>
-                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Tools
                         </a>
                         <a href="index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Resources
                         </a>
-                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="about.html" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             About Us
                         </a>
                         <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
@@ -88,14 +88,17 @@
                 <a href="index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
                     Home
                 </a>
-                <a href="#" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
                     Tools
                 </a>
                 <a href="index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
                     Resources
                 </a>
-                <a href="index.html#about" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    About
+                <a href="about.html" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    About Us
+                </a>
+                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                    Contact
                 </a>
             </div>
             <div class="pt-4 pb-3 border-t border-gray-200">
@@ -134,75 +137,54 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Base64 Encoder/Decoder</h1>
-                <p class="text-xl text-blue-100 mb-8">Encode and decode Base64 strings quickly and easily</p>
+                <h1 class="text-4xl font-bold text-white mb-4">About Us</h1>
+                <p class="text-xl text-blue-100 mb-8">Learn more about Tools Code and our mission</p>
             </div>
         </section>
 
-        <!-- Base64 Encoder/Decoder Section -->
+        <!-- About Section -->
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-gray-50 rounded-lg shadow-sm p-6">
-                    <div class="mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Encode and Decode Base64</h2>
-                        <p class="text-gray-600 mb-6">Enter text to encode or Base64 string to decode below.</p>
-                        
-                        <div class="space-y-8">
-                            <!-- Text to Base64 -->
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Text to Base64</h3>
-                                <div class="flex flex-col gap-4">
-                                    <div>
-                                        <label for="text-input" class="block text-sm font-medium text-gray-700 mb-2">Text</label>
-                                        <textarea id="text-input" placeholder="Enter text to encode" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 h-32"></textarea>
-                                    </div>
-                                    <div>
-                                        <button id="encode-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                            Encode
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Result</label>
-                                        <div class="flex">
-                                            <input type="text" id="encode-result" readonly class="flex-1 p-4 border border-gray-300 rounded-l-md bg-gray-50">
-                                            <button id="copy-encode-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
-                                                Copy
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Base64 to Text -->
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Base64 to Text</h3>
-                                <div class="flex flex-col gap-4">
-                                    <div>
-                                        <label for="base64-input" class="block text-sm font-medium text-gray-700 mb-2">Base64</label>
-                                        <textarea id="base64-input" placeholder="Enter Base64 to decode" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 h-32"></textarea>
-                                    </div>
-                                    <div>
-                                        <button id="decode-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                            Decode
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Result</label>
-                                        <div class="flex">
-                                            <input type="text" id="decode-result" readonly class="flex-1 p-4 border border-gray-300 rounded-l-md bg-gray-50">
-                                            <button id="copy-decode-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
-                                                Copy
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
+                        <p class="text-gray-600 mb-4">Tools Code is dedicated to providing developers with high-quality tools and resources to streamline their workflow and enhance their productivity. Our mission is to create a comprehensive platform that caters to the needs of developers at all skill levels.</p>
+                        <p class="text-gray-600 mb-6">We believe that the right tools can make a significant difference in the development process, allowing developers to focus on what they do best: creating amazing software.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Our Values</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Quality: We strive to deliver the highest quality tools and resources</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Accessibility: We make our tools accessible to developers of all skill levels</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Innovation: We continuously improve and add new features to our tools</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Community: We value feedback and contributions from the developer community</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://picsum.photos/id/180/800/600" alt="Our Team" class="rounded-lg shadow-lg w-full h-auto">
                     </div>
                 </div>
             </div>
         </section>
-    </main>
+
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
@@ -221,15 +203,6 @@
                         <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
                         <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
                         <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
@@ -267,65 +240,6 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
-        
-        // Base64 Encoder/Decoder functionality
-        const textInput = document.getElementById('text-input');
-        const base64Input = document.getElementById('base64-input');
-        const encodeResult = document.getElementById('encode-result');
-        const decodeResult = document.getElementById('decode-result');
-        const encodeBtn = document.getElementById('encode-btn');
-        const decodeBtn = document.getElementById('decode-btn');
-        const copyEncodeResult = document.getElementById('copy-encode-result');
-        const copyDecodeResult = document.getElementById('copy-decode-result');
-        
-        // Encode text to Base64
-        function encodeToBase64() {
-            const text = textInput.value;
-            if (!text) {
-                encodeResult.value = 'Please enter text to encode';
-                return;
-            }
-            
-            try {
-                const encoded = btoa(unescape(encodeURIComponent(text)));
-                encodeResult.value = encoded;
-            } catch (error) {
-                encodeResult.value = 'Error encoding text';
-            }
-        }
-        
-        // Decode Base64 to text
-        function decodeFromBase64() {
-            const base64 = base64Input.value;
-            if (!base64) {
-                decodeResult.value = 'Please enter Base64 to decode';
-                return;
-            }
-            
-            try {
-                const decoded = decodeURIComponent(escape(atob(base64)));
-                decodeResult.value = decoded;
-            } catch (error) {
-                decodeResult.value = 'Error decoding Base64';
-            }
-        }
-        
-        // Copy to clipboard
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    console.log('Copied to clipboard');
-                })
-                .catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
-        }
-        
-        // Event listeners
-        encodeBtn.addEventListener('click', encodeToBase64);
-        decodeBtn.addEventListener('click', decodeFromBase64);
-        copyEncodeResult.addEventListener('click', () => copyToClipboard(encodeResult.value));
-        copyDecodeResult.addEventListener('click', () => copyToClipboard(decodeResult.value));
     </script>
 </body>
 </html>

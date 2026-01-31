@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base64 Encoder/Decoder - Tools Code</title>
+    <title>Word Counter - Tools Code</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="src/core.css">
     <script>
@@ -134,68 +134,63 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Base64 Encoder/Decoder</h1>
-                <p class="text-xl text-blue-100 mb-8">Encode and decode Base64 strings quickly and easily</p>
+                <h1 class="text-4xl font-bold text-white mb-4">Word Counter</h1>
+                <p class="text-xl text-blue-100 mb-8">Count words, characters, and paragraphs in your text instantly</p>
             </div>
         </section>
 
-        <!-- Base64 Encoder/Decoder Section -->
+        <!-- Word Counter Section -->
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gray-50 rounded-lg shadow-sm p-6">
                     <div class="mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Encode and Decode Base64</h2>
-                        <p class="text-gray-600 mb-6">Enter text to encode or Base64 string to decode below.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Count Your Text</h2>
+                        <p class="text-gray-600 mb-6">Enter your text below to count words, characters, paragraphs, and get reading time estimate.</p>
                         
                         <div class="space-y-8">
-                            <!-- Text to Base64 -->
+                            <!-- Text Input -->
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Text to Base64</h3>
-                                <div class="flex flex-col gap-4">
-                                    <div>
-                                        <label for="text-input" class="block text-sm font-medium text-gray-700 mb-2">Text</label>
-                                        <textarea id="text-input" placeholder="Enter text to encode" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 h-32"></textarea>
+                                <label for="text-input" class="block text-sm font-medium text-gray-700 mb-2">Text</label>
+                                <textarea id="text-input" placeholder="Enter your text here..." class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 h-64"></textarea>
+                            </div>
+                            
+                            <!-- Word Count Results -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Results</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                        <p class="text-gray-500">Words</p>
+                                        <p id="word-count" class="text-xl font-medium">0</p>
                                     </div>
-                                    <div>
-                                        <button id="encode-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                            Encode
-                                        </button>
+                                    <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                        <p class="text-gray-500">Characters (with spaces)</p>
+                                        <p id="char-count" class="text-xl font-medium">0</p>
                                     </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Result</label>
-                                        <div class="flex">
-                                            <input type="text" id="encode-result" readonly class="flex-1 p-4 border border-gray-300 rounded-l-md bg-gray-50">
-                                            <button id="copy-encode-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
-                                                Copy
-                                            </button>
-                                        </div>
+                                    <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                        <p class="text-gray-500">Characters (without spaces)</p>
+                                        <p id="char-count-no-spaces" class="text-xl font-medium">0</p>
+                                    </div>
+                                    <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                        <p class="text-gray-500">Paragraphs</p>
+                                        <p id="paragraph-count" class="text-xl font-medium">0</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <div class="bg-white p-4 border border-gray-300 rounded-md">
+                                        <p class="text-gray-500">Reading Time</p>
+                                        <p id="reading-time" class="text-xl font-medium">0 min</p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- Base64 to Text -->
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Base64 to Text</h3>
-                                <div class="flex flex-col gap-4">
-                                    <div>
-                                        <label for="base64-input" class="block text-sm font-medium text-gray-700 mb-2">Base64</label>
-                                        <textarea id="base64-input" placeholder="Enter Base64 to decode" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 h-32"></textarea>
-                                    </div>
-                                    <div>
-                                        <button id="decode-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
-                                            Decode
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Result</label>
-                                        <div class="flex">
-                                            <input type="text" id="decode-result" readonly class="flex-1 p-4 border border-gray-300 rounded-l-md bg-gray-50">
-                                            <button id="copy-decode-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
-                                                Copy
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button id="clear-btn" class="bg-gray-200 text-gray-900 px-6 py-3 rounded-md font-medium hover:bg-gray-300 transition duration-200">
+                                    Clear Text
+                                </button>
+                                <button id="copy-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
+                                    Copy Text
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -268,50 +263,50 @@
             });
         }
         
-        // Base64 Encoder/Decoder functionality
+        // Word Counter functionality
         const textInput = document.getElementById('text-input');
-        const base64Input = document.getElementById('base64-input');
-        const encodeResult = document.getElementById('encode-result');
-        const decodeResult = document.getElementById('decode-result');
-        const encodeBtn = document.getElementById('encode-btn');
-        const decodeBtn = document.getElementById('decode-btn');
-        const copyEncodeResult = document.getElementById('copy-encode-result');
-        const copyDecodeResult = document.getElementById('copy-decode-result');
+        const wordCount = document.getElementById('word-count');
+        const charCount = document.getElementById('char-count');
+        const charCountNoSpaces = document.getElementById('char-count-no-spaces');
+        const paragraphCount = document.getElementById('paragraph-count');
+        const readingTime = document.getElementById('reading-time');
+        const clearBtn = document.getElementById('clear-btn');
+        const copyBtn = document.getElementById('copy-btn');
         
-        // Encode text to Base64
-        function encodeToBase64() {
+        // Count words, characters, paragraphs, and estimate reading time
+        function countText() {
             const text = textInput.value;
-            if (!text) {
-                encodeResult.value = 'Please enter text to encode';
-                return;
-            }
             
-            try {
-                const encoded = btoa(unescape(encodeURIComponent(text)));
-                encodeResult.value = encoded;
-            } catch (error) {
-                encodeResult.value = 'Error encoding text';
-            }
+            // Count words
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            wordCount.textContent = words.length;
+            
+            // Count characters with spaces
+            charCount.textContent = text.length;
+            
+            // Count characters without spaces
+            const textWithoutSpaces = text.replace(/\s/g, '');
+            charCountNoSpaces.textContent = textWithoutSpaces.length;
+            
+            // Count paragraphs
+            const paragraphs = text.trim().split(/\n+/).filter(para => para.length > 0);
+            paragraphCount.textContent = paragraphs.length;
+            
+            // Estimate reading time (average reading speed: 200 words per minute)
+            const avgReadingSpeed = 200;
+            const readingMinutes = Math.max(1, Math.ceil(words.length / avgReadingSpeed));
+            readingTime.textContent = `${readingMinutes} min`;
         }
         
-        // Decode Base64 to text
-        function decodeFromBase64() {
-            const base64 = base64Input.value;
-            if (!base64) {
-                decodeResult.value = 'Please enter Base64 to decode';
-                return;
-            }
-            
-            try {
-                const decoded = decodeURIComponent(escape(atob(base64)));
-                decodeResult.value = decoded;
-            } catch (error) {
-                decodeResult.value = 'Error decoding Base64';
-            }
+        // Clear text
+        function clearText() {
+            textInput.value = '';
+            countText();
         }
         
-        // Copy to clipboard
-        function copyToClipboard(text) {
+        // Copy text to clipboard
+        function copyText() {
+            const text = textInput.value;
             navigator.clipboard.writeText(text)
                 .then(() => {
                     console.log('Copied to clipboard');
@@ -322,10 +317,12 @@
         }
         
         // Event listeners
-        encodeBtn.addEventListener('click', encodeToBase64);
-        decodeBtn.addEventListener('click', decodeFromBase64);
-        copyEncodeResult.addEventListener('click', () => copyToClipboard(encodeResult.value));
-        copyDecodeResult.addEventListener('click', () => copyToClipboard(decodeResult.value));
+        textInput.addEventListener('input', countText);
+        clearBtn.addEventListener('click', clearText);
+        copyBtn.addEventListener('click', copyText);
+        
+        // Initial count
+        countText();
     </script>
 </body>
 </html>
