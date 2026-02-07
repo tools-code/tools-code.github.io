@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Tools Code</title>
+    <title data-i18n="termsOfService.title">Terms of Service - Tools Code</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="src/core.css">
     <script>
@@ -35,7 +35,10 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-LRBBSXLL2J');
+      // Exclude Google verification file from tracking
+      if (window.location.pathname !== '/googlef8ffc6a3c68e1dcc.html') {
+        gtag('config', 'G-LRBBSXLL2J');
+      }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3530207113372131"
          crossorigin="anonymous"></script>
@@ -47,28 +50,40 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="../index.html" class="flex-shrink-0 flex items-center">
-                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                        <span class="text-xl font-bold text-gray-900" data-i18n="footer.title">Tools Code</span>
                     </a>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.home">
                             Home
                         </a>
-                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.tools">
                             Tools
                         </a>
-                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.resources">
                             Resources
                         </a>
-                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.about">
                             About Us
                         </a>
-                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.contact">
                             Contact
                         </a>
                     </nav>
                 </div>
-                <div class="md:hidden flex items-center">
-                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+
+                <div class="flex items-center">
+                    <!-- Language Switcher -->
+                    <div class="hidden md:flex items-center space-x-2 mr-4">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
                         <span class="sr-only">Open main menu</span>
                         <!-- Menu icon -->
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,21 +96,33 @@
         <!-- Mobile menu -->
         <div class="md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.home">
                     Home
                 </a>
-                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.tools">
                     Tools
                 </a>
-                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.resources">
                     Resources
                 </a>
-                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.about">
                     About Us
                 </a>
-                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.contact">
                     Contact
                 </a>
+                <!-- Mobile Language Switcher -->
+                <div class="pt-2 border-t border-gray-200">
+                    <div class="flex items-center space-x-2 px-3">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -104,8 +131,8 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Terms of Service</h1>
-                <p class="text-xl text-blue-100 mb-8">Terms and conditions for using Tools Code</p>
+                <h1 class="text-4xl font-bold text-white mb-4" data-i18n="termsOfService.title">Terms of Service</h1>
+                <p class="text-xl text-blue-100 mb-8" data-i18n="termsOfService.subtitle">Terms and conditions for using Tools Code</p>
             </div>
         </section>
 
@@ -114,70 +141,70 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="space-y-8">
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
-                        <p class="text-gray-700 mb-3">Welcome to Tools Code. By accessing or using our website, tools, or resources, you agree to comply with and be bound by these Terms of Service.</p>
-                        <p class="text-gray-700">If you do not agree to these Terms of Service, please do not use Tools Code.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.introduction">Introduction</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="termsOfService.intro">Welcome to Tools Code. By accessing or using our website, tools, or resources, you agree to comply with and be bound by these Terms of Service.</p>
+                        <p class="text-gray-700" data-i18n="termsOfService.intro2">If you do not agree to these Terms of Service, please do not use Tools Code.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Use of Our Services</h2>
-                        <p class="text-gray-700 mb-4">You may use Tools Code for personal, educational, or commercial purposes, provided that you comply with these Terms of Service and applicable laws.</p>
-                        <p class="text-gray-700 mb-4">You agree not to:</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.useOfServices">Use of Our Services</h2>
+                        <p class="text-gray-700 mb-4" data-i18n="termsOfService.useOfServicesDesc">You may use Tools Code for personal, educational, or commercial purposes, provided that you comply with these Terms of Service and applicable laws.</p>
+                        <p class="text-gray-700 mb-4" data-i18n="termsOfService.useOfServicesNote">You agree not to:</p>
                         <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                            <li>Use our services for any illegal or unauthorized purpose</li>
-                            <li>Violate any laws in your jurisdiction</li>
-                            <li>Infringe on the intellectual property rights of others</li>
-                            <li>Attempt to interfere with the proper functioning of our website</li>
-                            <li>Upload or transmit malicious code or content</li>
-                            <li>Attempt to gain unauthorized access to our systems or user accounts</li>
+                            <li data-i18n="termsOfService.prohibited1">Use our services for any illegal or unauthorized purpose</li>
+                            <li data-i18n="termsOfService.prohibited2">Violate any laws in your jurisdiction</li>
+                            <li data-i18n="termsOfService.prohibited3">Infringe on the intellectual property rights of others</li>
+                            <li data-i18n="termsOfService.prohibited4">Attempt to interfere with the proper functioning of our website</li>
+                            <li data-i18n="termsOfService.prohibited5">Upload or transmit malicious code or content</li>
+                            <li data-i18n="termsOfService.prohibited6">Attempt to gain unauthorized access to our systems or user accounts</li>
                         </ul>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Intellectual Property</h2>
-                        <p class="text-gray-700 mb-4">All content, tools, and resources on Tools Code are the property of Tools Code or its licensors and are protected by intellectual property laws.</p>
-                        <p class="text-gray-700 mb-4">You may not:</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.intellectualProperty">Intellectual Property</h2>
+                        <p class="text-gray-700 mb-4" data-i18n="termsOfService.intellectualPropertyDesc">All content, tools, and resources on Tools Code are the property of Tools Code or its licensors and are protected by intellectual property laws.</p>
+                        <p class="text-gray-700 mb-4" data-i18n="termsOfService.intellectualPropertyNote">You may not:</p>
                         <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                            <li>Copy, reproduce, distribute, or modify any content without explicit permission</li>
-                            <li>Create derivative works based on our content or tools</li>
-                            <li>Use our trademarks, logos, or branding without permission</li>
+                            <li data-i18n="termsOfService.ipProhibited1">Copy, reproduce, distribute, or modify any content without explicit permission</li>
+                            <li data-i18n="termsOfService.ipProhibited2">Create derivative works based on our content or tools</li>
+                            <li data-i18n="termsOfService.ipProhibited3">Use our trademarks, logos, or branding without permission</li>
                         </ul>
-                        <p class="text-gray-700">You may use the tools on our website to process your own content, and you retain ownership of that content. However, we may collect anonymous usage data to improve our services.</p>
+                        <p class="text-gray-700" data-i18n="termsOfService.ipNote">You may use the tools on our website to process your own content, and you retain ownership of that content. However, we may collect anonymous usage data to improve our services.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Limitation of Liability</h2>
-                        <p class="text-gray-700 mb-3">Tools Code provides its services on an "as-is" and "as-available" basis. We make no warranties or representations about the accuracy, reliability, or completeness of our services.</p>
-                        <p class="text-gray-700 mb-3">To the fullest extent permitted by law, Tools Code shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of our services.</p>
-                        <p class="text-gray-700">We do not guarantee that our website will be uninterrupted or error-free, and we are not responsible for any damage to your computer or device resulting from your use of our services.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.limitationOfLiability">Limitation of Liability</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="termsOfService.limitationOfLiabilityDesc">Tools Code provides its services on an "as-is" and "as-available" basis. We make no warranties or representations about the accuracy, reliability, or completeness of our services.</p>
+                        <p class="text-gray-700 mb-3" data-i18n="termsOfService.limitationOfLiabilityNote">To the fullest extent permitted by law, Tools Code shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of our services.</p>
+                        <p class="text-gray-700" data-i18n="termsOfService.limitationOfLiabilityNote2">We do not guarantee that our website will be uninterrupted or error-free, and we are not responsible for any damage to your computer or device resulting from your use of our services.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Indemnification</h2>
-                        <p class="text-gray-700">You agree to indemnify, defend, and hold harmless Tools Code, its affiliates, and its employees from any claims, damages, losses, or expenses arising from your use of our services or your violation of these Terms of Service.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.indemnification">Indemnification</h2>
+                        <p class="text-gray-700" data-i18n="termsOfService.indemnificationDesc">You agree to indemnify, defend, and hold harmless Tools Code, its affiliates, and its employees from any claims, damages, losses, or expenses arising from your use of our services or your violation of these Terms of Service.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Changes to These Terms</h2>
-                        <p class="text-gray-700 mb-3">Tools Code may update these Terms of Service from time to time. We will notify you of any significant changes by posting the new Terms of Service on our website.</p>
-                        <p class="text-gray-700">Your continued use of Tools Code after any changes to these Terms of Service constitutes your acceptance of the new terms.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.changes">Changes to These Terms</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="termsOfService.changesDesc">Tools Code may update these Terms of Service from time to time. We will notify you of any significant changes by posting the new Terms of Service on our website.</p>
+                        <p class="text-gray-700" data-i18n="termsOfService.changesNote">Your continued use of Tools Code after any changes to these Terms of Service constitutes your acceptance of the new terms.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Termination</h2>
-                        <p class="text-gray-700 mb-3">Tools Code reserves the right to terminate or suspend your access to our services at any time, without notice, for any reason, including but not limited to a violation of these Terms of Service.</p>
-                        <p class="text-gray-700">Upon termination, you must cease all use of our services.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.termination">Termination</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="termsOfService.terminationDesc">Tools Code reserves the right to terminate or suspend your access to our services at any time, without notice, for any reason, including but not limited to a violation of these Terms of Service.</p>
+                        <p class="text-gray-700" data-i18n="termsOfService.terminationNote">Upon termination, you must cease all use of our services.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Governing Law</h2>
-                        <p class="text-gray-700">These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction in which Tools Code operates, without regard to its conflict of law provisions.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.governingLaw">Governing Law</h2>
+                        <p class="text-gray-700" data-i18n="termsOfService.governingLawDesc">These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction in which Tools Code operates, without regard to its conflict of law provisions.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-                        <p class="text-gray-700 mb-3">If you have any questions about these Terms of Service, please contact us at:</p>
-                        <p class="text-gray-700 font-medium">Email: d1282397059@gamil.com</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="termsOfService.contactUs">Contact Us</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="termsOfService.contactUsDesc">If you have any questions about these Terms of Service, please contact us at:</p>
+                        <p class="text-gray-700 font-medium" data-i18n="termsOfService.email">Email: d1282397059@gamil.com</p>
                     </div>
                 </div>
             </div>
@@ -189,41 +216,41 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
-                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.title">Tools Code</h3>
+                    <p class="text-gray-400" data-i18n="footer.description">Essential tools and resources for developers.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.tools">Tools</h3>
                     <ul class="space-y-2">
-                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
-                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
-                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
-                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
-                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
-                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                        <li><a href="m3u8player.html" class="text-gray-400 hover:text-white" data-i18n="footer.m3u8Player">M3U8 Player</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white" data-i18n="footer.jsonValidator">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white" data-i18n="footer.colorPicker">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white" data-i18n="footer.regexTester">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white" data-i18n="footer.timestampConverter">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white" data-i18n="footer.base64EncoderDecoder">Base64 Encoder/Decoder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.resources">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white" data-i18n="footer.codeSnippets">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white" data-i18n="footer.apiDocumentation">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white" data-i18n="footer.tutorialsGuides">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white" data-i18n="footer.usefulLibraries">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
-                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white" data-i18n="footer.termsOfService">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2026 Tools Code. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -238,6 +265,15 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+        
+        // Initialize internationalization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize i18n
+            if (window.i18n && window.i18n.initI18n) {
+                window.i18n.initI18n();
+            }
+        });
     </script>
+    <script src="/src/i18n.js"></script>
 </body>
 </html>

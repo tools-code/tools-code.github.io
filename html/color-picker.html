@@ -35,10 +35,14 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-LRBBSXLL2J');
+      // Exclude Google verification file from tracking
+      if (window.location.pathname !== '/googlef8ffc6a3c68e1dcc.html') {
+        gtag('config', 'G-LRBBSXLL2J');
+      }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3530207113372131"
          crossorigin="anonymous"></script>
+    <script src="/src/i18n.js"></script>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation Bar -->
@@ -50,24 +54,30 @@
                         <span class="text-xl font-bold text-gray-900">Tools Code</span>
                     </a>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.home">
                             Home
                         </a>
-                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.tools">
                             Tools
                         </a>
-                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.resources">
                             Resources
                         </a>
-                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.about">
                             About Us
                         </a>
-                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.contact">
                             Contact
                         </a>
                     </nav>
                 </div>
-
+                <div class="flex items-center space-x-4">
+                    <!-- Language Switcher -->
+                    <div class="flex items-center space-x-2">
+                        <button id="lang-en" class="px-3 py-1 text-sm font-medium rounded-md hover:bg-gray-100">English</button>
+                        <button id="lang-zh" class="px-3 py-1 text-sm font-medium rounded-md hover:bg-gray-100">中文</button>
+                    </div>
+                </div>
                 <div class="md:hidden flex items-center">
                     <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
                         <span class="sr-only">Open main menu</span>
@@ -82,19 +92,19 @@
         <!-- Mobile menu -->
         <div class="md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    Home
-                </a>
-                <a href="#" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    Tools
-                </a>
-                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    Resources
-                </a>
-                <a href="../index.html#about" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    About
-                </a>
-            </div>
+                    <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.home">
+                        Home
+                    </a>
+                    <a href="#" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.tools">
+                        Tools
+                    </a>
+                    <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.resources">
+                        Resources
+                    </a>
+                    <a href="../index.html#about" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.about">
+                        About
+                    </a>
+                </div>
             <div class="pt-4 pb-3 border-t border-gray-200">
                 <div class="flex items-center px-5">
                     <div class="flex-shrink-0">
@@ -131,8 +141,8 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Color Picker</h1>
-                <p class="text-xl text-blue-100 mb-8">Find the perfect color scheme for your projects</p>
+                <h1 class="text-4xl font-bold text-white mb-4" data-i18n="colorPicker.title">Color Picker</h1>
+                <p class="text-xl text-blue-100 mb-8" data-i18n="colorPicker.description">Find the perfect color scheme for your projects</p>
             </div>
         </section>
 
@@ -141,13 +151,13 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gray-50 rounded-lg shadow-sm p-6">
                     <div class="mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Pick Colors</h2>
-                        <p class="text-gray-600 mb-6">Select colors using the color picker or enter color codes directly. You can also generate color schemes and save your favorite colors.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="colorPicker.pickColors">Pick Colors</h2>
+                        <p class="text-gray-600 mb-6" data-i18n="colorPicker.instructions">Select colors using the color picker or enter color codes directly. You can also generate color schemes and save your favorite colors.</p>
                         
                         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                             <!-- Color Preview -->
                             <div class="lg:col-span-1">
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Color Preview</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="colorPicker.colorPreview">Color Preview</h3>
                                 <div id="color-preview" class="w-full h-64 rounded-md bg-blue-500 mb-4 flex items-center justify-center">
                                     <span id="preview-text" class="text-white text-2xl font-bold">#3b82f6</span>
                                 </div>
@@ -156,7 +166,7 @@
                                         <label class="block text-sm font-medium text-gray-700 mb-2">HEX</label>
                                         <div class="flex">
                                             <input type="text" id="hex-input" value="#3b82f6" class="flex-1 p-2 border border-gray-300 rounded-l-md focus:ring-indigo-500 focus:border-indigo-500">
-                                            <button id="copy-hex" class="bg-gray-200 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
+                                            <button id="copy-hex" class="bg-gray-200 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200" data-i18n="colorPicker.copy">
                                                 Copy
                                             </button>
                                         </div>
@@ -165,7 +175,7 @@
                                         <label class="block text-sm font-medium text-gray-700 mb-2">RGB</label>
                                         <div class="flex">
                                             <input type="text" id="rgb-input" value="rgb(59, 130, 246)" class="flex-1 p-2 border border-gray-300 rounded-l-md focus:ring-indigo-500 focus:border-indigo-500">
-                                            <button id="copy-rgb" class="bg-gray-200 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
+                                            <button id="copy-rgb" class="bg-gray-200 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200" data-i18n="colorPicker.copy">
                                                 Copy
                                             </button>
                                         </div>
@@ -174,7 +184,7 @@
                                         <label class="block text-sm font-medium text-gray-700 mb-2">HSL</label>
                                         <div class="flex">
                                             <input type="text" id="hsl-input" value="hsl(217, 91%, 59%)" class="flex-1 p-2 border border-gray-300 rounded-l-md focus:ring-indigo-500 focus:border-indigo-500">
-                                            <button id="copy-hsl" class="bg-gray-200 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
+                                            <button id="copy-hsl" class="bg-gray-200 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200" data-i18n="colorPicker.copy">
                                                 Copy
                                             </button>
                                         </div>
@@ -184,7 +194,7 @@
                             
                             <!-- Color Picker -->
                             <div class="lg:col-span-2">
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Color Picker</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="colorPicker.colorPicker">Color Picker</h3>
                                 <div class="bg-white p-6 rounded-md border border-gray-300">
                                     <input type="color" id="color-picker" value="#3b82f6" class="w-full h-32 cursor-pointer">
                                     
@@ -223,8 +233,8 @@
                         
                         <!-- Color Scheme Generator -->
                         <div class="mt-12">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Color Scheme Generator</h3>
-                            <p class="text-gray-600 mb-4">Generate a color scheme based on your selected color.</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="colorPicker.schemeGenerator">Color Scheme Generator</h3>
+                            <p class="text-gray-600 mb-4" data-i18n="colorPicker.schemeDescription">Generate a color scheme based on your selected color.</p>
                             <div class="flex flex-wrap gap-4 mb-6">
                                 <button id="monochrome-btn" class="bg-indigo-600 text-white px-4 py-2 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
                                     Monochrome
@@ -263,7 +273,7 @@
                         
                         <!-- Color History -->
                         <div class="mt-12">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Color History</h3>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="colorPicker.colorHistory">Color History</h3>
                             <div id="color-history" class="flex flex-wrap gap-4">
                                 <div class="w-12 h-12 rounded-full bg-red-500 cursor-pointer" data-color="#ef4444"></div>
                                 <div class="w-12 h-12 rounded-full bg-green-500 cursor-pointer" data-color="#22c55e"></div>
@@ -283,40 +293,41 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
-                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.title">Tools Code</h3>
+                    <p class="text-gray-400" data-i18n="footer.description">Essential tools and resources for developers.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.tools">Tools</h3>
                     <ul class="space-y-2">
-                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
-                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
-                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
-                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
-                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
-                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                        <li><a href="m3u8player.html" class="text-gray-400 hover:text-white" data-i18n="footer.m3u8Player">M3U8 Player</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white" data-i18n="footer.jsonValidator">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white" data-i18n="footer.colorPicker">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white" data-i18n="footer.regexTester">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white" data-i18n="footer.timestampConverter">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white" data-i18n="footer.base64EncoderDecoder">Base64 Encoder/Decoder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.resources">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white" data-i18n="footer.codeSnippets">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white" data-i18n="footer.apiDocumentation">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white" data-i18n="footer.tutorialsGuides">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white" data-i18n="footer.usefulLibraries">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white" data-i18n="footer.termsOfService">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
-
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2026 Tools Code. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -655,6 +666,14 @@
         
         // Initialize color
         updateColor();
+        
+        // Initialize internationalization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize i18n
+            if (window.i18n && window.i18n.initI18n) {
+                window.i18n.initI18n();
+            }
+        });
     </script>
 </body>
 </html>

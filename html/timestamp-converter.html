@@ -35,10 +35,14 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-LRBBSXLL2J');
+      // Exclude Google verification file from tracking
+      if (window.location.pathname !== '/googlef8ffc6a3c68e1dcc.html') {
+        gtag('config', 'G-LRBBSXLL2J');
+      }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3530207113372131"
          crossorigin="anonymous"></script>
+    <script src="/src/i18n.js"></script>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation Bar -->
@@ -50,19 +54,19 @@
                         <span class="text-xl font-bold text-gray-900">Tools Code</span>
                     </a>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.home">
                             Home
                         </a>
-                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.tools">
                             Tools
                         </a>
-                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.resources">
                             Resources
                         </a>
-                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.about">
                             About Us
                         </a>
-                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.contact">
                             Contact
                         </a>
                     </nav>
@@ -130,8 +134,8 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Timestamp Converter</h1>
-                <p class="text-xl text-blue-100 mb-8">Convert timestamps to human-readable dates and vice versa</p>
+                <h1 class="text-4xl font-bold text-white mb-4" data-i18n="timestamp.title">Timestamp Converter</h1>
+                <p class="text-xl text-blue-100 mb-8" data-i18n="timestamp.subtitle">Convert timestamps to human-readable dates and vice versa</p>
             </div>
         </section>
 
@@ -140,29 +144,29 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gray-50 rounded-lg shadow-sm p-6">
                     <div class="mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Convert Timestamps</h2>
-                        <p class="text-gray-600 mb-6">Enter a timestamp or date below to convert between Unix timestamps and human-readable dates.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="timestamp.sectionTitle">Convert Timestamps</h2>
+                        <p class="text-gray-600 mb-6" data-i18n="timestamp.description">Enter a timestamp or date below to convert between Unix timestamps and human-readable dates.</p>
                         
                         <div class="space-y-8">
                             <!-- Timestamp to Date -->
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Timestamp to Date</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="timestamp.timestampToDate">Timestamp to Date</h3>
                                 <div class="flex flex-col md:flex-row gap-4">
                                     <div class="flex-1">
-                                        <label for="timestamp-input" class="block text-sm font-medium text-gray-700 mb-2">Timestamp</label>
+                                        <label for="timestamp-input" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="timestamp.timestampLabel">Timestamp</label>
                                         <input type="text" id="timestamp-input" placeholder="Enter timestamp (e.g. 1609459200)" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                                     </div>
                                     <div class="flex items-end">
-                                        <button id="timestamp-to-date-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
+                                        <button id="timestamp-to-date-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200" data-i18n="timestamp.convertToDateBtn">
                                             Convert to Date
                                         </button>
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Result</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="timestamp.resultLabel">Result</label>
                                     <div class="flex">
                                         <input type="text" id="timestamp-result" readonly class="flex-1 p-4 border border-gray-300 rounded-l-md bg-gray-50">
-                                        <button id="copy-timestamp-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200">
+                                        <button id="copy-timestamp-result" class="bg-gray-200 px-4 py-3 border border-l-0 border-gray-300 rounded-r-md hover:bg-gray-300 transition duration-200" data-i18n="timestamp.copyBtn">
                                             Copy
                                         </button>
                                     </div>
@@ -172,14 +176,14 @@
                             
                             <!-- Current Timestamp -->
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Current Timestamp</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="timestamp.currentTimestamp">Current Timestamp</h3>
                                 <div class="bg-white p-4 border border-gray-300 rounded-md">
                                     <div class="flex justify-between items-center">
                                         <div>
-                                            <p class="text-gray-500">Current Unix Timestamp</p>
+                                            <p class="text-gray-500" data-i18n="timestamp.currentTimestampLabel">Current Unix Timestamp</p>
                                             <p id="current-timestamp" class="text-xl font-medium">1609459200</p>
                                         </div>
-                                        <button id="copy-current-timestamp" class="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 transition duration-200">
+                                        <button id="copy-current-timestamp" class="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 transition duration-200" data-i18n="timestamp.copyBtn">
                                             Copy
                                         </button>
                                     </div>
@@ -197,39 +201,41 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
-                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.title">Tools Code</h3>
+                    <p class="text-gray-400" data-i18n="footer.description">Essential tools and resources for developers.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.tools">Tools</h3>
                     <ul class="space-y-2">
-                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
-                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
-                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
-                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
-                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
-                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                        <li><a href="m3u8player.html" class="text-gray-400 hover:text-white" data-i18n="footer.m3u8Player">M3U8 Player</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white" data-i18n="footer.jsonValidator">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white" data-i18n="footer.colorPicker">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white" data-i18n="footer.regexTester">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white" data-i18n="footer.timestampConverter">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white" data-i18n="footer.base64EncoderDecoder">Base64 Encoder/Decoder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.resources">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white" data-i18n="footer.codeSnippets">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white" data-i18n="footer.apiDocumentation">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white" data-i18n="footer.tutorialsGuides">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white" data-i18n="footer.usefulLibraries">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white" data-i18n="footer.termsOfService">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2026 Tools Code. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -244,6 +250,14 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+        
+        // Initialize internationalization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize i18n
+            if (window.i18n && window.i18n.initI18n) {
+                window.i18n.initI18n();
+            }
+        });
         
         // Timestamp Converter functionality
         const timestampInput = document.getElementById('timestamp-input');

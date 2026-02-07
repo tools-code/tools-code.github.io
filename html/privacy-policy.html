@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Tools Code</title>
+    <title data-i18n="privacyPolicy.title">Privacy Policy - Tools Code</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="src/core.css">
     <script>
@@ -35,7 +35,10 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-LRBBSXLL2J');
+      // Exclude Google verification file from tracking
+      if (window.location.pathname !== '/googlef8ffc6a3c68e1dcc.html') {
+        gtag('config', 'G-LRBBSXLL2J');
+      }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3530207113372131"
          crossorigin="anonymous"></script>
@@ -47,28 +50,40 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="../index.html" class="flex-shrink-0 flex items-center">
-                        <span class="text-xl font-bold text-gray-900">Tools Code</span>
+                        <span class="text-xl font-bold text-gray-900" data-i18n="footer.title">Tools Code</span>
                     </a>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.home">
                             Home
                         </a>
-                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.tools">
                             Tools
                         </a>
-                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.resources">
                             Resources
                         </a>
-                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.about">
                             About Us
                         </a>
-                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.contact">
                             Contact
                         </a>
                     </nav>
                 </div>
-                <div class="md:hidden flex items-center">
-                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+
+                <div class="flex items-center">
+                    <!-- Language Switcher -->
+                    <div class="hidden md:flex items-center space-x-2 mr-4">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
                         <span class="sr-only">Open main menu</span>
                         <!-- Menu icon -->
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,21 +96,33 @@
         <!-- Mobile menu -->
         <div class="md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.home">
                     Home
                 </a>
-                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.tools">
                     Tools
                 </a>
-                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.resources">
                     Resources
                 </a>
-                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.about">
                     About Us
                 </a>
-                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.contact">
                     Contact
                 </a>
+                <!-- Mobile Language Switcher -->
+                <div class="pt-2 border-t border-gray-200">
+                    <div class="flex items-center space-x-2 px-3">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -104,8 +131,8 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
-                <p class="text-xl text-blue-100 mb-8">How we collect, use, and protect your information</p>
+                <h1 class="text-4xl font-bold text-white mb-4" data-i18n="privacyPolicy.title">Privacy Policy</h1>
+                <p class="text-xl text-blue-100 mb-8" data-i18n="privacyPolicy.subtitle">How we collect, use, and protect your information</p>
             </div>
         </section>
 
@@ -114,120 +141,120 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="space-y-8">
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
-                        <p class="text-gray-700 mb-3">Tools Code is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our tools, or access our resources.</p>
-                        <p class="text-gray-700">By using Tools Code, you consent to the practices described in this Privacy Policy.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.informationCollection">Introduction</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="privacyPolicy.intro">Tools Code is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our tools, or access our resources.</p>
+                        <p class="text-gray-700" data-i18n="privacyPolicy.intro2">By using Tools Code, you consent to the practices described in this Privacy Policy.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Information We Collect</h2>
-                        <p class="text-gray-700 mb-4">We may collect the following types of information:</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.informationCollection">Information We Collect</h2>
+                        <p class="text-gray-700 mb-4" data-i18n="privacyPolicy.informationCollectionDesc">We may collect the following types of information:</p>
                         <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                            <li><strong class="text-gray-900">Personal Information:</strong> When you contact us, we may collect your name, email address, and any other information you provide.</li>
-                            <li><strong class="text-gray-900">Usage Data:</strong> We collect information about how you use our website, including pages visited, time spent on pages, and other browsing activities.</li>
-                            <li><strong class="text-gray-900">Device Information:</strong> We may collect information about your device, including your IP address, browser type, operating system, and device identifiers.</li>
+                            <li><strong class="text-gray-900" data-i18n="privacyPolicy.personalInfo">Personal Information:</strong> <span data-i18n="privacyPolicy.personalInfoDesc">When you contact us, we may collect your name, email address, and any other information you provide.</span></li>
+                            <li><strong class="text-gray-900" data-i18n="privacyPolicy.usageData">Usage Data:</strong> <span data-i18n="privacyPolicy.usageDataDesc">We collect information about how you use our website, including pages visited, time spent on pages, and other browsing activities.</span></li>
+                            <li><strong class="text-gray-900" data-i18n="privacyPolicy.deviceInfo">Device Information:</strong> <span data-i18n="privacyPolicy.deviceInfoDesc">We may collect information about your device, including your IP address, browser type, operating system, and device identifiers.</span></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">How We Use Your Information</h2>
-                        <p class="text-gray-700 mb-4">We use the information we collect for the following purposes:</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.informationUsage">How We Use Your Information</h2>
+                        <p class="text-gray-700 mb-4" data-i18n="privacyPolicy.informationUsageDesc">We use the information we collect for the following purposes:</p>
                         <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                            <li>To provide and maintain our website and services</li>
-                            <li>To improve our website and services</li>
-                            <li>To respond to your inquiries and provide customer support</li>
-                            <li>To send you updates and marketing communications (if you opt-in)</li>
-                            <li>To analyze usage patterns and trends</li>
+                            <li data-i18n="privacyPolicy.usagePurpose1">To provide and maintain our website and services</li>
+                            <li data-i18n="privacyPolicy.usagePurpose2">To improve our website and services</li>
+                            <li data-i18n="privacyPolicy.usagePurpose3">To respond to your inquiries and provide customer support</li>
+                            <li data-i18n="privacyPolicy.usagePurpose4">To send you updates and marketing communications (if you opt-in)</li>
+                            <li data-i18n="privacyPolicy.usagePurpose5">To analyze usage patterns and trends</li>
                         </ul>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Cookies and Tracking Technologies</h2>
-                        <p class="text-gray-700 mb-3">Tools Code uses cookies and similar tracking technologies to enhance your experience on our website. Cookies are small data files that are stored on your device when you visit a website.</p>
-                        <p class="text-gray-700 mb-4">We use the following types of cookies:</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.cookies">Cookies and Tracking Technologies</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="privacyPolicy.cookiesDesc">Tools Code uses cookies and similar tracking technologies to enhance your experience on our website. Cookies are small data files that are stored on your device when you visit a website.</p>
+                        <p class="text-gray-700 mb-4" data-i18n="privacyPolicy.cookiesTypes">We use the following types of cookies:</p>
                         <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                            <li><strong class="text-gray-900">Essential Cookies:</strong> These cookies are necessary for the website to function properly.</li>
-                            <li><strong class="text-gray-900">Analytics Cookies:</strong> These cookies help us understand how visitors interact with our website.</li>
-                            <li><strong class="text-gray-900">Advertising Cookies:</strong> These cookies are used to deliver relevant advertisements to you.</li>
+                            <li><strong class="text-gray-900" data-i18n="privacyPolicy.essentialCookies">Essential Cookies:</strong> <span data-i18n="privacyPolicy.essentialCookiesDesc">These cookies are necessary for the website to function properly.</span></li>
+                            <li><strong class="text-gray-900" data-i18n="privacyPolicy.analyticsCookies">Analytics Cookies:</strong> <span data-i18n="privacyPolicy.analyticsCookiesDesc">These cookies help us understand how visitors interact with our website.</span></li>
+                            <li><strong class="text-gray-900" data-i18n="privacyPolicy.advertisingCookies">Advertising Cookies:</strong> <span data-i18n="privacyPolicy.advertisingCookiesDesc">These cookies are used to deliver relevant advertisements to you.</span></li>
                         </ul>
-                        <p class="text-gray-700">We use Google Analytics to analyze website traffic and Google AdSense to display advertisements. These services may use cookies and other tracking technologies.</p>
+                        <p class="text-gray-700" data-i18n="privacyPolicy.cookiesNote">We use Google Analytics to analyze website traffic and Google AdSense to display advertisements. These services may use cookies and other tracking technologies.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Third-Party Services</h2>
-                        <p class="text-gray-700 mb-3">We may share your information with third-party service providers who help us operate our website and provide our services. These third parties are obligated to protect your information and may not use it for any other purpose.</p>
-                        <p class="text-gray-700">Our website includes links to third-party websites. This Privacy Policy does not apply to those third-party websites. We encourage you to review the privacy policies of any third-party websites you visit.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.thirdParty">Third-Party Services</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="privacyPolicy.thirdPartyDesc">We may share your information with third-party service providers who help us operate our website and provide our services. These third parties are obligated to protect your information and may not use it for any other purpose.</p>
+                        <p class="text-gray-700" data-i18n="privacyPolicy.thirdPartyNote">Our website includes links to third-party websites. This Privacy Policy does not apply to those third-party websites. We encourage you to review the privacy policies of any third-party websites you visit.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Data Security</h2>
-                        <p class="text-gray-700">We take reasonable measures to protect your information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or electronic storage is completely secure, so we cannot guarantee absolute security.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.dataSecurity">Data Security</h2>
+                        <p class="text-gray-700" data-i18n="privacyPolicy.dataSecurityDesc">We take reasonable measures to protect your information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or electronic storage is completely secure, so we cannot guarantee absolute security.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">User Rights</h2>
-                        <p class="text-gray-700">You may have the right to access, correct, or delete your personal information. If you would like to exercise these rights, please contact us using the information provided below.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.userRights">User Rights</h2>
+                        <p class="text-gray-700" data-i18n="privacyPolicy.userRightsDesc">You may have the right to access, correct, or delete your personal information. If you would like to exercise these rights, please contact us using the information provided below.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Changes to This Privacy Policy</h2>
-                        <p class="text-gray-700">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website. You are advised to review this Privacy Policy periodically for any changes.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.changes">Changes to This Privacy Policy</h2>
+                        <p class="text-gray-700" data-i18n="privacyPolicy.changesDesc">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website. You are advised to review this Privacy Policy periodically for any changes.</p>
                     </div>
 
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-                        <p class="text-gray-700 mb-3">If you have any questions about this Privacy Policy, please contact us at:</p>
-                        <p class="text-gray-700 font-medium">Email: d1282397059@gamil.com</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="privacyPolicy.contactUs">Contact Us</h2>
+                        <p class="text-gray-700 mb-3" data-i18n="privacyPolicy.contactUsDesc">If you have any questions about this Privacy Policy, please contact us at:</p>
+                        <p class="text-gray-700 font-medium" data-i18n="privacyPolicy.email">Email: d1282397059@gamil.com</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+        <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
-                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.title">Tools Code</h3>
+                    <p class="text-gray-400" data-i18n="footer.description">Essential tools and resources for developers.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.tools">Tools</h3>
                     <ul class="space-y-2">
-                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
-                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
-                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
-                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
-                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
-                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                        <li><a href="m3u8player.html" class="text-gray-400 hover:text-white" data-i18n="footer.m3u8Player">M3U8 Player</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white" data-i18n="footer.jsonValidator">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white" data-i18n="footer.colorPicker">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white" data-i18n="footer.regexTester">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white" data-i18n="footer.timestampConverter">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white" data-i18n="footer.base64EncoderDecoder">Base64 Encoder/Decoder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.resources">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white" data-i18n="footer.codeSnippets">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white" data-i18n="footer.apiDocumentation">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white" data-i18n="footer.tutorialsGuides">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white" data-i18n="footer.usefulLibraries">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
-                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white" data-i18n="footer.termsOfService">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2026 Tools Code. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
+    
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -238,6 +265,15 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+        
+        // Initialize internationalization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize i18n
+            if (window.i18n && window.i18n.initI18n) {
+                window.i18n.initI18n();
+            }
+        });
     </script>
+    <script src="/src/i18n.js"></script>
 </body>
 </html>

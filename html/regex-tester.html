@@ -35,10 +35,14 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-LRBBSXLL2J');
+      // Exclude Google verification file from tracking
+      if (window.location.pathname !== '/googlef8ffc6a3c68e1dcc.html') {
+        gtag('config', 'G-LRBBSXLL2J');
+      }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3530207113372131"
          crossorigin="anonymous"></script>
+    <script src="/src/i18n.js"></script>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation Bar -->
@@ -50,19 +54,19 @@
                         <span class="text-xl font-bold text-gray-900">Tools Code</span>
                     </a>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.home">
                             Home
                         </a>
-                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.tools">
                             Tools
                         </a>
-                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.resources">
                             Resources
                         </a>
-                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.about">
                             About Us
                         </a>
-                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.contact">
                             Contact
                         </a>
                     </nav>
@@ -131,8 +135,8 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Regex Tester</h1>
-                <p class="text-xl text-blue-100 mb-8">Test and debug your regular expressions in real-time</p>
+                <h1 class="text-4xl font-bold text-white mb-4" data-i18n="regexTester.title">Regex Tester</h1>
+                <p class="text-xl text-blue-100 mb-8" data-i18n="regexTester.subtitle">Test and debug your regular expressions in real-time</p>
             </div>
         </section>
 
@@ -141,13 +145,13 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gray-50 rounded-lg shadow-sm p-6">
                     <div class="mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Test Regular Expressions</h2>
-                        <p class="text-gray-600 mb-6">Enter your regular expression and test string below to see the matches in real-time. You can also select various regex flags to modify the behavior.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="regexTester.sectionTitle">Test Regular Expressions</h2>
+                        <p class="text-gray-600 mb-6" data-i18n="regexTester.description">Enter your regular expression and test string below to see the matches in real-time. You can also select various regex flags to modify the behavior.</p>
                         
                         <div class="space-y-6">
                             <!-- Regex Input -->
                             <div>
-                                <label for="regex-input" class="block text-sm font-medium text-gray-700 mb-2">Regular Expression</label>
+                                <label for="regex-input" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="regexTester.regexLabel">Regular Expression</label>
                                 <div class="flex">
                                     <span class="bg-gray-200 px-4 py-2 border border-gray-300 rounded-l-md">/</span>
                                     <input type="text" id="regex-input" placeholder="Enter regex pattern" class="flex-1 p-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
@@ -157,90 +161,90 @@
                             
                             <!-- Regex Flags -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Flags</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="regexTester.flagsLabel">Flags</label>
                                 <div class="flex flex-wrap gap-4">
                                     <div class="flex items-center">
                                         <input type="checkbox" id="flag-g" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                        <label for="flag-g" class="ml-2 block text-sm text-gray-700">Global (g) - Find all matches</label>
+                                        <label for="flag-g" class="ml-2 block text-sm text-gray-700" data-i18n="regexTester.flagGlobal">Global (g) - Find all matches</label>
                                     </div>
                                     <div class="flex items-center">
                                         <input type="checkbox" id="flag-i" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                        <label for="flag-i" class="ml-2 block text-sm text-gray-700">Case-insensitive (i) - Ignore case</label>
+                                        <label for="flag-i" class="ml-2 block text-sm text-gray-700" data-i18n="regexTester.flagInsensitive">Case-insensitive (i) - Ignore case</label>
                                     </div>
                                     <div class="flex items-center">
                                         <input type="checkbox" id="flag-m" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                        <label for="flag-m" class="ml-2 block text-sm text-gray-700">Multiline (m) - ^ and $ match start/end of line</label>
+                                        <label for="flag-m" class="ml-2 block text-sm text-gray-700" data-i18n="regexTester.flagMultiline">Multiline (m) - ^ and $ match start/end of line</label>
                                     </div>
                                     <div class="flex items-center">
                                         <input type="checkbox" id="flag-s" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                        <label for="flag-s" class="ml-2 block text-sm text-gray-700">Dotall (s) - . matches newlines</label>
+                                        <label for="flag-s" class="ml-2 block text-sm text-gray-700" data-i18n="regexTester.flagDotall">Dotall (s) - . matches newlines</label>
                                     </div>
                                     <div class="flex items-center">
                                         <input type="checkbox" id="flag-u" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                        <label for="flag-u" class="ml-2 block text-sm text-gray-700">Unicode (u) - Enable Unicode support</label>
+                                        <label for="flag-u" class="ml-2 block text-sm text-gray-700" data-i18n="regexTester.flagUnicode">Unicode (u) - Enable Unicode support</label>
                                     </div>
                                     <div class="flex items-center">
                                         <input type="checkbox" id="flag-y" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                        <label for="flag-y" class="ml-2 block text-sm text-gray-700">Sticky (y) - Match from last index</label>
+                                        <label for="flag-y" class="ml-2 block text-sm text-gray-700" data-i18n="regexTester.flagSticky">Sticky (y) - Match from last index</label>
                                     </div>
                                 </div>
                             </div>
                             
                             <!-- Test String -->
                             <div>
-                                <label for="test-string" class="block text-sm font-medium text-gray-700 mb-2">Test String</label>
+                                <label for="test-string" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="regexTester.testString">Test String</label>
                                 <textarea id="test-string" rows="5" placeholder="Enter text to test your regex against" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
                             </div>
                             
                             <!-- Test Button -->
                             <div>
-                                <button id="test-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200">
+                                <button id="test-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200" data-i18n="regexTester.testBtn">
                                     Test Regex
                                 </button>
                             </div>
                             
                             <!-- Results -->
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Results</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="regexTester.results">Results</h3>
                                 <div id="results" class="bg-white p-4 border border-gray-300 rounded-md min-h-[200px]">
-                                    <p class="text-gray-500">Enter a regex pattern and test string, then click "Test Regex" to see results.</p>
+                                    <p class="text-gray-500" data-i18n="regexTester.resultsPlaceholder">Enter a regex pattern and test string, then click "Test Regex" to see results.</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Regex Examples -->
                         <div class="mt-12">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Common Regex Patterns</h3>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="regexTester.examplesTitle">Common Regex Patterns</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="bg-white p-4 border border-gray-300 rounded-md">
-                                    <h4 class="font-medium text-gray-900 mb-2">Email</h4>
+                                    <h4 class="font-medium text-gray-900 mb-2" data-i18n="regexTester.exampleEmail">Email</h4>
                                     <p class="text-gray-600 mb-2">/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/</p>
-                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$">Use Pattern</button>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" data-i18n="regexTester.usePattern">Use Pattern</button>
                                 </div>
                                 <div class="bg-white p-4 border border-gray-300 rounded-md">
-                                    <h4 class="font-medium text-gray-900 mb-2">URL</h4>
+                                    <h4 class="font-medium text-gray-900 mb-2" data-i18n="regexTester.exampleUrl">URL</h4>
                                     <p class="text-gray-600 mb-2">/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/</p>
-                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$">Use Pattern</button>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$" data-i18n="regexTester.usePattern">Use Pattern</button>
                                 </div>
                                 <div class="bg-white p-4 border border-gray-300 rounded-md">
-                                    <h4 class="font-medium text-gray-900 mb-2">Phone Number (US)</h4>
+                                    <h4 class="font-medium text-gray-900 mb-2" data-i18n="regexTester.examplePhone">Phone Number (US)</h4>
                                     <p class="text-gray-600 mb-2">/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/</p>
-                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$">Use Pattern</button>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" data-i18n="regexTester.usePattern">Use Pattern</button>
                                 </div>
                                 <div class="bg-white p-4 border border-gray-300 rounded-md">
-                                    <h4 class="font-medium text-gray-900 mb-2">Date (MM/DD/YYYY)</h4>
+                                    <h4 class="font-medium text-gray-900 mb-2" data-i18n="regexTester.exampleDate">Date (MM/DD/YYYY)</h4>
                                     <p class="text-gray-600 mb-2">/^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$/</p>
-                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$">Use Pattern</button>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$" data-i18n="regexTester.usePattern">Use Pattern</button>
                                 </div>
                                 <div class="bg-white p-4 border border-gray-300 rounded-md">
-                                    <h4 class="font-medium text-gray-900 mb-2">IP Address</h4>
+                                    <h4 class="font-medium text-gray-900 mb-2" data-i18n="regexTester.exampleIp">IP Address</h4>
                                     <p class="text-gray-600 mb-2">/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/</p>
-                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$">Use Pattern</button>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" data-i18n="regexTester.usePattern">Use Pattern</button>
                                 </div>
                                 <div class="bg-white p-4 border border-gray-300 rounded-md">
-                                    <h4 class="font-medium text-gray-900 mb-2">Password (Strong)</h4>
+                                    <h4 class="font-medium text-gray-900 mb-2" data-i18n="regexTester.examplePassword">Password (Strong)</h4>
                                     <p class="text-gray-600 mb-2">/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/</p>
-                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">Use Pattern</button>
+                                    <button class="text-indigo-600 text-sm font-medium hover:text-indigo-800 example-btn" data-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" data-i18n="regexTester.usePattern">Use Pattern</button>
                                 </div>
                             </div>
                         </div>
@@ -255,40 +259,41 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
-                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.title">Tools Code</h3>
+                    <p class="text-gray-400" data-i18n="footer.description">Essential tools and resources for developers.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.tools">Tools</h3>
                     <ul class="space-y-2">
-                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
-                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
-                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
-                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
-                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
-                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                        <li><a href="m3u8player.html" class="text-gray-400 hover:text-white" data-i18n="footer.m3u8Player">M3U8 Player</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white" data-i18n="footer.jsonValidator">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white" data-i18n="footer.colorPicker">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white" data-i18n="footer.regexTester">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white" data-i18n="footer.timestampConverter">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white" data-i18n="footer.base64EncoderDecoder">Base64 Encoder/Decoder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.resources">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white" data-i18n="footer.codeSnippets">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white" data-i18n="footer.apiDocumentation">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white" data-i18n="footer.tutorialsGuides">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white" data-i18n="footer.usefulLibraries">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white" data-i18n="footer.termsOfService">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
-
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2026 Tools Code. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -303,6 +308,14 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+        
+        // Initialize internationalization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize i18n
+            if (window.i18n && window.i18n.initI18n) {
+                window.i18n.initI18n();
+            }
+        });
         
         // Regex Tester functionality
         const regexInput = document.getElementById('regex-input');
@@ -323,7 +336,7 @@
             const text = testString.value;
             
             if (!pattern) {
-                results.innerHTML = '<p class="text-red-500">Please enter a regex pattern.</p>';
+                results.innerHTML = `<p class="text-red-500">${window.i18n ? window.i18n.t('regexTester.errorEnterPattern') : 'Please enter a regex pattern.'}</p>`;
                 return;
             }
             
@@ -369,17 +382,22 @@
                 // Display results
                 let html = '';
                 if (matches.length === 0) {
-                    results.innerHTML = '<p class="text-gray-500">No matches found.</p>';
+                    results.innerHTML = `<p class="text-gray-500">${window.i18n ? window.i18n.t('regexTester.noMatches') : 'No matches found.'}</p>`;
                 } else {
-                    html = `<p class="text-green-600 mb-4">Found ${matches.length} match${matches.length !== 1 ? 'es' : ''}:</p>`;
+                    const foundText = window.i18n ? window.i18n.t('regexTester.foundMatches', { count: matches.length }) : `Found ${matches.length} match${matches.length !== 1 ? 'es' : ''}:`;
+                    html = `<p class="text-green-600 mb-4">${foundText}</p>`;
                     html += '<ul class="space-y-2">';
                     
                     matches.forEach((match, i) => {
+                        const matchLabel = window.i18n ? window.i18n.t('regexTester.matchLabel', { num: i + 1 }) : `Match ${i + 1}`;
+                        const indexLabel = window.i18n ? window.i18n.t('regexTester.indexLabel') : 'Index';
+                        const groupsLabel = window.i18n ? window.i18n.t('regexTester.groupsLabel') : 'Groups';
+                        
                         html += `<li class="p-2 bg-gray-50 rounded-md">`;
-                        html += `<div class="font-medium">Match ${i + 1}: <code>${match.value}</code></div>`;
-                        html += `<div class="text-sm text-gray-600">Index: ${match.index}</div>`;
+                        html += `<div class="font-medium">${matchLabel}: <code>${match.value}</code></div>`;
+                        html += `<div class="text-sm text-gray-600">${indexLabel}: ${match.index}</div>`;
                         if (match.groups) {
-                            html += `<div class="text-sm text-gray-600">Groups: ${JSON.stringify(match.groups)}</div>`;
+                            html += `<div class="text-sm text-gray-600">${groupsLabel}: ${JSON.stringify(match.groups)}</div>`;
                         }
                         html += `</li>`;
                     });
@@ -407,15 +425,17 @@
                         offset += '<span class="bg-yellow-200"></span>'.length;
                     });
                     
+                    const highlightedLabel = window.i18n ? window.i18n.t('regexTester.highlightedLabel') : 'Highlighted Matches:';
                     html += `<div class="mt-4">
-                        <h4 class="font-medium text-gray-900 mb-2">Highlighted Matches:</h4>
+                        <h4 class="font-medium text-gray-900 mb-2">${highlightedLabel}</h4>
                         <div class="bg-gray-50 p-3 rounded-md whitespace-pre-wrap">${highlightedText}</div>
                     </div>`;
                     results.innerHTML = html;
                 }
                 
             } catch (error) {
-                results.innerHTML = `<p class="text-red-500">Error: ${error.message}</p>`;
+                const errorLabel = window.i18n ? window.i18n.t('regexTester.errorLabel') : 'Error';
+                results.innerHTML = `<p class="text-red-500">${errorLabel}: ${error.message}</p>`;
             }
         }
         

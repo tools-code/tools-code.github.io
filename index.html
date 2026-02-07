@@ -35,10 +35,14 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-LRBBSXLL2J');
+      // Exclude Google verification file from tracking
+      if (window.location.pathname !== '/googlef8ffc6a3c68e1dcc.html') {
+        gtag('config', 'G-LRBBSXLL2J');
+      }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3530207113372131"
          crossorigin="anonymous"></script>
+    <script src="src/i18n.js"></script>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation Bar -->
@@ -50,53 +54,77 @@
                         <span class="text-xl font-bold text-gray-900">Tools Code</span>
                     </a>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="#" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.home">
                             Home
                         </a>
-                        <a href="#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.tools">
                             Tools
                         </a>
-                        <a href="#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.resources">
                             Resources
                         </a>
-                        <a href="html/about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="html/about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.about">
                             About Us
                         </a>
-                        <a href="html/contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="html/contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.contact">
                             Contact
                         </a>
                     </nav>
                 </div>
 
-                <div class="md:hidden flex items-center">
-                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
-                        <span class="sr-only">Open main menu</span>
-                        <!-- Menu icon -->
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+                <div class="flex items-center">
+                    <!-- Language Switcher -->
+                    <div class="hidden md:flex items-center space-x-2 mr-4">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                            <span class="sr-only">Open main menu</span>
+                            <!-- Menu icon -->
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
         <div class="md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    Home
-                </a>
-                <a href="#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    Tools
-                </a>
-                <a href="#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    Resources
-                </a>
-                <a href="html/about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    About Us
-                </a>
-                <a href="html/contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
-                    Contact
-                </a>
+                    <a href="#" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.home">
+                        Home
+                    </a>
+                    <a href="#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.tools">
+                        Tools
+                    </a>
+                    <a href="#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.resources">
+                        Resources
+                    </a>
+                    <a href="html/about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.about">
+                        About Us
+                    </a>
+                    <a href="html/contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.contact">
+                        Contact
+                    </a>
+                <!-- Mobile Language Switcher -->
+                <div class="pt-2 border-t border-gray-200">
+                    <div class="flex items-center space-x-2 px-3">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -106,13 +134,13 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Welcome to Tools Code</h1>
-                <p class="text-xl text-blue-100 mb-8">A collection of essential tools and resources for developers</p>
+                <h1 class="text-4xl font-bold text-white mb-4" data-i18n="home.heroTitle">Welcome to Tools Code</h1>
+                <p class="text-xl text-blue-100 mb-8" data-i18n="home.heroSubtitle">A collection of essential tools and resources for developers</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#tools" class="bg-white text-indigo-600 px-6 py-3 rounded-md font-medium hover:bg-opacity-90 transition duration-200">
+                    <a href="#tools" class="bg-white text-indigo-600 px-6 py-3 rounded-md font-medium hover:bg-opacity-90 transition duration-200" data-i18n="home.exploreTools">
                         Explore Tools
                     </a>
-                    <a href="#resources" class="bg-indigo-700 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-800 transition duration-200">
+                    <a href="#resources" class="bg-indigo-700 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-800 transition duration-200" data-i18n="home.browseResources">
                         Browse Resources
                     </a>
                 </div>
@@ -122,7 +150,7 @@
         <!-- Tools Section -->
         <section id="tools" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Essential Developer Tools</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center" data-i18n="home.sectionTools">Essential Developer Tools</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Tool Card 1 -->
                     <div class="bg-gray-50 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-200">
@@ -132,9 +160,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">M3u8 Player</h3>
-                        <p class="text-gray-600 mb-4">Play M3u8 streams easily in your browser.</p>
-                        <a href="html/m3u8player.html" class="text-indigo-600 font-medium hover:text-indigo-800">Try it now →</a>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="tools.m3u8Player">M3u8 Player</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="tools.m3u8Desc">Play M3u8 streams easily in your browser.</p>
+                        <a href="html/m3u8player.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.tryNow">Try it now →</a>
                     </div>
                     
                     <!-- Tool Card 2 -->
@@ -144,9 +172,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">JSON Validator</h3>
-                        <p class="text-gray-600 mb-4">Validate and beautify your JSON data with ease.</p>
-                        <a href="html/json-validator.html" class="text-indigo-600 font-medium hover:text-indigo-800">Try it now →</a>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="tools.jsonValidator">JSON Validator</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="tools.jsonDesc">Validate and beautify your JSON data with ease.</p>
+                        <a href="html/json-validator.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.tryNow">Try it now →</a>
                     </div>
                     
                     <!-- Tool Card 3 -->
@@ -156,9 +184,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Color Picker</h3>
-                        <p class="text-gray-600 mb-4">Find the perfect color scheme for your projects.</p>
-                        <a href="html/color-picker.html" class="text-indigo-600 font-medium hover:text-indigo-800">Try it now →</a>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="tools.colorPicker">Color Picker</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="tools.colorDesc">Find the perfect color scheme for your projects.</p>
+                        <a href="html/color-picker.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.tryNow">Try it now →</a>
                     </div>
                     
                     <!-- Tool Card 4 -->
@@ -168,9 +196,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Regex Tester</h3>
-                        <p class="text-gray-600 mb-4">Test and debug your regular expressions in real-time.</p>
-                        <a href="html/regex-tester.html" class="text-indigo-600 font-medium hover:text-indigo-800">Try it now →</a>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="tools.regexTester">Regex Tester</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="tools.regexDesc">Test and debug your regular expressions in real-time.</p>
+                        <a href="html/regex-tester.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.tryNow">Try it now →</a>
                     </div>
                     
                     <!-- Tool Card 5 -->
@@ -180,9 +208,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Base64 Encoder/Decoder</h3>
-                        <p class="text-gray-600 mb-4">Encode and decode Base64 strings quickly.</p>
-                        <a href="html/base64-encoder-decoder.html" class="text-indigo-600 font-medium hover:text-indigo-800">Try it now →</a>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="tools.base64">Base64 Encoder/Decoder</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="tools.base64Desc">Encode and decode Base64 strings quickly.</p>
+                        <a href="html/base64-encoder-decoder.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.tryNow">Try it now →</a>
                     </div>
                     
                     <!-- Tool Card 6 -->
@@ -192,9 +220,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Timestamp Converter</h3>
-                        <p class="text-gray-600 mb-4">Convert timestamps to human-readable dates and vice versa.</p>
-                        <a href="html/timestamp-converter.html" class="text-indigo-600 font-medium hover:text-indigo-800">Try it now →</a>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="tools.timestamp">Timestamp Converter</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="tools.timestampDesc">Convert timestamps to human-readable dates and vice versa.</p>
+                        <a href="html/timestamp-converter.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.tryNow">Try it now →</a>
                     </div>
                 </div>
             </div>
@@ -203,15 +231,15 @@
         <!-- Resources Section -->
         <section id="resources" class="py-16 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Developer Resources</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center" data-i18n="home.sectionResources">Developer Resources</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Resource Card 1 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition duration-200">
                         <img src="https://picsum.photos/id/1/800/400" alt="Code Snippet" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Code Snippets</h3>
-                            <p class="text-gray-600 mb-4">A collection of useful code snippets for various programming languages.</p>
-                            <a href="html/code-snippets.html" class="text-indigo-600 font-medium hover:text-indigo-800">Browse Snippets →</a>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="resources.codeSnippets">Code Snippets</h3>
+                            <p class="text-gray-600 mb-4" data-i18n="resources.codeSnippetsDesc">A collection of useful code snippets for various programming languages.</p>
+                            <a href="html/code-snippets.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.browseSnippets">Browse Snippets →</a>
                         </div>
                     </div>
                     
@@ -219,9 +247,9 @@
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition duration-200">
                         <img src="https://picsum.photos/id/20/800/400" alt="Documentation" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-900 mb-2">API Documentation</h3>
-                            <p class="text-gray-600 mb-4">Collection of official API documentation links for developers to quickly find documentation for various technologies.</p>
-                            <a href="html/api-documentation.html" class="text-indigo-600 font-medium hover:text-indigo-800">View Documentation →</a>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="resources.apiDocs">API Documentation</h3>
+                            <p class="text-gray-600 mb-4" data-i18n="resources.apiDocsDesc">Collection of official API documentation links for developers to quickly find documentation for various technologies.</p>
+                            <a href="html/api-documentation.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.viewDocumentation">View Documentation →</a>
                         </div>
                     </div>
                     
@@ -229,9 +257,9 @@
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition duration-200">
                         <img src="https://picsum.photos/id/48/800/400" alt="Tutorials" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Tutorials & Guides</h3>
-                            <p class="text-gray-600 mb-4">Step-by-step tutorials and guides for various development topics.</p>
-                            <a href="html/articles.html" class="text-indigo-600 font-medium hover:text-indigo-800">Explore Tutorials →</a>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="resources.tutorials">Tutorials & Guides</h3>
+                            <p class="text-gray-600 mb-4" data-i18n="resources.tutorialsDesc">Step-by-step tutorials and guides for various development topics.</p>
+                            <a href="html/articles.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.exploreTutorials">Explore Tutorials →</a>
                         </div>
                     </div>
                     
@@ -239,9 +267,9 @@
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition duration-200">
                         <img src="https://picsum.photos/id/96/800/400" alt="Libraries" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Useful Libraries</h3>
-                            <p class="text-gray-600 mb-4">Curated list of useful libraries and frameworks for developers.</p>
-                            <a href="html/useful-libraries.html" class="text-indigo-600 font-medium hover:text-indigo-800">View Libraries →</a>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2" data-i18n="resources.libraries">Useful Libraries</h3>
+                            <p class="text-gray-600 mb-4" data-i18n="resources.librariesDesc">Curated list of useful libraries and frameworks for developers.</p>
+                            <a href="html/useful-libraries.html" class="text-indigo-600 font-medium hover:text-indigo-800" data-i18n="buttons.viewLibraries">View Libraries →</a>
                         </div>
                     </div>
                 </div>
@@ -251,10 +279,10 @@
         <!-- About Section -->
         <section id="about" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">About Tools Code</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center" data-i18n="home.sectionAbout">About Tools Code</h2>
                 <div class="max-w-3xl mx-auto text-center">
-                    <p class="text-gray-600 mb-6">Tools Code is dedicated to providing developers with high-quality tools and resources to streamline their workflow and enhance their productivity. Our mission is to create a comprehensive platform that caters to the needs of developers at all skill levels.</p>
-                    <p class="text-gray-600 mb-8">Whether you're a beginner looking to learn the basics or an experienced developer seeking advanced tools, Tools Code has something for everyone.</p>
+                    <p class="text-gray-600 mb-6" data-i18n="home.aboutDesc1">Tools Code is dedicated to providing developers with high-quality tools and resources to streamline their workflow and enhance their productivity. Our mission is to create a comprehensive platform that caters to the needs of developers at all skill levels.</p>
+                    <p class="text-gray-600 mb-8" data-i18n="home.aboutDesc2">Whether you're a beginner looking to learn the basics or an experienced developer seeking advanced tools, Tools Code has something for everyone.</p>
 
                 </div>
             </div>
@@ -266,41 +294,41 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
-                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.title">Tools Code</h3>
+                    <p class="text-gray-400" data-i18n="footer.description">Essential tools and resources for developers.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.tools">Tools</h3>
                     <ul class="space-y-2">
-                        <li><a href="html/m3u8player.html" class="text-gray-400 hover:text-white">M3U8 Player</a></li>
-                        <li><a href="html/json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
-                        <li><a href="html/color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
-                        <li><a href="html/regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
-                        <li><a href="html/timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
-                        <li><a href="html/base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                        <li><a href="html/m3u8player.html" class="text-gray-400 hover:text-white" data-i18n="footer.m3u8Player">M3U8 Player</a></li>
+                        <li><a href="html/json-validator.html" class="text-gray-400 hover:text-white" data-i18n="footer.jsonValidator">JSON Validator</a></li>
+                        <li><a href="html/color-picker.html" class="text-gray-400 hover:text-white" data-i18n="footer.colorPicker">Color Picker</a></li>
+                        <li><a href="html/regex-tester.html" class="text-gray-400 hover:text-white" data-i18n="footer.regexTester">Regex Tester</a></li>
+                        <li><a href="html/timestamp-converter.html" class="text-gray-400 hover:text-white" data-i18n="footer.timestampConverter">Timestamp Converter</a></li>
+                        <li><a href="html/base64-encoder-decoder.html" class="text-gray-400 hover:text-white" data-i18n="footer.base64EncoderDecoder">Base64 Encoder/Decoder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.resources">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="html/code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="html/api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="html/articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="html/useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                        <li><a href="html/code-snippets.html" class="text-gray-400 hover:text-white" data-i18n="footer.codeSnippets">Code Snippets</a></li>
+                        <li><a href="html/api-documentation.html" class="text-gray-400 hover:text-white" data-i18n="footer.apiDocumentation">API Documentation</a></li>
+                        <li><a href="html/articles.html" class="text-gray-400 hover:text-white" data-i18n="footer.tutorialsGuides">Tutorials & Guides</a></li>
+                        <li><a href="html/useful-libraries.html" class="text-gray-400 hover:text-white" data-i18n="footer.usefulLibraries">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="html/about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="html/contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
-                        <li><a href="html/privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="html/terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="html/about.html" class="text-gray-400 hover:text-white" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="html/contact.html" class="text-gray-400 hover:text-white" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="html/privacy-policy.html" class="text-gray-400 hover:text-white" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="html/terms-of-service.html" class="text-gray-400 hover:text-white" data-i18n="footer.termsOfService">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2026 Tools Code. All rights reserved.</p>
 
             </div>
         </div>
@@ -317,8 +345,14 @@
             });
         }
         
-        // Cookie Consent
+        // Initialize internationalization
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize i18n
+            if (window.i18n && window.i18n.initI18n) {
+                window.i18n.initI18n();
+            }
+            
+            // Cookie Consent
             const cookieConsent = document.getElementById('cookie-consent');
             const acceptCookies = document.getElementById('accept-cookies');
             const declineCookies = document.getElementById('decline-cookies');

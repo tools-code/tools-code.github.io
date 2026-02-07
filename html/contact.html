@@ -35,8 +35,12 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-LRBBSXLL2J');
+      // Exclude Google verification file from tracking
+      if (window.location.pathname !== '/googlef8ffc6a3c68e1dcc.html') {
+        gtag('config', 'G-LRBBSXLL2J');
+      }
     </script>
+    <script src="/src/i18n.js"></script>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation Bar -->
@@ -48,52 +52,76 @@
                         <span class="text-xl font-bold text-gray-900">Tools Code</span>
                     </a>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="navHome">
                             Home
                         </a>
-                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="navTools">
                             Tools
                         </a>
-                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="navResources">
                             Resources
                         </a>
-                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="navAbout">
                             About Us
                         </a>
-                        <a href="contact.html" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="contact.html" class="border-gray-900 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="navContact">
                             Contact
                         </a>
                     </nav>
                 </div>
-                <div class="md:hidden flex items-center">
-                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
-                        <span class="sr-only">Open main menu</span>
-                        <!-- Menu icon -->
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+                <div class="flex items-center">
+                    <!-- Language Switcher -->
+                    <div class="hidden md:flex items-center space-x-2 mr-4">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                            <span class="sr-only">Open main menu</span>
+                            <!-- Menu icon -->
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
         <div class="md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="navHome">
                     Home
                 </a>
-                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="navTools">
                     Tools
                 </a>
-                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="navResources">
                     Resources
                 </a>
-                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="navAbout">
                     About Us
                 </a>
-                <a href="contact.html" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="contact.html" class="bg-gray-100 text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="navContact">
                     Contact
                 </a>
+                <!-- Mobile Language Switcher -->
+                <div class="pt-2 border-t border-gray-200">
+                    <div class="flex items-center space-x-2 px-3">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -102,8 +130,8 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Contact Us</h1>
-                <p class="text-xl text-blue-100 mb-8">Get in touch with us for any questions or feedback</p>
+                <h1 class="text-4xl font-bold text-white mb-4" data-i18n="contact.title">Contact Us</h1>
+                <p class="text-xl text-blue-100 mb-8" data-i18n="contact.description">Get in touch with us for any questions or feedback</p>
             </div>
         </section>
 
@@ -112,33 +140,33 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6" data-i18n="contact.sendMessage">Send Us a Message</h2>
                         <form id="contact-form" class="space-y-4">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="contact.name">Name</label>
                                 <input type="text" id="name" name="name" placeholder="Your name" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="contact.email">Email</label>
                                 <input type="email" id="email" name="email" placeholder="Your email" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                             </div>
                             <div>
-                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="contact.subject">Subject</label>
                                 <input type="text" id="subject" name="subject" placeholder="Subject" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                             </div>
                             <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="contact.message">Message</label>
                                 <textarea id="message" name="message" placeholder="Your message" rows="6" class="w-full p-4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
                             </div>
                             <div>
-                                <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200 w-full">
+                                <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-200 w-full" data-i18n="contact.sendMessageBtn">
                                     Send Message
                                 </button>
                             </div>
                         </form>
                     </div>
                     <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6" data-i18n="contact.contactInfo">Contact Information</h2>
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
@@ -147,7 +175,7 @@
                                     </svg>
                                 </div>
                                 <div class="ml-4">
-                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-i18n="contact.email">Email</h3>
                                     <p class="text-gray-600">d1282397059@gmail.com</p>
                                 </div>
                             </div>
@@ -163,41 +191,41 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
-                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.title">Tools Code</h3>
+                    <p class="text-gray-400" data-i18n="footer.description">Essential tools and resources for developers.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.tools">Tools</h3>
                     <ul class="space-y-2">
-                        <li><a href="word-counter.html" class="text-gray-400 hover:text-white">Word Counter</a></li>
-                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
-                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
-                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
-                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
-                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                        <li><a href="m3u8player.html" class="text-gray-400 hover:text-white" data-i18n="footer.m3u8Player">M3U8 Player</a></li>
+                        <li><a href="json-validator.html" class="text-gray-400 hover:text-white" data-i18n="footer.jsonValidator">JSON Validator</a></li>
+                        <li><a href="color-picker.html" class="text-gray-400 hover:text-white" data-i18n="footer.colorPicker">Color Picker</a></li>
+                        <li><a href="regex-tester.html" class="text-gray-400 hover:text-white" data-i18n="footer.regexTester">Regex Tester</a></li>
+                        <li><a href="timestamp-converter.html" class="text-gray-400 hover:text-white" data-i18n="footer.timestampConverter">Timestamp Converter</a></li>
+                        <li><a href="base64-encoder-decoder.html" class="text-gray-400 hover:text-white" data-i18n="footer.base64EncoderDecoder">Base64 Encoder/Decoder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.resources">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                        <li><a href="code-snippets.html" class="text-gray-400 hover:text-white" data-i18n="footer.codeSnippets">Code Snippets</a></li>
+                        <li><a href="api-documentation.html" class="text-gray-400 hover:text-white" data-i18n="footer.apiDocumentation">API Documentation</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white" data-i18n="footer.tutorialsGuides">Tutorials & Guides</a></li>
+                        <li><a href="useful-libraries.html" class="text-gray-400 hover:text-white" data-i18n="footer.usefulLibraries">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
-                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white" data-i18n="footer.termsOfService">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2026 Tools Code. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -212,6 +240,14 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+        
+        // Initialize internationalization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize i18n
+            if (window.i18n && window.i18n.initI18n) {
+                window.i18n.initI18n();
+            }
+        });
         
         // Contact form submission
         const contactForm = document.getElementById('contact-form');
