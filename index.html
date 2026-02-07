@@ -293,6 +293,8 @@
                     <ul class="space-y-2">
                         <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
@@ -313,6 +315,75 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+        
+        // Cookie Consent
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookie-consent');
+            const acceptCookies = document.getElementById('accept-cookies');
+            const declineCookies = document.getElementById('decline-cookies');
+            
+            // Check if user has already consented
+            if (!localStorage.getItem('cookieConsent')) {
+                cookieConsent.classList.remove('hidden');
+            }
+            
+            // Accept cookies
+            if (acceptCookies) {
+                acceptCookies.addEventListener('click', function() {
+                    localStorage.setItem('cookieConsent', 'accepted');
+                    cookieConsent.classList.add('hidden');
+                    // Initialize Google Analytics and AdSense
+                    initializeAnalytics();
+                });
+            }
+            
+            // Decline cookies
+            if (declineCookies) {
+                declineCookies.addEventListener('click', function() {
+                    localStorage.setItem('cookieConsent', 'declined');
+                    cookieConsent.classList.add('hidden');
+                });
+            }
+            
+            // Initialize analytics if already consented
+            if (localStorage.getItem('cookieConsent') === 'accepted') {
+                initializeAnalytics();
+            }
+        });
+        
+        function initializeAnalytics() {
+            // Google Analytics
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted'
+                });
+            }
+        }
     </script>
+    
+    <!-- Cookie Consent Popup -->
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 shadow-lg z-50 hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm md:text-base">
+                        This website uses cookies to enhance your experience, analyze traffic, and serve personalized advertisements. By continuing to use this site, you agree to our use of cookies.
+                    </p>
+                </div>
+                <div class="flex space-x-4">
+                    <button id="decline-cookies" class="bg-gray-700 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-600 transition duration-200">
+                        Decline
+                    </button>
+                    <button id="accept-cookies" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-200">
+                        Accept
+                    </button>
+                </div>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">
+                <a href="privacy-policy.html" class="hover:text-white underline">Learn more about our cookie policy</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
