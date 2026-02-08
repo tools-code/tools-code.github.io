@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="/src/core.css">
     <script>
         tailwind.config = {
+            plugins: [
+                require('@tailwindcss/typography'),
+            ],
             theme: {
                 extend: {
                     colors: {
@@ -22,6 +25,128 @@
                             700: '#1d4ed8',
                             800: '#1e40af',
                             900: '#1e3a8a',
+                        },
+                    },
+                },
+                typography: {
+                    DEFAULT: {
+                        css: {
+                            color: '#4b5563',
+                            maxWidth: '65ch',
+                            h1: {
+                                color: '#111827',
+                                fontWeight: '700',
+                                fontSize: '2.25rem',
+                                marginTop: '2rem',
+                                marginBottom: '1rem',
+                                lineHeight: '2.5rem',
+                            },
+                            h2: {
+                                color: '#1f2937',
+                                fontWeight: '700',
+                                fontSize: '1.875rem',
+                                marginTop: '2rem',
+                                marginBottom: '0.75rem',
+                                lineHeight: '2.25rem',
+                            },
+                            h3: {
+                                color: '#374151',
+                                fontWeight: '600',
+                                fontSize: '1.5rem',
+                                marginTop: '1.5rem',
+                                marginBottom: '0.5rem',
+                                lineHeight: '2rem',
+                            },
+                            h4: {
+                                color: '#374151',
+                                fontWeight: '600',
+                                fontSize: '1.25rem',
+                                marginTop: '1.25rem',
+                                marginBottom: '0.5rem',
+                                lineHeight: '1.75rem',
+                            },
+                            p: {
+                                marginTop: '1rem',
+                                marginBottom: '1rem',
+                                lineHeight: '1.75',
+                            },
+                            strong: {
+                                color: '#1f2937',
+                                fontWeight: '600',
+                            },
+                            code: {
+                                color: '#1f2937',
+                                fontWeight: '500',
+                                backgroundColor: '#f3f4f6',
+                                padding: '0.125rem 0.25rem',
+                                borderRadius: '0.25rem',
+                                fontSize: '0.875rem',
+                            },
+                            'code::before': {
+                                content: '""',
+                            },
+                            'code::after': {
+                                content: '""',
+                            },
+                            pre: {
+                                backgroundColor: '#1f2937',
+                                color: '#f9fafb',
+                                padding: '1rem',
+                                borderRadius: '0.5rem',
+                                marginTop: '1.5rem',
+                                marginBottom: '1.5rem',
+                                overflow: 'auto',
+                            },
+                            'pre code': {
+                                backgroundColor: 'transparent',
+                                color: 'inherit',
+                                padding: '0',
+                                fontWeight: '400',
+                            },
+                            ul: {
+                                listStyleType: 'disc',
+                                paddingLeft: '1.5rem',
+                                marginTop: '1rem',
+                                marginBottom: '1rem',
+                            },
+                            ol: {
+                                listStyleType: 'decimal',
+                                paddingLeft: '1.5rem',
+                                marginTop: '1rem',
+                                marginBottom: '1rem',
+                            },
+                            li: {
+                                marginTop: '0.25rem',
+                                marginBottom: '0.25rem',
+                                paddingLeft: '0.25rem',
+                            },
+                            table: {
+                                width: '100%',
+                                borderCollapse: 'collapse',
+                                marginTop: '1.5rem',
+                                marginBottom: '1.5rem',
+                            },
+                            thead: {
+                                borderBottom: '2px solid #e5e7eb',
+                            },
+                            th: {
+                                fontWeight: '600',
+                                textAlign: 'left',
+                                padding: '0.75rem 1rem',
+                                color: '#1f2937',
+                                backgroundColor: '#f9fafb',
+                            },
+                            td: {
+                                padding: '0.75rem 1rem',
+                                borderBottom: '1px solid #e5e7eb',
+                                color: '#4b5563',
+                            },
+                            'tbody tr:last-child td': {
+                                borderBottom: 'none',
+                            },
+                            'tbody tr:nth-child(even)': {
+                                backgroundColor: '#f9fafb',
+                            },
                         },
                     },
                 },
@@ -145,45 +270,368 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Article Metadata -->
                 <div class="mb-8 text-sm text-gray-500">
-                    <span>发布时间：2024-01-01</span>
+                    <span>发布时间：2025-03-02</span>
                     <span class="mx-4">•</span>
                     <span>分类：视频技术</span>
                 </div>
 
                 <!-- Article Content -->
                 <div class="prose prose-lg max-w-none">
-                    <h2>概述</h2>
-                    <p>本文将详细介绍视频技术相关的内容，包括视频编码、传输、播放等各个环节的技术原理与实现细节。通过本文的学习，您将对视频技术有更深入的了解，能够更好地应用到实际项目中。</p>
+                    <style>
+                        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+                            font-size: initial !important;
+                            font-weight: initial !important;
+                        }
+                        .prose h1 {
+                            font-size: 2.25rem !important;
+                            font-weight: 700 !important;
+                            margin-top: 2rem !important;
+                            margin-bottom: 1rem !important;
+                            color: #111827 !important;
+                        }
+                        .prose h2 {
+                            font-size: 1.875rem !important;
+                            font-weight: 700 !important;
+                            margin-top: 2rem !important;
+                            margin-bottom: 0.75rem !important;
+                            color: #1f2937 !important;
+                        }
+                        .prose h3 {
+                            font-size: 1.5rem !important;
+                            font-weight: 600 !important;
+                            margin-top: 1.5rem !important;
+                            margin-bottom: 0.5rem !important;
+                            color: #374151 !important;
+                        }
+                        .prose h4 {
+                            font-size: 1.25rem !important;
+                            font-weight: 600 !important;
+                            margin-top: 1.25rem !important;
+                            margin-bottom: 0.5rem !important;
+                            color: #374151 !important;
+                        }
+                    </style>
+                    <h2>一、M3U8 格式概述</h2>
                     
-                    <h2>技术原理</h2>
-                    <p>视频技术涉及多个领域，包括：</p>
+                    <h3>1.1 什么是 M3U8</h3>
+                    <p>M3U8 是 M3U（Moving Picture Experts Group Audio Layer 3 Uniform Resource Locator）播放列表格式的 UTF-8 编码版本，是 HTTP Live Streaming（HLS）协议的核心组成部分。它本质上是一个纯文本索引文件，不包含实际的音视频数据，而是通过 URL 引用指向分散的媒体片段（通常为 .ts 或 .m4s 文件）。</p>
+                    <p>技术本质：M3U8 是流媒体传输的"交通指挥中心"，告诉播放器去哪里获取数据、以什么顺序播放、如何切换清晰度。</p>
+                    
+                    <h3>1.2 发展历史</h3>
                     <ul>
-                        <li>视频编码：将原始视频数据压缩成适合传输和存储的格式</li>
-                        <li>视频传输：通过网络将视频数据传输到终端</li>
-                        <li>视频播放：在终端解码和显示视频内容</li>
-                        <li>视频优化：提升视频质量和播放体验</li>
+                        <li>2009年：Apple 推出 HLS 协议，M3U8 作为其标准播放列表格式</li>
+                        <li>2017年：支持 fMP4（Fragmented MP4）片段格式</li>
+                        <li>2019年：Low-Latency HLS（LL-HLS）发布，将延迟从 10-30 秒降至 2-5 秒</li>
+                        <li>2024年：现代 HLS 已支持 HDR、4K/8K、多音轨等高级特性</li>
                     </ul>
                     
-                    <h2>实现细节</h2>
-                    <p>在实际应用中，需要考虑以下因素：</p>
+                    <h2>二、M3U8 文件结构深度解析</h2>
+                    
+                    <h3>2.1 基础语法规范</h3>
+                    <p>M3U8 采用 标签（Tag）+ 属性 的声明式结构，所有标签以 #EXT 开头：</p>
+                    <pre><code class="language-m3u8">#EXTM3U                      // 文件头，必须位于第一行
+#EXT-X-VERSION:6             // HLS 协议版本
+#EXT-X-TARGETDURATION:10     // 最大片段时长（秒）
+#EXT-X-MEDIA-SEQUENCE:0      // 第一个片段的序号（直播必需）</code></pre>
+                    
+                    <h3>2.2 核心标签体系</h3>
+                    <p><strong>主播放列表（Master Playlist）</strong></p>
+                    <p>用于多码率自适应选择，通常命名为 master.m3u8 或 index.m3u8：</p>
+                    <pre><code class="language-m3u8">#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-INDEPENDENT-SEGMENTS
+
+#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=640x360,CODECS="avc1.64001E,mp4a.40.2"
+360p.m3u8
+
+#EXT-X-STREAM-INF:BANDWIDTH=1400000,RESOLUTION=1280x720,CODECS="avc1.64001F,mp4a.40.2"
+720p.m3u8
+
+#EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2"
+1080p.m3u8</code></pre>
+                    <p>关键属性说明：</p>
                     <ul>
-                        <li>网络带宽：影响视频清晰度和缓冲策略</li>
-                        <li>设备性能：影响解码能力和播放流畅度</li>
-                        <li>用户体验：包括启动速度、缓冲时间、画面质量等</li>
-                        <li>安全性：防止视频内容被窃取或滥用</li>
+                        <li><strong>BANDWIDTH</strong>：峰值比特率（bits/second），播放器据此选择合适线路</li>
+                        <li><strong>AVERAGE-BANDWIDTH</strong>：平均比特率，更精准的流量预估</li>
+                        <li><strong>RESOLUTION</strong>：视频分辨率</li>
+                        <li><strong>CODECS</strong>：编解码器标准，遵循 RFC 6381</li>
+                        <li><strong>FRAME-RATE</strong>：帧率（可选）</li>
+                        <li><strong>VIDEO-RANGE</strong>：SDR/PQ/HLG 等 HDR 标识</li>
                     </ul>
                     
-                    <h2>最佳实践</h2>
-                    <p>为了获得最佳的视频播放体验，建议采用以下策略：</p>
+                    <p><strong>媒体播放列表（Media Playlist）</strong></p>
+                    <p>包含实际片段地址，通常按码率分文件存储：</p>
+                    <pre><code class="language-m3u8">#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD      // VOD=点播，省略=直播
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-ENDLIST                // 点播结束标记（直播无此标签）
+
+#EXTINF:9.976,                // 片段时长（秒），可包含标题
+segment_000.ts
+#EXTINF:10.012,
+segment_001.ts
+#EXTINF:9.845,
+segment_002.ts</code></pre>
+                    <p>直播 vs 点播差异：</p>
                     <ul>
-                        <li>使用自适应码率技术，根据网络状况自动调整视频清晰度</li>
-                        <li>优化视频编码参数，平衡质量和文件大小</li>
-                        <li>合理设计缓冲策略，减少卡顿和缓冲时间</li>
-                        <li>使用CDN加速视频分发，提升访问速度</li>
+                        <li><strong>直播（Live）</strong>：无 #EXT-X-ENDLIST，#EXT-X-MEDIA-SEQUENCE 随时间递增，播放器定期重新请求文件获取新片段</li>
+                        <li><strong>点播（VOD）</strong>：包含 #EXT-X-ENDLIST，完整片段列表一次性下发</li>
                     </ul>
                     
-                    <h2>总结</h2>
-                    <p>视频技术是一个复杂而不断发展的领域，需要持续关注最新的技术趋势和最佳实践。通过合理应用视频技术，可以为用户提供更好的视频观看体验，同时降低带宽成本和服务器负载。</p>
+                    <h3>2.3 高级标签与功能</h3>
+                    <p><strong>加密与 DRM</strong></p>
+                    <pre><code class="language-m3u8">#EXT-X-KEY:METHOD=AES-128,URI="https://example.com/key.bin",IV=0x1234567890abcdef</code></pre>
+                    <p>METHOD：AES-128 或 SAMPLE-AES（用于 FairPlay）<br>
+                    URI：密钥获取地址，可配合 Token 鉴权<br>
+                    IV：16 字节初始化向量</p>
+                    
+                    <p><strong>低延迟直播（LL-HLS）</strong></p>
+                    <pre><code class="language-m3u8">#EXT-X-SERVER-CONTROL:CAN-BLOCK-RELOAD=YES,PART-HOLD-BACK=3.0
+#EXT-X-PART-INF:PART-TARGET=0.5
+#EXT-X-PRELOAD-HINT:TYPE=PART,URI="segment0045_part3.m4s"</code></pre>
+                    <p>PART-TARGET：部分片段目标时长（通常 0.5-1 秒）<br>
+                    PRELOAD-HINT：预加载提示，减少首包时间</p>
+                    
+                    <p><strong>多音轨/字幕支持</strong></p>
+                    <pre><code class="language-m3u8">#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="中文",LANGUAGE="zh",URI="audio_zh.m3u8"
+#EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subs",NAME="英文",LANGUAGE="en",URI="sub_en.m3u8"</code></pre>
+                    
+                    <h2>三、M3U8 与 HLS 的工作机制</h2>
+                    
+                    <h3>3.1 自适应码率（ABR）流程</h3>
+                    <pre><code>┌─────────────┐     ┌─────────────┐     ┌─────────────────┐
+│   播放器    │────▶│  Master.m3u8 │────▶│  网络状况评估   │
+│             │     │  (选择线路)   │     │  (带宽/缓冲区)  │
+└─────────────┘     └─────────────┘     └─────────────────┘
+        │                                            │
+        │◀───────────────────────────────────────────┘
+        ▼
+┌─────────────┐     ┌─────────────┐
+│  720p.m3u8  │────▶│  segment.ts │
+│  (媒体列表)  │     │  (实际数据)  │
+└─────────────┘     └─────────────┘</code></pre>
+                    <p>切换策略：</p>
+                    <ul>
+                        <li><strong>启动阶段</strong>：选择最低码率（通常 240p/360p）快速起播</li>
+                        <li><strong>爬坡阶段</strong>：根据下载速度逐步提升至匹配带宽的档位</li>
+                        <li><strong>稳态阶段</strong>：监测缓冲区健康度，网络波动时快速降级，平稳时缓慢升级</li>
+                        <li><strong>紧急降级</strong>：缓冲区低于阈值时，立即切换至最低档</li>
+                    </ul>
+                    
+                    <h3>3.2 直播时移与追帧</h3>
+                    <p><strong>时移（DVR）实现</strong>：</p>
+                    <pre><code class="language-m3u8">#EXT-X-PLAYLIST-TYPE:EVENT          // 事件直播，保留历史片段
+#EXT-X-MEDIA-SEQUENCE:1000          // 滑动窗口起始序号</code></pre>
+                    <p>播放器通过调整 SEQUENCE 偏移量实现快进/回退。</p>
+                    
+                    <p><strong>追帧（Catch-up）</strong>：</p>
+                    <p>当客户端延迟过大时，跳过中间片段直接请求最新 #EXT-X-MEDIA-SEQUENCE，实现秒级追帧。</p>
+                    
+                    <h2>四、M3U8 vs MPEG-DASH：协议对比</h2>
+                    
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-2">特性</th>
+                                <th class="border border-gray-300 px-4 py-2">M3U8/HLS</th>
+                                <th class="border border-gray-300 px-4 py-2">MPEG-DASH</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">标准组织</td>
+                                <td class="border border-gray-300 px-4 py-2">Apple（事实标准）</td>
+                                <td class="border border-gray-300 px-4 py-2">MPEG（ISO/IEC 23009-1）</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">清单格式</td>
+                                <td class="border border-gray-300 px-4 py-2">M3U8（文本）</td>
+                                <td class="border border-gray-300 px-4 py-2">MPD（XML）</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">片段格式</td>
+                                <td class="border border-gray-300 px-4 py-2">TS（传统）/ fMP4/CMAF（现代）</td>
+                                <td class="border border-gray-300 px-4 py-2">主要为 fMP4/CMAF</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">原生支持</td>
+                                <td class="border border-gray-300 px-4 py-2">iOS/macOS/Safari 强制支持</td>
+                                <td class="border border-gray-300 px-4 py-2">Android/Web/智能电视</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">DRM 生态</td>
+                                <td class="border border-gray-300 px-4 py-2">FairPlay（苹果）</td>
+                                <td class="border border-gray-300 px-4 py-2">Widevine（谷歌）+ PlayReady（微软）</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">延迟表现</td>
+                                <td class="border border-gray-300 px-4 py-2">LL-HLS: 2-5 秒</td>
+                                <td class="border border-gray-300 px-4 py-2">CMAF-LLC: 2-5 秒</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">编解码器</td>
+                                <td class="border border-gray-300 px-4 py-2">传统限制 H.264/H.265</td>
+                                <td class="border border-gray-300 px-4 py-2">任意编解码器（Codec-agnostic）</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">部署复杂度</td>
+                                <td class="border border-gray-300 px-4 py-2">较低（文本易调试）</td>
+                                <td class="border border-gray-300 px-4 py-2">较高（XML 解析复杂）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>选型建议：</p>
+                    <ul>
+                        <li><strong>Apple 生态优先</strong>：必须 HLS，Safari 原生支持最佳体验</li>
+                        <li><strong>跨平台 OTT</strong>：HLS + DASH 双协议，共享 CMAF 片段存储</li>
+                        <li><strong>Web 端主导</strong>：DASH 配合 MSE/EME 更灵活</li>
+                        <li><strong>直播低延迟</strong>：LL-HLS 生态更成熟，工具链完善</li>
+                    </ul>
+                    
+                    <h2>五、应用场景深度分析</h2>
+                    
+                    <h3>5.1 长视频点播（VOD）</h3>
+                    <p>技术要点：</p>
+                    <ul>
+                        <li>预切片为 6-10 秒 fMP4 片段，兼顾播放流畅性与缓存效率</li>
+                        <li>多码率阶梯：240p/360p/480p/720p/1080p/4K（HDR）</li>
+                        <li>关键帧对齐（GOP 统一），确保无缝切换</li>
+                    </ul>
+                    <p>典型应用：</p>
+                    <ul>
+                        <li>Netflix、Disney+ 等 SVOD 平台</li>
+                        <li>在线教育课程视频</li>
+                        <li>企业内部培训系统</li>
+                    </ul>
+                    
+                    <h3>5.2 实时直播（Live Streaming）</h3>
+                    <p>架构模式：</p>
+                    <p>推流端（OBS/FFmpeg）──▶ 媒体服务器（SRS/nginx-rtmp）──▶ CDN ──▶ 边缘节点 ──▶ M3U8 分发</p>
+                    <p>2024 技术趋势：</p>
+                    <ul>
+                        <li>LL-HLS 普及：体育赛事、电竞直播延迟降至 3 秒内</li>
+                        <li>SRT/RTMP 推流 + HLS 分发：兼顾制作端兼容性与播放端覆盖</li>
+                        <li>多 CDN 容灾：主备 M3U8 地址热切换</li>
+                    </ul>
+                    
+                    <h3>5.3 时移电视与云 DVR</h3>
+                    <p>通过 EVENT 类型播放列表实现 7×24 小时回看：</p>
+                    <pre><code class="language-m3u8">#EXT-X-PLAYLIST-TYPE:EVENT
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:6
+#EXTINF:6.0,
+live000001.ts
+#EXTINF:6.0,
+live000002.ts
+...（持续追加，保留 N 小时历史）</code></pre>
+                    
+                    <h3>5.4 内容安全与 DRM</h3>
+                    <p>多层防护架构：</p>
+                    <ul>
+                        <li><strong>AES-128 加密</strong>：基础层，防直接下载</li>
+                        <li><strong>Token 鉴权</strong>：M3U8 地址带时效 Token，防盗链</li>
+                        <li><strong>DRM 加密</strong>：FairPlay/Widevine/PlayReady，硬件级解密</li>
+                    </ul>
+                    <p>ClearKey 简化方案（适合中小规模）：</p>
+                    <pre><code class="language-m3u8">#EXT-X-KEY:METHOD=AES-128,URI="https://api.example.com/drm/key?token=xyz",IV=0x...</code></pre>
+                    <p>通过服务端控制密钥分发，实现租户隔离。</p>
+                    
+                    <h3>5.5 多视角与互动直播</h3>
+                    <p>多路流同步：</p>
+                    <pre><code class="language-m3u8">#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="multiview",NAME="主视角",DEFAULT=YES,URI="main.m3u8"
+#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="multiview",NAME="选手视角",URI="player.m3u8"
+#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="multiview",NAME="解说视角",URI="caster.m3u8"
+</code></pre>
+                    <p>播放器通过 VIDEO 标签组实现无缝视角切换，保持时间轴同步。</p>
+                    
+                    <h2>六、工程实践与优化</h2>
+                    
+                    <h3>6.1 片段时长选择</h3>
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-2">时长</th>
+                                <th class="border border-gray-300 px-4 py-2">适用场景</th>
+                                <th class="border border-gray-300 px-4 py-2">优缺点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">2-4 秒</td>
+                                <td class="border border-gray-300 px-4 py-2">低延迟直播（LL-HLS）</td>
+                                <td class="border border-gray-300 px-4 py-2">延迟低，但请求开销大，码率波动敏感</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">6-10 秒</td>
+                                <td class="border border-gray-300 px-4 py-2">标准直播/VOD</td>
+                                <td class="border border-gray-300 px-4 py-2">平衡缓存效率与切换响应，行业主流</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">10-20 秒</td>
+                                <td class="border border-gray-300 px-4 py-2">长视频点播</td>
+                                <td class="border border-gray-300 px-4 py-2">减少请求数，降低 CDN 回源压力</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>6.2 播放器选型</h3>
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-2">平台</th>
+                                <th class="border border-gray-300 px-4 py-2">推荐方案</th>
+                                <th class="border border-gray-300 px-4 py-2">说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">Web</td>
+                                <td class="border border-gray-300 px-4 py-2">hls.js</td>
+                                <td class="border border-gray-300 px-4 py-2">最成熟的开源 HLS 播放器，支持 MSE</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">iOS/macOS</td>
+                                <td class="border border-gray-300 px-4 py-2">AVPlayer</td>
+                                <td class="border border-gray-300 px-4 py-2">原生支持，硬件解码优化</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">Android</td>
+                                <td class="border border-gray-300 px-4 py-2">ExoPlayer</td>
+                                <td class="border border-gray-300 px-4 py-2">Google 官方，支持 HLS/DASH 双协议</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">跨平台</td>
+                                <td class="border border-gray-300 px-4 py-2">video.js + hls.js</td>
+                                <td class="border border-gray-300 px-4 py-2">生态丰富，插件众多</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>6.3 调试技巧</h3>
+                    <p>验证 M3U8 有效性：</p>
+                    <pre><code class="language-bash"># 使用 ffprobe 检查流信息
+ffprobe -i https://example.com/playlist.m3u8  -show_format -show_streams
+
+# 使用 curl 查看实时更新（直播）
+curl -s https://example.com/live.m3u8 | grep EXTINF</code></pre>
+                    <p>常见问题排查：</p>
+                    <ul>
+                        <li><strong>持续缓冲</strong>：检查 TARGETDURATION 与实际片段时长匹配度</li>
+                        <li><strong>无法切换清晰度</strong>：确认各 Variant 的 CODECS 声明准确</li>
+                        <li><strong>DRM 播放失败</strong>：验证密钥服务器 CORS 配置与证书有效性</li>
+                    </ul>
+                    
+                    <h2>七、未来演进趋势</h2>
+                    <ul>
+                        <li><strong>CMAF 统一容器</strong>：HLS 与 DASH 共享 fMP4 片段，存储成本降低 50%</li>
+                        <li><strong>H.266/VVC 支持</strong>：新一代编码器在 M3U8 中的标准化声明</li>
+                        <li><strong>AI 驱动的 ABR</strong>：基于机器学习的码率预测，超越传统吞吐量算法</li>
+                        <li><strong>WebTransport 传输</strong>：替代 HTTP/1.1，进一步降低直播延迟</li>
+                    </ul>
                 </div>
             </div>
         </section>
