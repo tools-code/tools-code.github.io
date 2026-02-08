@@ -25,6 +25,128 @@
                         },
                     },
                 },
+                typography: {
+                    DEFAULT: {
+                        css: {
+                            color: '#4b5563',
+                            maxWidth: '65ch',
+                            h1: {
+                                color: '#111827',
+                                fontWeight: '700',
+                                fontSize: '2.25rem',
+                                marginTop: '2rem',
+                                marginBottom: '1rem',
+                                lineHeight: '2.5rem',
+                            },
+                            h2: {
+                                color: '#1f2937',
+                                fontWeight: '700',
+                                fontSize: '1.875rem',
+                                marginTop: '2rem',
+                                marginBottom: '0.75rem',
+                                lineHeight: '2.25rem',
+                            },
+                            h3: {
+                                color: '#374151',
+                                fontWeight: '600',
+                                fontSize: '1.5rem',
+                                marginTop: '1.5rem',
+                                marginBottom: '0.5rem',
+                                lineHeight: '2rem',
+                            },
+                            h4: {
+                                color: '#374151',
+                                fontWeight: '600',
+                                fontSize: '1.25rem',
+                                marginTop: '1.25rem',
+                                marginBottom: '0.5rem',
+                                lineHeight: '1.75rem',
+                            },
+                            p: {
+                                marginTop: '1rem',
+                                marginBottom: '1rem',
+                                lineHeight: '1.75',
+                            },
+                            strong: {
+                                color: '#1f2937',
+                                fontWeight: '600',
+                            },
+                            code: {
+                                color: '#1f2937',
+                                fontWeight: '500',
+                                backgroundColor: '#f3f4f6',
+                                padding: '0.125rem 0.25rem',
+                                borderRadius: '0.25rem',
+                                fontSize: '0.875rem',
+                            },
+                            'code::before': {
+                                content: '""',
+                            },
+                            'code::after': {
+                                content: '""',
+                            },
+                            pre: {
+                                backgroundColor: '#1f2937',
+                                color: '#f9fafb',
+                                padding: '1rem',
+                                borderRadius: '0.5rem',
+                                marginTop: '1.5rem',
+                                marginBottom: '1.5rem',
+                                overflow: 'auto',
+                            },
+                            'pre code': {
+                                backgroundColor: 'transparent',
+                                color: 'inherit',
+                                padding: '0',
+                                fontWeight: '400',
+                            },
+                            ul: {
+                                listStyleType: 'disc',
+                                paddingLeft: '1.5rem',
+                                marginTop: '1rem',
+                                marginBottom: '1rem',
+                            },
+                            ol: {
+                                listStyleType: 'decimal',
+                                paddingLeft: '1.5rem',
+                                marginTop: '1rem',
+                                marginBottom: '1rem',
+                            },
+                            li: {
+                                marginTop: '0.25rem',
+                                marginBottom: '0.25rem',
+                                paddingLeft: '0.25rem',
+                            },
+                            table: {
+                                width: '100%',
+                                borderCollapse: 'collapse',
+                                marginTop: '1.5rem',
+                                marginBottom: '1.5rem',
+                            },
+                            thead: {
+                                borderBottom: '2px solid #e5e7eb',
+                            },
+                            th: {
+                                fontWeight: '600',
+                                textAlign: 'left',
+                                padding: '0.75rem 1rem',
+                                color: '#1f2937',
+                                backgroundColor: '#f9fafb',
+                            },
+                            td: {
+                                padding: '0.75rem 1rem',
+                                borderBottom: '1px solid #e5e7eb',
+                                color: '#4b5563',
+                            },
+                            'tbody tr:last-child td': {
+                                borderBottom: 'none',
+                            },
+                            'tbody tr:nth-child(even)': {
+                                backgroundColor: '#f9fafb',
+                            },
+                        },
+                    },
+                },
             }
         }
     </script>
@@ -54,54 +176,79 @@
                         <span class="text-xl font-bold text-gray-900">Tools Code</span>
                     </a>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.home">
                             Home
                         </a>
-                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#tools" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.tools">
                             Tools
                         </a>
-                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="../index.html#resources" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.resources">
                             Resources
                         </a>
-                        <a href="/html/about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="/html/about.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.about">
                             About Us
                         </a>
-                        <a href="/html/contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        <a href="/html/contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" data-i18n="nav.contact">
                             Contact
                         </a>
                     </nav>
                 </div>
 
-                <div class="md:hidden flex items-center">
-                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
-                        <span class="sr-only">Open main menu</span>
-                        <!-- Menu icon -->
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+                <div class="flex items-center">
+                    <!-- Language Switcher -->
+                    <div class="hidden md:flex items-center space-x-2 mr-4">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="mobile-menu-button">
+                            <span class="sr-only">Open main menu</span>
+                            <!-- Menu icon -->
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
         <div class="md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.home">
                     Home
                 </a>
-                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html#tools" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.tools">
                     Tools
                 </a>
-                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="../index.html#resources" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.resources">
                     Resources
                 </a>
-                <a href="/html/about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="/html/about.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.about">
                     About Us
                 </a>
-                <a href="/html/contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+                <a href="/html/contact.html" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" data-i18n="nav.contact">
                     Contact
                 </a>
             </div>
+
+                <!-- Mobile Language Switcher -->
+                <div class="pt-2 border-t border-gray-200">
+                    <div class="flex items-center space-x-2 px-3">
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en" data-i18n="langEnglish">
+                            English
+                        </button>
+                        <span class="text-gray-400">|</span>
+                        <button class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh" data-i18n="langChinese">
+                            中文
+                        </button>
+                    </div>
+                </div>
 
         </div>
     </header>
@@ -110,8 +257,8 @@
         <!-- Hero Section -->
         <section class="bg-gradient-to-r from-indigo-600 to-blue-500 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">HLS协议原理与实现细节</h1>
-                <p class="text-xl text-blue-100 mb-8">视频技术</p>
+                <h1 class="text-4xl font-bold text-white mb-4" data-i18n="articles.hls.title">HLS协议原理与实现细节</h1>
+                <p class="text-xl text-blue-100 mb-8" data-i18n="articles.hls.category">视频技术</p>
             </div>
         </section>
 
@@ -127,38 +274,374 @@
 
                 <!-- Article Content -->
                 <div class="prose prose-lg max-w-none">
-                    <h2>概述</h2>
-                    <p>本文将详细介绍视频技术相关的内容，包括视频编码、传输、播放等各个环节的技术原理与实现细节。通过本文的学习，您将对视频技术有更深入的了解，能够更好地应用到实际项目中。</p>
+                    <style>
+                        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+                            font-size: initial !important;
+                            font-weight: initial !important;
+                        }
+                        .prose h1 {
+                            font-size: 2.25rem !important;
+                            font-weight: 700 !important;
+                            margin-top: 2rem !important;
+                            margin-bottom: 1rem !important;
+                            color: #111827 !important;
+                        }
+                        .prose h2 {
+                            font-size: 1.875rem !important;
+                            font-weight: 700 !important;
+                            margin-top: 2rem !important;
+                            margin-bottom: 0.75rem !important;
+                            color: #1f2937 !important;
+                        }
+                        .prose h3 {
+                            font-size: 1.5rem !important;
+                            font-weight: 600 !important;
+                            margin-top: 1.5rem !important;
+                            margin-bottom: 0.5rem !important;
+                            color: #374151 !important;
+                        }
+                        .prose h4 {
+                            font-size: 1.25rem !important;
+                            font-weight: 600 !important;
+                            margin-top: 1.25rem !important;
+                            margin-bottom: 0.5rem !important;
+                            color: #374151 !important;
+                        }
+                    </style>
+                    <h2>一、HLS协议架构总览</h2>
                     
-                    <h2>技术原理</h2>
-                    <p>视频技术涉及多个领域，包括：</p>
+                    <h3>1.1 系统架构分层</h3>
+                    <p>HLS（HTTP Live Streaming）协议采用分层解耦的设计理念，整个系统可分为三个核心层级：</p>
+                    
+                    <p>客户端层 (Player Layer)<br>
+                    AVPlayer / ExoPlayer / hls.js / Shaka Player</p>
+                    
+                    <p>分发层 (Delivery Layer)<br>
+                    CDN Edge → Origin Shield → Packager</p>
+                    
+                    <p>源站层 (Origin Layer)<br>
+                    Encoder → Segmenter → DRM Encryptor → Storage (TS/fMP4)</p>
+                    
+                    <p>核心设计理念：</p>
+                    
                     <ul>
-                        <li>视频编码：将原始视频数据压缩成适合传输和存储的格式</li>
-                        <li>视频传输：通过网络将视频数据传输到终端</li>
-                        <li>视频播放：在终端解码和显示视频内容</li>
-                        <li>视频优化：提升视频质量和播放体验</li>
+                        <li>HTTP 传输：复用现有 Web 基础设施，无需专用流媒体服务器</li>
+                        <li>分段传输：将连续流切分为独立可缓存的片段</li>
+                        <li>自适应码率（ABR）：客户端智能选择最优质量，实现网络自适应</li>
                     </ul>
                     
-                    <h2>实现细节</h2>
-                    <p>在实际应用中，需要考虑以下因素：</p>
+                    <h3>1.2 数据流全景</h3>
+                    <p>数据流向：<br>
+                    原始视频输入 → 编码器(多码率) → 切片器(Segmenter) → 加密(可选) → 存储<br>
+                    播放器 ← CDN ← HTTP GET ← M3U8索引文件 + TS/fMP4片段<br>
+                    解码渲染 → 缓冲区管理 → ABR决策引擎 → 网络请求调度</p>
+                    
+                    <h2>二、核心组件实现原理</h2>
+                    
+                    <h3>2.1 切片器（Segmenter）工作机制</h3>
+                    <p>切片器是 HLS 系统的核心生产组件，负责将连续编码流转换为离散片段。</p>
+                    
+                    <h4>输入处理流程</h4>
+                    <p>1. 数据获取与同步</p>
+                    
                     <ul>
-                        <li>网络带宽：影响视频清晰度和缓冲策略</li>
-                        <li>设备性能：影响解码能力和播放流畅度</li>
-                        <li>用户体验：包括启动速度、缓冲时间、画面质量等</li>
-                        <li>安全性：防止视频内容被窃取或滥用</li>
+                        <li>RTMP 推流 (直播场景)</li>
+                        <li>MPEG-TS over UDP (广电信号)</li>
+                        <li>MP4/MOV 文件 (点播场景)</li>
+                        <li>SDI/HDMI 采集卡 (专业制作)</li>
                     </ul>
                     
-                    <h2>最佳实践</h2>
-                    <p>为了获得最佳的视频播放体验，建议采用以下策略：</p>
+                    <p>关键技术点：</p>
+                    
                     <ul>
-                        <li>使用自适应码率技术，根据网络状况自动调整视频清晰度</li>
-                        <li>优化视频编码参数，平衡质量和文件大小</li>
-                        <li>合理设计缓冲策略，减少卡顿和缓冲时间</li>
-                        <li>使用CDN加速视频分发，提升访问速度</li>
+                        <li>时间戳同步：解析 PCR (Program Clock Reference) 或 PTS/DTS，确保音视频同步</li>
+                        <li>GOP 对齐：检测 I-Frame 边界，确保片段可从任意点开始解码</li>
+                        <li>缓冲管理：维护 3-5 秒滑动窗口，平滑网络抖动与编码波动</li>
                     </ul>
                     
-                    <h2>总结</h2>
-                    <p>视频技术是一个复杂而不断发展的领域，需要持续关注最新的技术趋势和最佳实践。通过合理应用视频技术，可以为用户提供更好的视频观看体验，同时降低带宽成本和服务器负载。</p>
+                    <h4>切片触发逻辑</h4>
+                    <pre><code class="language-python"># 伪代码：基于 GOP 的切片决策
+def segment_trigger_policy():
+    if current_time - last_cut_time >= target_duration:
+        if current_frame.is_keyframe:  # 必须在关键帧处切割
+            execute_cut()
+            update_manifest()
+            reset_timer()
+        else:
+            wait_for_next_keyframe()  # 避免非关键帧切割导致解码错误</code></pre>
+                    
+                    <h4>输出封装格式演进</h4>
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-2">格式</th>
+                                <th class="border border-gray-300 px-4 py-2">文件扩展名</th>
+                                <th class="border border-gray-300 px-4 py-2">适用场景</th>
+                                <th class="border border-gray-300 px-4 py-2">特点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">MPEG-TS</td>
+                                <td class="border border-gray-300 px-4 py-2">.ts</td>
+                                <td class="border border-gray-300 px-4 py-2">传统 HLS</td>
+                                <td class="border border-gray-300 px-4 py-2">容错性强，支持任意位置解码，但开销较大（~10%）</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">fMP4</td>
+                                <td class="border border-gray-300 px-4 py-2">.m4s</td>
+                                <td class="border border-gray-300 px-4 py-2">现代 HLS/CMAF</td>
+                                <td class="border border-gray-300 px-4 py-2">与 DASH 共享存储，开销低（~1%），支持独立片段</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">CMAF</td>
+                                <td class="border border-gray-300 px-4 py-2">.cmfv/.cmfa</td>
+                                <td class="border border-gray-300 px-4 py-2">统一标准</td>
+                                <td class="border border-gray-300 px-4 py-2">HLS/DASH 双协议复用，减少 50% 存储成本</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>FFmpeg 切片实现示例</h4>
+                    <pre><code class="language-bash"># 传统 TS 切片（直播）
+ffmpeg -i input.mp4 -c:v libx264 -c:a aac \
+  -f hls -hls_time 6 -hls_list_size 10 \
+  -hls_flags delete_segments+program_date_time \
+  -hls_segment_filename "live_%03d.ts" \
+  playlist.m3u8
+
+# 现代 fMP4 切片（VOD）
+ffmpeg -i input.mp4 -c:v libx264 -c:a aac \
+  -f hls -hls_time 6 -hls_playlist_type vod \
+  -hls_segment_type fmp4 \
+  -hls_segment_filename "segment_%d.m4s" \
+  -hls_flags independent_segments \
+  master.m3u8</code></pre>
+                    
+                    <h3>2.2 打包器（Packager）工作流程</h3>
+                    <p>打包器负责将编码后的多码率流组装为标准的 HLS 清单与片段。</p>
+                    
+                    <p>两阶段工作流（现代推荐模式）：</p>
+                    
+                    <p>阶段一：编码 → 多码率 MP4（Mezzanine 文件）<br>
+                    - 一次性高成本转码<br>
+                    - 作为所有 ABR 格式的母版文件</p>
+                    
+                    <p>阶段二：转封装 → HLS/DASH 分发格式<br>
+                    - 低成本、快速的格式转换<br>
+                    - 支持动态打包（Just-In-Time Packaging）</p>
+                    
+                    <p>关键配置参数：</p>
+                    
+                    <ul>
+                        <li>hls_time：目标片段时长（直播通常 2-6 秒，LL-HLS 0.5-2 秒）</li>
+                        <li>hls_list_size：播放列表保留片段数（直播滑动窗口大小）</li>
+                        <li>hls_playlist_type：VOD（点播）或省略（直播）</li>
+                        <li>var_stream_map：音视频流组合映射，支持多音轨复用</li>
+                    </ul>
+                    
+                    <h2>三、自适应码率（ABR）算法深度解析</h2>
+                    
+                    <h3>3.1 ABR 决策架构</h3>
+                    <p>ABR 是 HLS 的智能大脑，通过实时监测网络状态动态调整视频质量：</p>
+                    
+                    <p>ABR Controller</p>
+                    
+                    <p>吞吐量估计器 (Throughput) ← 下载速度测量 (EWMA滤波)<br>
+                    缓冲区管理器 (Buffer) ← 当前缓冲时长/容量 (目标：30-45秒)<br>
+                    决策引擎 (Policy) ← 码率选择算法 (BOLA/Throughput)</p>
+                    
+                    <p>↓<br>
+                    码率决策输出</p>
+                    
+                    <h3>3.2 主流 ABR 算法分类</h3>
+                    <p>1. 基于吞吐量（Throughput-Based）</p>
+                    <pre><code class="language-python"># 原理：根据近期片段下载速度选择码率
+iestimated_bandwidth = α * current_speed + (1-α) * historical_avg
+selected_bitrate = max { r ∈ R | r < estimated_bandwidth * safety_margin }
+
+# 特点
+- 响应快速，适合网络剧烈波动场景
+- 缺点：容易过度反应，产生频繁切换</code></pre>
+                    
+                    <p>2. 基于缓冲区（Buffer-Based）</p>
+                    <pre><code class="language-python"># 原理：根据缓冲区饱和度决策
+if buffer_level < buffer_min:
+    selected_bitrate = lowest_quality  # 紧急降级
+elif buffer_level > buffer_max:
+    selected_bitrate = highest_quality # 安全升级
+else:
+    selected_bitrate = f(buffer_level) # 平滑过渡
+
+# 代表算法：BOLA (Buffer Occupancy based Lyapunov Algorithm)
+# 特点：稳定性强，避免 rebuffer，但可能无法充分利用带宽</code></pre>
+                    
+                    <p>3. 混合算法（Hybrid）</p>
+                    <pre><code class="language-python"># 现代播放器主流方案（如 hls.js、Shaka Player）
+decision_weight = w1 * throughput_score + w2 * buffer_score + w3 * QoE_score
+
+# QoE 考量因素：
+- 质量切换频率（避免"乒乓效应"）
+- 启动延迟（首包时间）
+- 卡顿次数与时长</code></pre>
+                    
+                    <h3>3.3 LL-HLS 低延迟场景优化</h3>
+                    <p>低延迟 HLS（LL-HLS）对 ABR 算法提出更高要求：</p>
+                    
+                    <p>挑战：<br>
+                    缓冲区极小（通常 3 秒以内），传统算法的反应时间不足<br>
+                    片段切分更细（Partial Segment 0.2-0.5 秒），测量噪声增大</p>
+                    
+                    <p>优化策略：</p>
+                    
+                    <pre><code class="language-m3u8"># 服务器端提供预加载提示
+#EXT-X-PRELOAD-HINT:TYPE=PART,URI="next_partial.m4s"
+
+# 客户端算法调整
+- 预测下一个独立帧（GOP 边界）到达时间
+- 基于 PART-HOLD-BACK 计算安全播放延迟
+- 快速降级：当 buffer < 1 秒时立即切换至最低码率</code></pre>
+                    
+                    <h2>四、播放器实现细节</h2>
+                    
+                    <h3>4.1 播放引擎架构</h3>
+                    <p>以开源 hls.js 为例，解析现代 HLS 播放器的内部实现：</p>
+                    
+                    <p>Application (UI Controls / Events)<br>
+                    ↓<br>
+                    hls.js Core<br>
+                    - Loader (HTTP/XHR) → Demuxer (TS/fMP4) → AbrController (码率决策)<br>
+                    - Playlist Loader (M3U8解析) → Remuxer (to MP4) → StreamController (缓冲/调度)<br>
+                    ↓<br>
+                    Browser MSE (Media Source Extensions API)<br>
+                    ↓<br>
+                    Video/Audio Decoder (Hardware Acceleration / Software)</p>
+                    
+                    <h3>4.2 关键实现机制</h3>
+                    <p>1. 双缓冲区架构</p>
+                    <pre><code class="language-javascript">// 逻辑缓冲区 vs 解码缓冲区分离
+class StreamBuffer {
+    constructor() {
+        this.appended = 0;    // 已追加到 MSE 的数据
+        this.buffered = 0;    // 浏览器实际解码缓冲
+        this.maxBufLen = 30;  // 目标缓冲时长（秒）
+    }
+    
+    // 动态调整策略
+    updateTargetDuration(networkSpeed) {
+        if (networkSpeed < 1.5 * currentBitrate) {
+            this.maxBufLen = Math.min(this.maxBufLen + 5, 60); // 保守策略
+        } else {
+            this.maxBufLen = Math.max(this.maxBufLen - 2, 15); // 激进策略
+        }
+    }
+}</code></pre>
+                    
+                    <p>2. 无缝切换（Seamless Switching）<br>
+                    关键帧对齐：所有码率使用相同 GOP 结构（如 2 秒 GOP）<br>
+                    PTS/DTS 连续性：切换时保持时间戳单调递增，避免解码器重置<br>
+                    缓冲重叠：新码率片段下载完成后，在关键帧边界处切换，丢弃旧缓冲</p>
+                    
+                    <p>3. 直播追赶机制</p>
+                    <pre><code class="language-javascript">// 当客户端延迟过大时的追帧逻辑
+if (currentLatency > maxLatencyThreshold) {
+    // 方法1：加速播放（1.1-1.5倍速）
+    video.playbackRate = 1.2;
+    
+    // 方法2：跳过片段（直接请求最新 SEQUENCE）
+    const liveEdgeSequence = getLatestSequence();
+    skipTo(liveEdgeSequence - 3); // 保留 3 个片段缓冲
+    
+    // 方法3：服务器端提示（EXT-X-SKIP）
+    requestPlaylistWithSkipHint();
+}</code></pre>
+                    
+                    <h3>4.3 DRM 解密流程</h3>
+                    <p>HLS 支持多种内容保护方案，播放器需集成 CDM（Content Decryption Module）：</p>
+                    
+                    <p>解密流程：</p>
+                    
+                    <ol>
+                        <li>加密内容 (AES-128/SAMPLE-AES)</li>
+                        <li>获取密钥 (EXT-X-KEY URI)</li>
+                        <li>密钥请求（带认证 Token）</li>
+                        <li>密钥响应 (16 bytes Key + IV)</li>
+                        <li>提取样本数据 (NAL units)</li>
+                        <li>AES-128-CBC/CTR 解密</li>
+                        <li>送入解码器</li>
+                    </ol>
+                    
+                    <p>FairPlay 特殊处理（Apple 生态）：</p>
+                    
+                    <ul>
+                        <li>使用 SAMPLE-AES 加密</li>
+                        <li>通过 skd:// 密钥 URI 触发 FairPlay CDM</li>
+                        <li>支持 SPC（Server Playback Context）与 CKC（Content Key Context）交换</li>
+                    </ul>
+                    
+                    <h2>五、服务端实现架构</h2>
+                    
+                    <h3>5.1 直播生产链路</h3>
+                    <p>信号源 (RTMP/SRT) → 编码器 (CPU/GPU) → 切片器 (FFmpeg/Elemental) → 存储/CDN (Origin/Edge)</p>
+                    
+                    <p>关键参数配置（LL-HLS 场景）：</p>
+                    
+                    <pre><code class="language-yaml">segment_duration: 2s          # 标准片段时长
+partial_segment_duration: 0.5s # 部分片段时长（LL-HLS）
+playlist_depth: 6-8           # 播放列表保留片段数
+part_hold_back: 3.0s          # 建议播放延迟
+delta_updates: enabled        # 增量更新减少带宽</code></pre>
+                    
+                    <h3>5.2 动态打包（Just-In-Time Packaging）</h3>
+                    <p>现代架构倾向于存储单一格式（CMAF），实时转封装为 HLS/DASH：</p>
+                    
+                    <p>优势：<br>
+                    存储成本降低 50%（无需存储 TS 和 fMP4 双份）<br>
+                    支持多协议即时适配<br>
+                    统一 DRM 加密处理</p>
+                    
+                    <p>存储层 (CMAF fMP4)<br>
+                    ↓<br>
+                    Packager Edge<br>
+                    - HLS Packager (.m3u8) | DASH Packager (.mpd)<br>
+                    ↓<br>
+                    客户端</p>
+                    
+                    <h2>六、M3U8 协议核心标签</h2>
+                    
+                    <h3>6.1 主播放列表（Master Playlist）</h3>
+                    <pre><code class="language-m3u8">#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-INDEPENDENT-SEGMENTS
+
+#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=640x360,CODECS="avc1.64001E,mp4a.40.2"
+360p.m3u8
+
+#EXT-X-STREAM-INF:BANDWIDTH=1400000,RESOLUTION=1280x720,CODECS="avc1.64001F,mp4a.40.2"
+720p.m3u8
+
+#EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2"
+1080p.m3u8</code></pre>
+                    
+                    <h3>6.2 媒体播放列表（Media Playlist）</h3>
+                    <pre><code class="language-m3u8">#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD      # VOD=点播，省略=直播
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-ENDLIST                # 点播结束标记（直播无此标签）
+
+#EXTINF:9.976,                # 片段时长（秒）
+segment_000.ts
+#EXTINF:10.012,
+segment_001.ts</code></pre>
+                    
+                    <h3>6.3 LL-HLS 专用标签</h3>
+                    <pre><code class="language-m3u8">#EXT-X-SERVER-CONTROL:CAN-BLOCK-RELOAD=YES,PART-HOLD-BACK=3.0
+#EXT-X-PART-INF:PART-TARGET=0.5
+#EXT-X-PART:DURATION=0.5,URI="segment0045_part3.m4s"
+#EXT-X-PRELOAD-HINT:TYPE=PART,URI="segment0045_part4.m4s"</code></pre>
                 </div>
             </div>
         </section>
@@ -169,41 +652,41 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools Code</h3>
-                    <p class="text-gray-400">Essential tools and resources for developers.</p>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.title">Tools Code</h3>
+                    <p class="text-gray-400" data-i18n="footer.description">Essential tools and resources for developers.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.tools">Tools</h3>
                     <ul class="space-y-2">
-                        <li><a href="/html/m3u8player.html" class="text-gray-400 hover:text-white">M3U8 Player</a></li>
-                        <li><a href="/html/json-validator.html" class="text-gray-400 hover:text-white">JSON Validator</a></li>
-                        <li><a href="/html/color-picker.html" class="text-gray-400 hover:text-white">Color Picker</a></li>
-                        <li><a href="/html/regex-tester.html" class="text-gray-400 hover:text-white">Regex Tester</a></li>
-                        <li><a href="/html/timestamp-converter.html" class="text-gray-400 hover:text-white">Timestamp Converter</a></li>
-                        <li><a href="/html/base64-encoder-decoder.html" class="text-gray-400 hover:text-white">Base64 Encoder/Decoder</a></li>
+                        <li><a href="/html/m3u8player.html" class="text-gray-400 hover:text-white" data-i18n="footer.m3u8Player">M3U8 Player</a></li>
+                        <li><a href="/html/json-validator.html" class="text-gray-400 hover:text-white" data-i18n="footer.jsonValidator">JSON Validator</a></li>
+                        <li><a href="/html/color-picker.html" class="text-gray-400 hover:text-white" data-i18n="footer.colorPicker">Color Picker</a></li>
+                        <li><a href="/html/regex-tester.html" class="text-gray-400 hover:text-white" data-i18n="footer.regexTester">Regex Tester</a></li>
+                        <li><a href="/html/timestamp-converter.html" class="text-gray-400 hover:text-white" data-i18n="footer.timestampConverter">Timestamp Converter</a></li>
+                        <li><a href="/html/base64-encoder-decoder.html" class="text-gray-400 hover:text-white" data-i18n="footer.base64EncoderDecoder">Base64 Encoder/Decoder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.resources">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="/html/code-snippets.html" class="text-gray-400 hover:text-white">Code Snippets</a></li>
-                        <li><a href="/html/api-documentation.html" class="text-gray-400 hover:text-white">API Documentation</a></li>
-                        <li><a href="/html/articles.html" class="text-gray-400 hover:text-white">Tutorials & Guides</a></li>
-                        <li><a href="/html/useful-libraries.html" class="text-gray-400 hover:text-white">Useful Libraries</a></li>
+                        <li><a href="/html/code-snippets.html" class="text-gray-400 hover:text-white" data-i18n="footer.codeSnippets">Code Snippets</a></li>
+                        <li><a href="/html/api-documentation.html" class="text-gray-400 hover:text-white" data-i18n="footer.apiDocumentation">API Documentation</a></li>
+                        <li><a href="/html/articles.html" class="text-gray-400 hover:text-white" data-i18n="footer.tutorialsGuides">Tutorials & Guides</a></li>
+                        <li><a href="/html/useful-libraries.html" class="text-gray-400 hover:text-white" data-i18n="footer.usefulLibraries">Useful Libraries</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="/html/about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="/html/contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
-                        <li><a href="/html/privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="/html/terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="/html/about.html" class="text-gray-400 hover:text-white" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="/html/contact.html" class="text-gray-400 hover:text-white" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="/html/privacy-policy.html" class="text-gray-400 hover:text-white" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="/html/terms-of-service.html" class="text-gray-400 hover:text-white" data-i18n="footer.termsOfService">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Tools Code. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2026 Tools Code. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -221,6 +704,11 @@
         
         // Cookie Consent
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize internationalization
+            if (window.i18n && window.i18n.initI18n) {
+                window.i18n.initI18n();
+            }
+            
             const cookieConsent = document.getElementById('cookie-consent');
             const acceptCookies = document.getElementById('accept-cookies');
             const declineCookies = document.getElementById('decline-cookies');

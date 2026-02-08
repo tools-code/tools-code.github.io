@@ -394,7 +394,225 @@ const translations = {
             heroSubtitle: 'Explore our collection of tutorials, guides, and articles for developers',
             latestArticles: 'Latest Articles',
             readMore: 'Read More →',
-            noArticles: 'No articles available at the moment.'
+            noArticles: 'No articles available at the moment.',
+            hls: {
+                title: 'HLS Protocol Principles and Implementation Details',
+                category: 'Video Technology',
+                content: {
+                    section1: {
+                        title: 'I. HLS Protocol Architecture Overview',
+                        subsections: {
+                            s11: {
+                                title: '1.1 System Architecture Layers',
+                                content: 'HLS (HTTP Live Streaming) protocol adopts a layered and decoupled design concept, and the entire system can be divided into three core layers:',
+                                layers: {
+                                    client: 'Client Layer (Player Layer)\nAVPlayer / ExoPlayer / hls.js / Shaka Player',
+                                    delivery: 'Delivery Layer\nCDN Edge → Origin Shield → Packager',
+                                    origin: 'Origin Layer\nEncoder → Segmenter → DRM Encryptor → Storage (TS/fMP4)'
+                                },
+                                coreConcepts: 'Core design concepts:',
+                                concepts: [
+                                    'HTTP transmission: Reuse existing web infrastructure, no dedicated streaming server required',
+                                    'Segmented transmission: Split continuous streams into independent cacheable segments',
+                                    'Adaptive Bitrate (ABR): Client intelligently selects optimal quality for network adaptation'
+                                ]
+                            },
+                            s12: {
+                                title: '1.2 Data Flow Overview',
+                                content: 'Data flow direction:\nOriginal video input → Encoder (multi-bitrate) → Segmenter → Encryption (optional) → Storage\nPlayer ← CDN ← HTTP GET ← M3U8 index file + TS/fMP4 segments\nDecoding and rendering → Buffer management → ABR decision engine → Network request scheduling'
+                            }
+                        }
+                    },
+                    section2: {
+                        title: 'II. Core Component Implementation Principles',
+                        subsections: {
+                            s21: {
+                                title: '2.1 Segmenter Working Mechanism',
+                                content: 'The segmenter is the core production component of the HLS system, responsible for converting continuous encoded streams into discrete segments.',
+                                inputProcessing: {
+                                    title: 'Input Processing Flow',
+                                    content: '1. Data acquisition and synchronization',
+                                    sources: [
+                                        'RTMP streaming (live scenario)',
+                                        'MPEG-TS over UDP (broadcast signal)',
+                                        'MP4/MOV files (VOD scenario)',
+                                        'SDI/HDMI capture card (professional production)'
+                                    ],
+                                    keyPoints: 'Key technical points:',
+                                    points: [
+                                        'Timestamp synchronization: Parse PCR (Program Clock Reference) or PTS/DTS to ensure audio-video synchronization',
+                                        'GOP alignment: Detect I-Frame boundaries to ensure segments can start decoding from any point',
+                                        'Buffer management: Maintain 3-5 second sliding window to smooth network jitter and encoding fluctuations'
+                                    ]
+                                },
+                                slicingLogic: {
+                                    title: 'Slicing Trigger Logic',
+                                    code: '# Pseudo code: GOP-based slicing decision\ndef segment_trigger_policy():\n    if current_time - last_cut_time >= target_duration:\n        if current_frame.is_keyframe:  # Must cut at keyframe\n            execute_cut()\n            update_manifest()\n            reset_timer()\n        else:\n            wait_for_next_keyframe()  # Avoid non-keyframe cutting causing decoding errors'
+                                },
+                                outputFormats: {
+                                    title: 'Output Encapsulation Format Evolution',
+                                    table: {
+                                        headers: ['Format', 'File Extension', 'Applicable Scenario', 'Features'],
+                                        rows: [
+                                            ['MPEG-TS', '.ts', 'Traditional HLS', 'Strong fault tolerance, supports decoding from any position, but higher overhead (~10%)'],
+                                            ['fMP4', '.m4s', 'Modern HLS/CMAF', 'Shared storage with DASH, low overhead (~1%), supports independent segments'],
+                                            ['CMAF', '.cmfv/.cmfa', 'Unified standard', 'HLS/DASH dual-protocol reuse, reduces storage cost by 50%']
+                                        ]
+                                    }
+                                },
+                                ffmpegExample: {
+                                    title: 'FFmpeg Slicing Implementation Example',
+                                    code: '# Traditional TS slicing (live)\nffmpeg -i input.mp4 -c:v libx264 -c:a aac \\\n  -f hls -hls_time 6 -hls_list_size 10 \\\n  -hls_flags delete_segments+program_date_time \\\n  -hls_segment_filename "live_%03d.ts" \\\n  playlist.m3u8\n\n# Modern fMP4 slicing (VOD)\nffmpeg -i input.mp4 -c:v libx264 -c:a aac \\\n  -f hls -hls_time 6 -hls_playlist_type vod \\\n  -hls_segment_type fmp4 \\\n  -hls_segment_filename "segment_%d.m4s" \\\n  -hls_flags independent_segments \\\n  master.m3u8'
+                                }
+                            },
+                            s22: {
+                                title: '2.2 Packager Workflow',
+                                content: 'The packager is responsible for assembling encoded multi-bitrate streams into standard HLS manifests and segments.',
+                                twoStageWorkflow: {
+                                    title: 'Two-Stage Workflow (Modern Recommended Pattern)',
+                                    stage1: 'Stage 1: Encoding → Multi-bitrate MP4 (Mezzanine files)\n- One-time high-cost transcoding\n- Master files for all ABR formats',
+                                    stage2: 'Stage 2: Repackaging → HLS/DASH distribution format\n- Low-cost, fast format conversion\n- Supports Just-In-Time Packaging'
+                                },
+                                keyParameters: {
+                                    title: 'Key Configuration Parameters:',
+                                    params: [
+                                        'hls_time: Target segment duration (2-6 seconds for live, 0.5-2 seconds for LL-HLS)',
+                                        'hls_list_size: Number of segments retained in playlist (live sliding window size)',
+                                        'hls_playlist_type: VOD (video-on-demand) or omitted (live)',
+                                        'var_stream_map: Audio-video stream combination mapping, supports multi-audio track multiplexing'
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    section3: {
+                        title: 'III. In-depth Analysis of Adaptive Bitrate (ABR) Algorithms',
+                        subsections: {
+                            s31: {
+                                title: '3.1 ABR Decision Architecture',
+                                content: 'ABR is the intelligent brain of HLS, dynamically adjusting video quality through real-time network state monitoring:',
+                                architecture: 'ABR Controller\n\nThroughput Estimator ← Download speed measurement (EWMA filtering)\nBuffer Manager ← Current buffer duration/capacity (target: 30-45 seconds)\nDecision Engine ← Bitrate selection algorithm (BOLA/Throughput)\n\n↓\nBitrate decision output'
+                            },
+                            s32: {
+                                title: '3.2 Mainstream ABR Algorithm Classification',
+                                algorithms: {
+                                    throughputBased: {
+                                        title: '1. Throughput-Based',
+                                        code: '# Principle: Select bitrate based on recent segment download speed\niestimated_bandwidth = α * current_speed + (1-α) * historical_avg\nselected_bitrate = max { r ∈ R | r < estimated_bandwidth * safety_margin }\n\n# Characteristics\n- Fast response, suitable for scenarios with剧烈 network fluctuations\n- Disadvantage: Prone to overreaction, causing frequent switching',
+                                        content: 'Principle: Select bitrate based on recent segment download speed'
+                                    },
+                                    bufferBased: {
+                                        title: '2. Buffer-Based',
+                                        code: '# Principle: Decision based on buffer saturation\nif buffer_level < buffer_min:\n    selected_bitrate = lowest_quality  # Emergency downgrade\nelif buffer_level > buffer_max:\n    selected_bitrate = highest_quality # Safe upgrade\nelse:\n    selected_bitrate = f(buffer_level) # Smooth transition\n\n# Representative algorithm: BOLA (Buffer Occupancy based Lyapunov Algorithm)\n# Characteristics: Strong stability, avoids rebuffer, but may not fully utilize bandwidth',
+                                        content: 'Principle: Decision based on buffer saturation'
+                                    },
+                                    hybrid: {
+                                        title: '3. Hybrid Algorithm',
+                                        code: '# Modern player mainstream solution (e.g., hls.js, Shaka Player)\ndecision_weight = w1 * throughput_score + w2 * buffer_score + w3 * QoE_score\n\n# QoE considerations:\n- Quality switching frequency (avoid "ping-pong effect")\n- Startup delay (first packet time)\n- Stalling count and duration',
+                                        content: 'Modern player mainstream solution (e.g., hls.js, Shaka Player)'
+                                    }
+                                }
+                            },
+                            s33: {
+                                title: '3.3 LL-HLS Low-Latency Scenario Optimization',
+                                content: 'Low Latency HLS (LL-HLS) places higher demands on ABR algorithms:',
+                                challenges: 'Challenges:\nBuffer is extremely small (usually within 3 seconds), traditional algorithm reaction time is insufficient\nFiner segment slicing (Partial Segment 0.2-0.5 seconds), measurement noise increases',
+                                optimization: {
+                                    title: 'Optimization Strategies:',
+                                    code: '# Server-side preload hints\n#EXT-X-PRELOAD-HINT:TYPE=PART,URI="next_partial.m4s"\n\n# Client algorithm adjustments\n- Predict next independent frame (GOP boundary) arrival time\n- Calculate safe playback delay based on PART-HOLD-BACK\n- Fast downgrade: Immediately switch to lowest bitrate when buffer < 1 second'
+                                }
+                            }
+                        }
+                    },
+                    section4: {
+                        title: 'IV. Player Implementation Details',
+                        subsections: {
+                            s41: {
+                                title: '4.1 Playback Engine Architecture',
+                                content: 'Taking open-source hls.js as an example, analyze the internal implementation of modern HLS players:',
+                                architecture: 'Application (UI Controls / Events)\n↓\nhls.js Core\n- Loader (HTTP/XHR) → Demuxer (TS/fMP4) → AbrController (bitrate decision)\n- Playlist Loader (M3U8 parsing) → Remuxer (to MP4) → StreamController (buffer/scheduling)\n↓\nBrowser MSE (Media Source Extensions API)\n↓\nVideo/Audio Decoder (Hardware Acceleration / Software)'
+                            },
+                            s42: {
+                                title: '4.2 Key Implementation Mechanisms',
+                                mechanisms: {
+                                    dualBuffer: {
+                                        title: '1. Dual Buffer Architecture',
+                                        code: '// Logic buffer vs decoding buffer separation\nclass StreamBuffer {\n    constructor() {\n        this.appended = 0;    // Data already appended to MSE\n        this.buffered = 0;    // Browser actual decoding buffer\n        this.maxBufLen = 30;  // Target buffer duration (seconds)\n    }\n    \n    // Dynamic adjustment strategy\n    updateTargetDuration(networkSpeed) {\n        if (networkSpeed < 1.5 * currentBitrate) {\n            this.maxBufLen = Math.min(this.maxBufLen + 5, 60); // Conservative strategy\n        } else {\n            this.maxBufLen = Math.max(this.maxBufLen - 2, 15); // Aggressive strategy\n        }\n    }\n}'
+                                    },
+                                    seamlessSwitching: {
+                                        title: '2. Seamless Switching',
+                                        content: 'Keyframe alignment: All bitrates use the same GOP structure (e.g., 2-second GOP)\nPTS/DTS continuity: Maintain monotonically increasing timestamps during switching to avoid decoder reset\nBuffer overlap: After new bitrate segment download completes, switch at keyframe boundary, discard old buffer'
+                                    },
+                                    liveCatchup: {
+                                        title: '3. Live Catchup Mechanism',
+                                        code: '// Catchup logic when client delay is too large\nif (currentLatency > maxLatencyThreshold) {\n    // Method 1: Accelerate playback (1.1-1.5x speed)\n    video.playbackRate = 1.2;\n    \n    // Method 2: Skip segments (directly request latest SEQUENCE)\n    const liveEdgeSequence = getLatestSequence();\n    skipTo(liveEdgeSequence - 3); // Keep 3 segments buffer\n    \n    // Method 3: Server-side hint (EXT-X-SKIP)\n    requestPlaylistWithSkipHint();\n}'
+                                    }
+                                }
+                            },
+                            s43: {
+                                title: '4.3 DRM Decryption Process',
+                                content: 'HLS supports multiple content protection schemes, players need to integrate CDM (Content Decryption Module):',
+                                decryptionFlow: {
+                                    title: 'Decryption Flow:',
+                                    steps: [
+                                        'Encrypted content (AES-128/SAMPLE-AES)',
+                                        'Get key (EXT-X-KEY URI)',
+                                        'Key request (with authentication Token)',
+                                        'Key response (16 bytes Key + IV)',
+                                        'Extract sample data (NAL units)',
+                                        'AES-128-CBC/CTR decryption',
+                                        'Send to decoder'
+                                    ]
+                                },
+                                fairplay: {
+                                    title: 'FairPlay Special Handling (Apple Ecosystem):',
+                                    points: [
+                                        'Uses SAMPLE-AES encryption',
+                                        'Triggers FairPlay CDM through skd:// key URI',
+                                        'Supports SPC (Server Playback Context) and CKC (Content Key Context) exchange'
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    section5: {
+                        title: 'V. Server-Side Implementation Architecture',
+                        subsections: {
+                            s51: {
+                                title: '5.1 Live Production Link',
+                                content: 'Signal source (RTMP/SRT) → Encoder (CPU/GPU) → Segmenter (FFmpeg/Elemental) → Storage/CDN (Origin/Edge)',
+                                llhlsConfig: {
+                                    title: 'Key Parameter Configuration (LL-HLS Scenario):',
+                                    code: 'segment_duration: 2s          # Standard segment duration\npartial_segment_duration: 0.5s # Partial segment duration (LL-HLS)\nplaylist_depth: 6-8           # Playlist retained segments\npart_hold_back: 3.0s          # Recommended playback delay\ndelta_updates: enabled        # Delta updates reduce bandwidth'
+                                }
+                            },
+                            s52: {
+                                title: '5.2 Just-In-Time Packaging',
+                                content: 'Modern architecture tends to store a single format (CMAF), real-time repackaging to HLS/DASH:',
+                                advantages: 'Advantages:\nStorage cost reduced by 50% (no need to store both TS and fMP4)\nSupports multi-protocol immediate adaptation\nUnified DRM encryption processing',
+                                architecture: 'Storage Layer (CMAF fMP4)\n↓\nPackager Edge\n- HLS Packager (.m3u8) | DASH Packager (.mpd)\n↓\nClient'
+                            }
+                        }
+                    },
+                    section6: {
+                        title: 'VI. M3U8 Protocol Core Tags',
+                        subsections: {
+                            s61: {
+                                title: '6.1 Master Playlist',
+                                code: '#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-INDEPENDENT-SEGMENTS\n\n#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=640x360,CODECS="avc1.64001E,mp4a.40.2"\n360p.m3u8\n\n#EXT-X-STREAM-INF:BANDWIDTH=1400000,RESOLUTION=1280x720,CODECS="avc1.64001F,mp4a.40.2"\n720p.m3u8\n\n#EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2"\n1080p.m3u8'
+                            },
+                            s62: {
+                                title: '6.2 Media Playlist',
+                                code: '#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-TARGETDURATION:10\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD      # VOD=video-on-demand, omitted=live\n#EXT-X-INDEPENDENT-SEGMENTS\n#EXT-X-ENDLIST                # VOD end marker (not present in live)\n\n#EXTINF:9.976,                # Segment duration (seconds)\nsegment_000.ts\n#EXTINF:10.012,\nsegment_001.ts'
+                            },
+                            s63: {
+                                title: '6.3 LL-HLS Specific Tags',
+                                code: '#EXT-X-SERVER-CONTROL:CAN-BLOCK-RELOAD=YES,PART-HOLD-BACK=3.0\n#EXT-X-PART-INF:PART-TARGET=0.5\n#EXT-X-PART:DURATION=0.5,URI="segment0045_part3.m4s"\n#EXT-X-PRELOAD-HINT:TYPE=PART,URI="segment0045_part4.m4s"'
+                            }
+                        }
+                    }
+                }
+            }
         },
         
         // Privacy Policy
@@ -876,7 +1094,225 @@ const translations = {
             heroSubtitle: '探索我们为开发者准备的教程、指南和文章集合',
             latestArticles: '最新文章',
             readMore: '阅读更多 →',
-            noArticles: '目前没有可用的文章。'
+            noArticles: '目前没有可用的文章。',
+            hls: {
+                title: 'HLS协议原理与实现细节',
+                category: '视频技术',
+                content: {
+                    section1: {
+                        title: '一、HLS协议架构总览',
+                        subsections: {
+                            s11: {
+                                title: '1.1 系统架构分层',
+                                content: 'HLS（HTTP Live Streaming）协议采用分层解耦的设计理念，整个系统可分为三个核心层级：',
+                                layers: {
+                                    client: '客户端层 (Player Layer)\nAVPlayer / ExoPlayer / hls.js / Shaka Player',
+                                    delivery: '分发层 (Delivery Layer)\nCDN Edge → Origin Shield → Packager',
+                                    origin: '源站层 (Origin Layer)\nEncoder → Segmenter → DRM Encryptor → Storage (TS/fMP4)'
+                                },
+                                coreConcepts: '核心设计理念：',
+                                concepts: [
+                                    'HTTP 传输：复用现有 Web 基础设施，无需专用流媒体服务器',
+                                    '分段传输：将连续流切分为独立可缓存的片段',
+                                    '自适应码率（ABR）：客户端智能选择最优质量，实现网络自适应'
+                                ]
+                            },
+                            s12: {
+                                title: '1.2 数据流全景',
+                                content: '数据流向：\n原始视频输入 → 编码器(多码率) → 切片器(Segmenter) → 加密(可选) → 存储\n播放器 ← CDN ← HTTP GET ← M3U8索引文件 + TS/fMP4片段\n解码渲染 → 缓冲区管理 → ABR决策引擎 → 网络请求调度'
+                            }
+                        }
+                    },
+                    section2: {
+                        title: '二、核心组件实现原理',
+                        subsections: {
+                            s21: {
+                                title: '2.1 切片器（Segmenter）工作机制',
+                                content: '切片器是 HLS 系统的核心生产组件，负责将连续编码流转换为离散片段。',
+                                inputProcessing: {
+                                    title: '输入处理流程',
+                                    content: '1. 数据获取与同步',
+                                    sources: [
+                                        'RTMP 推流 (直播场景)',
+                                        'MPEG-TS over UDP (广电信号)',
+                                        'MP4/MOV 文件 (点播场景)',
+                                        'SDI/HDMI 采集卡 (专业制作)'
+                                    ],
+                                    keyPoints: '关键技术点：',
+                                    points: [
+                                        '时间戳同步：解析 PCR (Program Clock Reference) 或 PTS/DTS，确保音视频同步',
+                                        'GOP 对齐：检测 I-Frame 边界，确保片段可从任意点开始解码',
+                                        '缓冲管理：维护 3-5 秒滑动窗口，平滑网络抖动与编码波动'
+                                    ]
+                                },
+                                slicingLogic: {
+                                    title: '切片触发逻辑',
+                                    code: '# 伪代码：基于 GOP 的切片决策\ndef segment_trigger_policy():\n    if current_time - last_cut_time >= target_duration:\n        if current_frame.is_keyframe:  # 必须在关键帧处切割\n            execute_cut()\n            update_manifest()\n            reset_timer()\n        else:\n            wait_for_next_keyframe()  # 避免非关键帧切割导致解码错误'
+                                },
+                                outputFormats: {
+                                    title: '输出封装格式演进',
+                                    table: {
+                                        headers: ['格式', '文件扩展名', '适用场景', '特点'],
+                                        rows: [
+                                            ['MPEG-TS', '.ts', '传统 HLS', '容错性强，支持任意位置解码，但开销较大（~10%）'],
+                                            ['fMP4', '.m4s', '现代 HLS/CMAF', '与 DASH 共享存储，开销低（~1%），支持独立片段'],
+                                            ['CMAF', '.cmfv/.cmfa', '统一标准', 'HLS/DASH 双协议复用，减少 50% 存储成本']
+                                        ]
+                                    }
+                                },
+                                ffmpegExample: {
+                                    title: 'FFmpeg 切片实现示例',
+                                    code: '# 传统 TS 切片（直播）\nffmpeg -i input.mp4 -c:v libx264 -c:a aac \\\n  -f hls -hls_time 6 -hls_list_size 10 \\\n  -hls_flags delete_segments+program_date_time \\\n  -hls_segment_filename "live_%03d.ts" \\\n  playlist.m3u8\n\n# 现代 fMP4 切片（VOD）\nffmpeg -i input.mp4 -c:v libx264 -c:a aac \\\n  -f hls -hls_time 6 -hls_playlist_type vod \\\n  -hls_segment_type fmp4 \\\n  -hls_segment_filename "segment_%d.m4s" \\\n  -hls_flags independent_segments \\\n  master.m3u8'
+                                }
+                            },
+                            s22: {
+                                title: '2.2 打包器（Packager）工作流程',
+                                content: '打包器负责将编码后的多码率流组装为标准的 HLS 清单与片段。',
+                                twoStageWorkflow: {
+                                    title: '两阶段工作流（现代推荐模式）：',
+                                    stage1: '阶段一：编码 → 多码率 MP4（Mezzanine 文件）\n- 一次性高成本转码\n- 作为所有 ABR 格式的母版文件',
+                                    stage2: '阶段二：转封装 → HLS/DASH 分发格式\n- 低成本、快速的格式转换\n- 支持动态打包（Just-In-Time Packaging）'
+                                },
+                                keyParameters: {
+                                    title: '关键配置参数：',
+                                    params: [
+                                        'hls_time：目标片段时长（直播通常 2-6 秒，LL-HLS 0.5-2 秒）',
+                                        'hls_list_size：播放列表保留片段数（直播滑动窗口大小）',
+                                        'hls_playlist_type：VOD（点播）或省略（直播）',
+                                        'var_stream_map：音视频流组合映射，支持多音轨复用'
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    section3: {
+                        title: '三、自适应码率（ABR）算法深度解析',
+                        subsections: {
+                            s31: {
+                                title: '3.1 ABR 决策架构',
+                                content: 'ABR 是 HLS 的智能大脑，通过实时监测网络状态动态调整视频质量：',
+                                architecture: 'ABR Controller\n\n吞吐量估计器 (Throughput) ← 下载速度测量 (EWMA滤波)\n缓冲区管理器 (Buffer) ← 当前缓冲时长/容量 (目标：30-45秒)\n决策引擎 (Policy) ← 码率选择算法 (BOLA/Throughput)\n\n↓\n码率决策输出'
+                            },
+                            s32: {
+                                title: '3.2 主流 ABR 算法分类',
+                                algorithms: {
+                                    throughputBased: {
+                                        title: '1. 基于吞吐量（Throughput-Based）',
+                                        code: '# 原理：根据近期片段下载速度选择码率\niestimated_bandwidth = α * current_speed + (1-α) * historical_avg\nselected_bitrate = max { r ∈ R | r < estimated_bandwidth * safety_margin }\n\n# 特点\n- 响应快速，适合网络剧烈波动场景\n- 缺点：容易过度反应，产生频繁切换',
+                                        content: '原理：根据近期片段下载速度选择码率'
+                                    },
+                                    bufferBased: {
+                                        title: '2. 基于缓冲区（Buffer-Based）',
+                                        code: '# 原理：根据缓冲区饱和度决策\nif buffer_level < buffer_min:\n    selected_bitrate = lowest_quality  # 紧急降级\nelif buffer_level > buffer_max:\n    selected_bitrate = highest_quality # 安全升级\nelse:\n    selected_bitrate = f(buffer_level) # 平滑过渡\n\n# 代表算法：BOLA (Buffer Occupancy based Lyapunov Algorithm)\n# 特点：稳定性强，避免 rebuffer，但可能无法充分利用带宽',
+                                        content: '原理：根据缓冲区饱和度决策'
+                                    },
+                                    hybrid: {
+                                        title: '3. 混合算法（Hybrid）',
+                                        code: '# 现代播放器主流方案（如 hls.js、Shaka Player）\ndecision_weight = w1 * throughput_score + w2 * buffer_score + w3 * QoE_score\n\n# QoE 考量因素：\n- 质量切换频率（避免"乒乓效应"）\n- 启动延迟（首包时间）\n- 卡顿次数与时长',
+                                        content: '现代播放器主流方案（如 hls.js、Shaka Player）'
+                                    }
+                                }
+                            },
+                            s33: {
+                                title: '3.3 LL-HLS 低延迟场景优化',
+                                content: '低延迟 HLS（LL-HLS）对 ABR 算法提出更高要求：',
+                                challenges: '挑战：\n缓冲区极小（通常 3 秒以内），传统算法的反应时间不足\n片段切分更细（Partial Segment 0.2-0.5 秒），测量噪声增大',
+                                optimization: {
+                                    title: '优化策略：',
+                                    code: '# 服务器端提供预加载提示\n#EXT-X-PRELOAD-HINT:TYPE=PART,URI="next_partial.m4s"\n\n# 客户端算法调整\n- 预测下一个独立帧（GOP 边界）到达时间\n- 基于 PART-HOLD-BACK 计算安全播放延迟\n- 快速降级：当 buffer < 1 秒时立即切换至最低码率'
+                                }
+                            }
+                        }
+                    },
+                    section4: {
+                        title: '四、播放器实现细节',
+                        subsections: {
+                            s41: {
+                                title: '4.1 播放引擎架构',
+                                content: '以开源 hls.js 为例，解析现代 HLS 播放器的内部实现：',
+                                architecture: 'Application (UI Controls / Events)\n↓\nhls.js Core\n- Loader (HTTP/XHR) → Demuxer (TS/fMP4) → AbrController (码率决策)\n- Playlist Loader (M3U8解析) → Remuxer (to MP4) → StreamController (缓冲/调度)\n↓\nBrowser MSE (Media Source Extensions API)\n↓\nVideo/Audio Decoder (Hardware Acceleration / Software)'
+                            },
+                            s42: {
+                                title: '4.2 关键实现机制',
+                                mechanisms: {
+                                    dualBuffer: {
+                                        title: '1. 双缓冲区架构',
+                                        code: '// 逻辑缓冲区 vs 解码缓冲区分离\nclass StreamBuffer {\n    constructor() {\n        this.appended = 0;    // 已追加到 MSE 的数据\n        this.buffered = 0;    // 浏览器实际解码缓冲\n        this.maxBufLen = 30;  // 目标缓冲时长（秒）\n    }\n    \n    // 动态调整策略\n    updateTargetDuration(networkSpeed) {\n        if (networkSpeed < 1.5 * currentBitrate) {\n            this.maxBufLen = Math.min(this.maxBufLen + 5, 60); // 保守策略\n        } else {\n            this.maxBufLen = Math.max(this.maxBufLen - 2, 15); // 激进策略\n        }\n    }\n}'
+                                    },
+                                    seamlessSwitching: {
+                                        title: '2. 无缝切换（Seamless Switching）',
+                                        content: '关键帧对齐：所有码率使用相同 GOP 结构（如 2 秒 GOP）\nPTS/DTS 连续性：切换时保持时间戳单调递增，避免解码器重置\n缓冲重叠：新码率片段下载完成后，在关键帧边界处切换，丢弃旧缓冲'
+                                    },
+                                    liveCatchup: {
+                                        title: '3. 直播追赶机制',
+                                        code: '// 当客户端延迟过大时的追帧逻辑\nif (currentLatency > maxLatencyThreshold) {\n    // 方法1：加速播放（1.1-1.5倍速）\n    video.playbackRate = 1.2;\n    \n    // 方法2：跳过片段（直接请求最新 SEQUENCE）\n    const liveEdgeSequence = getLatestSequence();\n    skipTo(liveEdgeSequence - 3); // 保留 3 个片段缓冲\n    \n    // 方法3：服务器端提示（EXT-X-SKIP）\n    requestPlaylistWithSkipHint();\n}'
+                                    }
+                                }
+                            },
+                            s43: {
+                                title: '4.3 DRM 解密流程',
+                                content: 'HLS 支持多种内容保护方案，播放器需集成 CDM（Content Decryption Module）：',
+                                decryptionFlow: {
+                                    title: '解密流程：',
+                                    steps: [
+                                        '加密内容 (AES-128/SAMPLE-AES)',
+                                        '获取密钥 (EXT-X-KEY URI)',
+                                        '密钥请求（带认证 Token）',
+                                        '密钥响应 (16 bytes Key + IV)',
+                                        '提取样本数据 (NAL units)',
+                                        'AES-128-CBC/CTR 解密',
+                                        '送入解码器'
+                                    ]
+                                },
+                                fairplay: {
+                                    title: 'FairPlay 特殊处理（Apple 生态）：',
+                                    points: [
+                                        '使用 SAMPLE-AES 加密',
+                                        '通过 skd:// 密钥 URI 触发 FairPlay CDM',
+                                        '支持 SPC（Server Playback Context）与 CKC（Content Key Context）交换'
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    section5: {
+                        title: '五、服务端实现架构',
+                        subsections: {
+                            s51: {
+                                title: '5.1 直播生产链路',
+                                content: '信号源 (RTMP/SRT) → 编码器 (CPU/GPU) → 切片器 (FFmpeg/Elemental) → 存储/CDN (Origin/Edge)',
+                                llhlsConfig: {
+                                    title: '关键参数配置（LL-HLS 场景）：',
+                                    code: 'segment_duration: 2s          # 标准片段时长\npartial_segment_duration: 0.5s # 部分片段时长（LL-HLS）\nplaylist_depth: 6-8           # 播放列表保留片段数\npart_hold_back: 3.0s          # 建议播放延迟\ndelta_updates: enabled        # 增量更新减少带宽'
+                                }
+                            },
+                            s52: {
+                                title: '5.2 动态打包（Just-In-Time Packaging）',
+                                content: '现代架构倾向于存储单一格式（CMAF），实时转封装为 HLS/DASH：',
+                                advantages: '优势：\n存储成本降低 50%（无需存储 TS 和 fMP4 双份）\n支持多协议即时适配\n统一 DRM 加密处理',
+                                architecture: '存储层 (CMAF fMP4)\n↓\nPackager Edge\n- HLS Packager (.m3u8) | DASH Packager (.mpd)\n↓\n客户端'
+                            }
+                        }
+                    },
+                    section6: {
+                        title: '六、M3U8 协议核心标签',
+                        subsections: {
+                            s61: {
+                                title: '6.1 主播放列表（Master Playlist）',
+                                code: '#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-INDEPENDENT-SEGMENTS\n\n#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=640x360,CODECS="avc1.64001E,mp4a.40.2"\n360p.m3u8\n\n#EXT-X-STREAM-INF:BANDWIDTH=1400000,RESOLUTION=1280x720,CODECS="avc1.64001F,mp4a.40.2"\n720p.m3u8\n\n#EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2"\n1080p.m3u8'
+                            },
+                            s62: {
+                                title: '6.2 媒体播放列表（Media Playlist）',
+                                code: '#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-TARGETDURATION:10\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD      # VOD=点播，省略=直播\n#EXT-X-INDEPENDENT-SEGMENTS\n#EXT-X-ENDLIST                # 点播结束标记（直播无此标签）\n\n#EXTINF:9.976,                # 片段时长（秒）\nsegment_000.ts\n#EXTINF:10.012,\nsegment_001.ts'
+                            },
+                            s63: {
+                                title: '6.3 LL-HLS 专用标签',
+                                code: '#EXT-X-SERVER-CONTROL:CAN-BLOCK-RELOAD=YES,PART-HOLD-BACK=3.0\n#EXT-X-PART-INF:PART-TARGET=0.5\n#EXT-X-PART:DURATION=0.5,URI="segment0045_part3.m4s"\n#EXT-X-PRELOAD-HINT:TYPE=PART,URI="segment0045_part4.m4s"'
+                            }
+                        }
+                    }
+                }
+            }
         },
         
         // Privacy Policy
