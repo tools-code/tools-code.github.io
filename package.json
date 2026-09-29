@@ -22,9 +22,10 @@
   },
   "homepage": "https://github.com/tools-code/tools-code.github.io#readme",
   "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^3.4.19"
   }
 }
