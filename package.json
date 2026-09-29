@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tailwindcss -i ./src/core.css -o ./dist/output.css --watch",
-    "dev": "python3 -m http.server 8000"
+    "build": "npx tailwindcss -i ./src/core.css -o ./dist/output.css",
+    "dev": "npx tailwindcss -i ./src/core.css -o ./dist/output.css --watch & python3 -m http.server 8000",
+    "build:min": "npx tailwindcss -i ./src/core.css -o ./dist/output.css --minify"
   },
   "repository": {
     "type": "git",
