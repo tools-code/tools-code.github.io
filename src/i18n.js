@@ -1407,19 +1407,8 @@ const translations = {
 // Current language
 let currentLang = 'en';
 
-// Detect user's language based on country
+// Default language is always English; timezone detection removed
 function detectUserLanguage() {
-    // Try to get user's country from Intl API
-    try {
-        const userCountry = Intl.DateTimeFormat().resolvedOptions().timeZone.split('/')[0];
-        // If user is in China, default to Chinese
-        if (userCountry === 'Asia' || userCountry === 'CN' || userCountry === 'China') {
-            return 'zh';
-        }
-    } catch (error) {
-        console.error('Error detecting user language:', error);
-    }
-    // Default to English
     return 'en';
 }
 
@@ -1433,6 +1422,10 @@ function setLanguage(lang) {
         updatePageContent();
         // Update HTML lang attribute
         document.documentElement.lang = lang;
+        // Sync all language select dropdowns
+        document.querySelectorAll('.lang-switcher-select').forEach(function(el) {
+            el.value = lang;
+        });
     }
 }
 
@@ -1503,23 +1496,60 @@ function updatePageContent() {
     document.querySelectorAll('[data-i18n="articles.heroSubtitle"]').forEach(el => el.textContent = t('articles.heroSubtitle'));
 }
 
+// Build a language <select> dropdown and insert it to replace the button-based switcher
+function buildLanguageDropdown(containerEl) {
+    const select = document.createElement('select');
+    select.id = 'lang-select-' + Math.random().toString(36).slice(2, 7);
+    select.className = 'text-sm text-gray-600 bg-white border border-gray-300 rounded px-2 py-1 cursor-pointer hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500';
+    select.setAttribute('aria-label', 'Select language');
+
+    const languages = [
+        { code: 'en', label: 'English' },
+        { code: 'zh', label: '中文' }
+    ];
+
+    languages.forEach(function(lang) {
+        const option = document.createElement('option');
+        option.value = lang.code;
+        option.textContent = lang.label;
+        if (lang.code === currentLang) option.selected = true;
+        select.appendChild(option);
+    });
+
+    select.addEventListener('change', function() {
+        setLanguage(this.value);
+        // Sync all other dropdowns on the page
+        document.querySelectorAll('.lang-switcher-select').forEach(function(el) {
+            el.value = currentLang;
+        });
+    });
+
+    select.classList.add('lang-switcher-select');
+    containerEl.innerHTML = '';
+    containerEl.appendChild(select);
+}
+
 // Initialize internationalization
 function initI18n() {
-    // Get saved language from localStorage or detect from user's country
+    // Get saved language from localStorage or default to English
     const savedLang = localStorage.getItem('language');
-    const detectedLang = detectUserLanguage();
-    const initialLang = savedLang || detectedLang;
-    
+    const initialLang = savedLang || detectUserLanguage();
+
     // Set initial language
     setLanguage(initialLang);
-    
-    // Add event listeners for language toggle
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('[data-lang="en"]')) {
-            setLanguage('en');
-        } else if (e.target.closest('[data-lang="zh"]')) {
-            setLanguage('zh');
+
+    // Replace button-based language switchers with <select> dropdowns
+    // Each switcher is a <div> containing two [data-lang] buttons
+    // We look for any parent container that has at least one [data-lang] button
+    const buttonContainers = new Set();
+    document.querySelectorAll('[data-lang]').forEach(function(btn) {
+        if (btn.parentElement) {
+            buttonContainers.add(btn.parentElement);
         }
+    });
+
+    buttonContainers.forEach(function(container) {
+        buildLanguageDropdown(container);
     });
 }
 
