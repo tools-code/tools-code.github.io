@@ -89,13 +89,12 @@ const translations = {
         contact: {
             title: 'Contact Us',
             description: 'Get in touch with us for any questions or feedback',
-            sendMessage: 'Send Us a Message',
-            name: 'Name',
+            contactInfo: 'Contact Information',
             email: 'Email',
-            subject: 'Subject',
-            message: 'Message',
-            sendMessageBtn: 'Send Message',
-            contactInfo: 'Contact Information'
+            emailDesc: 'For questions, feedback, or partnership inquiries',
+            copy: 'Copy',
+            copied: 'Copied!',
+            responseTime: 'We usually reply within 1–3 business days.'
         },
         
         // About
@@ -657,7 +656,7 @@ const translations = {
             changesDesc: 'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website. You are advised to review this Privacy Policy periodically for any changes.',
             contactUs: 'Contact Us',
             contactUsDesc: 'If you have any questions about this Privacy Policy, please contact us at:',
-            email: 'Email: d1282397059@gamil.com'
+            email: 'Email: d1282397059@gmail.com'
         },
         
         // Terms of Service
@@ -699,7 +698,7 @@ const translations = {
             governingLawDesc: 'These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction in which Tools Code operates, without regard to its conflict of law provisions.',
             contactUs: 'Contact Us',
             contactUsDesc: 'If you have any questions about these Terms of Service, please contact us at:',
-            email: 'Email: d1282397059@gamil.com'
+            email: 'Email: d1282397059@gmail.com'
         }
     },
     zh: {
@@ -789,13 +788,12 @@ const translations = {
         contact: {
             title: '联系我们',
             description: '如有任何问题或反馈，请与我们联系',
-            sendMessage: '给我们发消息',
-            name: '姓名',
+            contactInfo: '联系信息',
             email: '邮箱',
-            subject: '主题',
-            message: '消息',
-            sendMessageBtn: '发送消息',
-            contactInfo: '联系信息'
+            emailDesc: '问题咨询、意见反馈或合作洽谈',
+            copy: '复制',
+            copied: '已复制！',
+            responseTime: '我们通常会在 1–3 个工作日内回复。'
         },
         
         // About
@@ -1357,7 +1355,7 @@ const translations = {
             changesDesc: '我们可能会不时更新本隐私政策。我们将通过在我们的网站上发布新的隐私政策来通知您任何更改。建议您定期查看本隐私政策以了解任何更改。',
             contactUs: '联系我们',
             contactUsDesc: '如果您对本隐私政策有任何疑问，请通过以下方式联系我们：',
-            email: '邮箱：d1282397059@gamil.com'
+            email: '邮箱：d1282397059@gmail.com'
         },
         
         // Terms of Service
@@ -1399,7 +1397,7 @@ const translations = {
             governingLawDesc: '这些服务条款应受Tools Code运营所在司法管辖区的法律管辖，并根据该法律进行解释，不考虑其法律冲突规定。',
             contactUs: '联系我们',
             contactUsDesc: '如果您对这些服务条款有任何疑问，请通过以下方式联系我们：',
-            email: '邮箱：d1282397059@gamil.com'
+            email: '邮箱：d1282397059@gmail.com'
         }
     }
 };
