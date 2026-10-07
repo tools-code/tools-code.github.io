@@ -55,10 +55,10 @@ const translations = {
         },
         
         // M3U8 Player
-        m3u8Title: 'M3U8 Player',
-        m3u8Subtitle: 'Stream and play M3U8 video playlists directly in your browser',
-        m3u8SectionTitle: 'Stream M3U8 Playlists',
-        m3u8SectionDesc: 'Enter an M3U8 playlist URL below to start streaming video content in your browser.',
+        m3u8Title: 'M3U8 Player Online – Play M3U8 & HLS Free',
+        m3u8Subtitle: 'Free player for m3u8: paste an .m3u8 URL to play HLS instantly in browser. No download, with JS/HTML5 + m3u8 example.',
+        m3u8SectionTitle: 'M3U8 Players Online – Paste URL to Play M3U8',
+        m3u8SectionDesc: 'Enter an M3U8 / HLS playlist URL below to start streaming. Works on Chrome, Firefox, Safari, mobile. Or click Try Example for an instant m3u8 example test.',
         m3u8UrlLabel: 'M3U8 Playlist URL',
         m3u8UrlPlaceholder: 'https://example.com/playlist.m3u8',
         m3u8LoadBtn: 'Load Playlist',
@@ -754,10 +754,10 @@ const translations = {
         },
         
         // M3U8 Player
-        m3u8Title: 'M3U8播放器',
-        m3u8Subtitle: '直接在浏览器中流式播放M3U8视频播放列表',
-        m3u8SectionTitle: '流式播放M3U8播放列表',
-        m3u8SectionDesc: '在下方输入M3U8播放列表URL，开始在浏览器中流式播放视频内容。',
+        m3u8Title: 'M3U8播放器在线免费 – 播放 M3U8 / HLS',
+        m3u8Subtitle: '免费 m3u8 player 在线：粘贴 .m3u8 链接即刻在浏览器播放 HLS，免下载，支持 JS/HTML5，内置 m3u8 示例。',
+        m3u8SectionTitle: '在线 M3U8 播放器 – 粘贴链接播放 M3U8',
+        m3u8SectionDesc: '在下方输入 M3U8 / HLS 播放地址开始播放，支持 Chrome、Firefox、Safari、手机端。也可以点击 Try Example 一键测试 m3u8 示例。',
         m3u8UrlLabel: 'M3U8播放列表URL',
         m3u8UrlPlaceholder: 'https://example.com/playlist.m3u8',
         m3u8LoadBtn: '加载播放列表',
