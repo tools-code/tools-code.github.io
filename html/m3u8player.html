@@ -296,7 +296,7 @@
                     <div class="relative pl-5 border-l-4 border-indigo-600 p-6 sm:p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">M3U8 Player FAQ</h2>
                         <div class="space-y-3">
-                            <details class="group bg-gray-50 rounded-md overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <details class="group bg-gray-50 rounded-md overflow-hidden [&_summary::-webkit-details-marker]:hidden" data-faq-index="1">
                                 <summary class="flex items-center gap-4 cursor-pointer p-4 font-medium text-gray-900 list-none">
                                     <span class="shrink-0 w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 inline-flex items-center justify-center text-xs font-bold">Q</span>
                                     <span class="flex-1">What is an M3U8 player?</span>
@@ -304,7 +304,7 @@
                                 </summary>
                                 <div class="px-4 pb-4 pl-14 text-sm text-gray-700 leading-relaxed border-t border-gray-100">An M3U8 player (also called an HLS player) parses an <code class="px-1.5 py-0.5 bg-gray-200 rounded text-xs font-mono">.m3u8</code> playlist and plays the underlying TS or fMP4 video segments in your browser. It is the standard way to preview live streams or test HLS sources.</div>
                             </details>
-                            <details class="group bg-gray-50 rounded-md overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <details class="group bg-gray-50 rounded-md overflow-hidden [&_summary::-webkit-details-marker]:hidden" data-faq-index="2">
                                 <summary class="flex items-center gap-4 cursor-pointer p-4 font-medium text-gray-900 list-none">
                                     <span class="shrink-0 w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 inline-flex items-center justify-center text-xs font-bold">Q</span>
                                     <span class="flex-1">How do I play M3U8 in Chrome?</span>
@@ -312,7 +312,7 @@
                                 </summary>
                                 <div class="px-4 pb-4 pl-14 text-sm text-gray-700 leading-relaxed border-t border-gray-100">Chrome cannot play M3U8 natively. This page uses hls.js to parse the playlist and feed the segments into Media Source Extensions, so playback works the same way as in Safari – just paste your URL and click Play.</div>
                             </details>
-                            <details class="group bg-gray-50 rounded-md overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <details class="group bg-gray-50 rounded-md overflow-hidden [&_summary::-webkit-details-marker]:hidden" data-faq-index="3">
                                 <summary class="flex items-center gap-4 cursor-pointer p-4 font-medium text-gray-900 list-none">
                                     <span class="shrink-0 w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 inline-flex items-center justify-center text-xs font-bold">Q</span>
                                     <span class="flex-1">Why will my M3U8 URL not play?</span>
@@ -320,7 +320,7 @@
                                 </summary>
                                 <div class="px-4 pb-4 pl-14 text-sm text-gray-700 leading-relaxed border-t border-gray-100">The three most common reasons are: <strong>CORS</strong> (the server must return the right <code class="px-1.5 py-0.5 bg-gray-200 rounded text-xs font-mono">Access-Control-Allow-Origin</code> header), <strong>mixed content</strong> (an <code class="px-1.5 py-0.5 bg-gray-200 rounded text-xs font-mono">http://</code> URL will be blocked on an <code class="px-1.5 py-0.5 bg-gray-200 rounded text-xs font-mono">https://</code> page), and <strong>expired tokens</strong> in the playlist URL. Click Try Example first – if the sample plays but yours does not, the issue is with your URL.</div>
                             </details>
-                            <details class="group bg-gray-50 rounded-md overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <details class="group bg-gray-50 rounded-md overflow-hidden [&_summary::-webkit-details-marker]:hidden" data-faq-index="4">
                                 <summary class="flex items-center gap-4 cursor-pointer p-4 font-medium text-gray-900 list-none">
                                     <span class="shrink-0 w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 inline-flex items-center justify-center text-xs font-bold">Q</span>
                                     <span class="flex-1">GitHub M3U8 player project vs this online tool?</span>
@@ -393,6 +393,30 @@ if (Hls.isSupported()) {
             </div>
         </div>
     </footer>
+    <!-- Cookie Consent Popup -->
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 shadow-lg z-50 hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm md:text-base">
+                        This website uses cookies to enhance your experience, analyze traffic, and serve personalized advertisements. By continuing to use this site, you agree to our use of cookies.
+                    </p>
+                </div>
+                <div class="flex space-x-4">
+                    <button id="decline-cookies" class="bg-gray-700 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-600 transition duration-200">
+                        Decline
+                    </button>
+                    <button id="accept-cookies" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-200">
+                        Accept
+                    </button>
+                </div>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">
+                <a href="privacy-policy.html" class="hover:text-white underline">Learn more about our cookie policy</a>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -411,7 +435,89 @@ if (Hls.isSupported()) {
                 window.i18n.initI18n();
             }
         });
-        
+
+        // Cookie Consent
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookie-consent');
+            const acceptCookies = document.getElementById('accept-cookies');
+            const declineCookies = document.getElementById('decline-cookies');
+
+            // Check if user has already consented
+            if (!localStorage.getItem('cookieConsent')) {
+                cookieConsent.classList.remove('hidden');
+            }
+
+            // Accept cookies
+            if (acceptCookies) {
+                acceptCookies.addEventListener('click', function() {
+                    localStorage.setItem('cookieConsent', 'accepted');
+                    cookieConsent.classList.add('hidden');
+                    // Initialize Google Analytics and AdSense
+                    initializeAnalytics();
+                });
+            }
+
+            // Decline cookies
+            if (declineCookies) {
+                declineCookies.addEventListener('click', function() {
+                    localStorage.setItem('cookieConsent', 'declined');
+                    cookieConsent.classList.add('hidden');
+                });
+            }
+
+            // Initialize analytics if already consented
+            if (localStorage.getItem('cookieConsent') === 'accepted') {
+                initializeAnalytics();
+            }
+        });
+
+        function initializeAnalytics() {
+            // Load Google Analytics only after consent
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted'
+                });
+            } else {
+                // Dynamically load GA script
+                const gaScript = document.createElement('script');
+                gaScript.async = true;
+                gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-LRBBSXLL2J';
+                document.head.appendChild(gaScript);
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-LRBBSXLL2J');
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted'
+                });
+            }
+        }
+
+        // M3U8 analytics tracker (no-op until gtag is loaded post-consent)
+        function m3u8Track(event, params) {
+            if (typeof gtag === 'function') {
+                gtag('event', event, params || {});
+            }
+        }
+
+        // Extract a privacy-respecting URL descriptor (host only, never the full URL).
+        function describeM3U8Url(url) {
+            try {
+                const u = new URL(url);
+                return {
+                    url_host: u.host,
+                    url_scheme: u.protocol.replace(':', ''),
+                    url_is_https: u.protocol === 'https:',
+                    url_is_example: u.host === 'test-streams.mux.dev'
+                };
+            } catch (e) {
+                return { url_host: '(invalid)', url_scheme: '', url_is_https: false, url_is_example: false, url_invalid: true };
+            }
+        }
+
         // M3U8 Player functionality (HTML5 + hls.js)
         const m3u8UrlInput = document.getElementById('m3u8-url');
         const playBtn = document.getElementById('play-btn');
@@ -421,8 +527,11 @@ if (Hls.isSupported()) {
         let hls = null;
 
         // Load M3U8 playlist
-        function loadM3U8(url) {
+        function loadM3U8(url, source) {
+            source = source || 'button';
             url = (url || m3u8UrlInput.value || '').trim();
+
+            m3u8Track('m3u8_play_click', { source: source, input_empty: !url });
 
             if (!url) {
                 alert(window.i18n ? window.i18n.t('m3u8StatusNoUrl') : 'Please enter a valid M3U8 URL');
@@ -430,17 +539,72 @@ if (Hls.isSupported()) {
             }
             m3u8UrlInput.value = url;
 
+            const urlDesc = describeM3U8Url(url);
+            m3u8Track('m3u8_url_intent', urlDesc);
+
+            // Reset shared video listeners so back-to-back loads don't double-fire.
+            videoPlayer.onplay = null;
+            videoPlayer.onpause = null;
+            videoPlayer.onended = null;
+            videoPlayer.onwaiting = null;
+            videoPlayer.oncanplay = null;
+            videoPlayer.onerror = null;
+
+            videoPlayer.onplay = function() {
+                m3u8Track('m3u8_play_started', { engine: loadM3U8._engine || 'unknown' });
+            };
+            videoPlayer.onpause = function() {
+                m3u8Track('m3u8_pause', {
+                    current_time: Math.round(videoPlayer.currentTime || 0),
+                    duration: Math.round(videoPlayer.duration || 0)
+                });
+            };
+            videoPlayer.onended = function() {
+                const d = videoPlayer.duration || 0;
+                m3u8Track('m3u8_complete', {
+                    duration: Math.round(d),
+                    percent_watched: d > 0 ? 100 : 0
+                });
+            };
+            videoPlayer.onwaiting = function() {
+                m3u8Track('m3u8_buffering', { state: 'waiting' });
+            };
+            videoPlayer.oncanplay = function() {
+                m3u8Track('m3u8_buffering', { state: 'canplay' });
+            };
+            videoPlayer.onerror = function() {
+                const err = videoPlayer.error || {};
+                m3u8Track('m3u8_error', {
+                    engine: loadM3U8._engine || 'unknown',
+                    error_code: err.code,
+                    error_type: err.code === 1 ? 'aborted' :
+                                err.code === 2 ? 'network' :
+                                err.code === 3 ? 'decode' :
+                                err.code === 4 ? 'src_not_supported' : 'unknown',
+                    url_host: urlDesc.url_host
+                });
+            };
+
             try {
                 if (hls) { hls.destroy(); hls = null; }
 
                 if (window.Hls && Hls.isSupported()) {
+                    loadM3U8._engine = 'hlsjs';
                     hls = new Hls();
                     hls.loadSource(url);
                     hls.attachMedia(videoPlayer);
                     hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        m3u8Track('m3u8_loaded', Object.assign({ engine: 'hlsjs' }, urlDesc));
                         videoPlayer.play().catch(function(){});
                     });
                     hls.on(Hls.Events.ERROR, function(event, data) {
+                        m3u8Track('hls_fatal_error', {
+                            engine: 'hlsjs',
+                            error_type: data && data.type,
+                            error_details: data && data.details,
+                            url_host: urlDesc.url_host,
+                            fatal: !!(data && data.fatal)
+                        });
                         if (data && data.fatal) {
                             alert((window.i18n ? window.i18n.t('m3u8StatusError') : 'Error loading playlist')
                                 + (data.type ? '\n\n' + data.type : ''));
@@ -448,19 +612,25 @@ if (Hls.isSupported()) {
                     });
                 } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
                     // Safari native HLS
+                    loadM3U8._engine = 'native';
                     videoPlayer.src = url;
                     videoPlayer.addEventListener('loadedmetadata', function onMeta() {
                         videoPlayer.removeEventListener('loadedmetadata', onMeta);
+                        m3u8Track('m3u8_loaded', Object.assign({ engine: 'native' }, urlDesc));
                         videoPlayer.play().catch(function(){});
                     });
                     videoPlayer.addEventListener('error', function onErr() {
+                        m3u8Track('m3u8_error', Object.assign({ engine: 'native' }, urlDesc));
                         alert(window.i18n ? window.i18n.t('m3u8StatusError') : 'Error loading playlist');
                     }, { once: true });
                 } else {
+                    loadM3U8._engine = 'fallback';
                     videoPlayer.src = url;
+                    m3u8Track('m3u8_loaded', Object.assign({ engine: 'fallback' }, urlDesc));
                     videoPlayer.play().catch(function(){});
                 }
             } catch (error) {
+                m3u8Track('m3u8_error', { engine: loadM3U8._engine || 'unknown', error_type: 'exception', error_message: error.message });
                 alert('Error: ' + error.message);
             }
         }
@@ -472,27 +642,42 @@ if (Hls.isSupported()) {
             playBtn.addEventListener('click', function() {
                 const url = (m3u8UrlInput.value || '').trim();
                 if (url) {
-                    loadM3U8(url);
+                    loadM3U8(url, 'button');
                 } else {
                     m3u8UrlInput.focus();
                 }
             });
         }
-        if (exampleBtn) exampleBtn.addEventListener('click', function(){ loadM3U8(EXAMPLE_URL); });
+        if (exampleBtn) exampleBtn.addEventListener('click', function(){
+            m3u8Track('m3u8_example_click', {});
+            loadM3U8(EXAMPLE_URL, 'example');
+        });
 
         // Pressing Enter inside the URL field triggers Play
         m3u8UrlInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                loadM3U8();
+                loadM3U8(null, 'enter');
             }
         });
 
         // ?url= support for shareable links: m3u8player.html?url=...
         (function(){
             const u = new URLSearchParams(location.search).get('url');
-            if (u) loadM3U8(u);
+            if (u) {
+                m3u8Track('m3u8_share_link_load', describeM3U8Url(u));
+                loadM3U8(u, 'urlparam');
+            }
         })();
+
+        // FAQ expansion tracking
+        document.querySelectorAll('details[data-faq-index]').forEach(function(d) {
+            d.addEventListener('toggle', function() {
+                if (d.open) {
+                    m3u8Track('faq_open', { faq_index: d.getAttribute('data-faq-index') });
+                }
+            });
+        });
     </script>
 </body>
 </html>
